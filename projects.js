@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             image: 'assets/train.png',
             description: `<p>A group project to build a conversational AI for a train company. The chatbot helps users find the cheapest tickets by scraping the National Rail website and predicts train delays using a machine learning model.</p><p>The final Random Forest model achieved a Mean Absolute Error of just <strong>0.34 minutes</strong>, providing highly accurate real-time delay estimates.</p>`,
             technologies: ['Python', 'Scikit-learn', 'Selenium', 'spaCy', 'Tkinter', 'SQLite'],
-            reportPDF: 'Assets/chatbottrain.pdf' // PDF Report link
+            reportPDF: 'assets/chatbottrain.pdf' // PDF Report link
         },
         'emotion-pred': {
             title: 'Emotion Prediction from Text',

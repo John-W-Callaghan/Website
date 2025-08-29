@@ -3,19 +3,19 @@
 
 /* --- Root Variables from Main Portfolio --- */
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary-color: #764ba2;
-    --text-primary: #1a1a1a;
-    --text-secondary: #4b5563;
-    --text-light: #6b7280;
-    --bg-white: #ffffff;
-    --bg-light: #f8fafc;
-    --bg-lighter: #f1f5f9;
-    --border-light: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --primary-color: #22c55e; /* cyber green */
+    --primary-dark: #16a34a;
+    --secondary-color: #99f6e4; /* mint accent */
+    --text-primary: #e5e7eb;
+    --text-secondary: #cbd5e1;
+    --text-light: #94a3b8;
+    --bg-white: #0f1115; /* darkest */
+    --bg-light: #11161b; /* dark surface */
+    --bg-lighter: #141a20; /* slightly lighter */
+    --border-light: #1f2937;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.35);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.45);
     --border-radius-md: 12px;
     --border-radius-lg: 16px;
     --transition-normal: 0.3s ease;
@@ -24,7 +24,7 @@
 /* --- General Body and Font Styling --- */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-light);
+    background-color: #0b0d11;
     color: var(--text-primary);
     margin: 0;
     line-height: 1.6;
@@ -32,18 +32,22 @@ body {
 
 /* --- Main Site Navbar (Corrected) --- */
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(10, 12, 14, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 2rem;
     box-shadow: var(--shadow-md);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 999;
     width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .logo {
@@ -59,7 +63,7 @@ body {
     padding: 0;
     display: flex; /* This makes the list items arrange in a row */
     align-items: center; /* This vertically aligns all items in the middle */
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 /* This rule is to ensure list items behave correctly as flex items */
@@ -80,11 +84,12 @@ body {
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary-color);
-    background-color: rgba(99, 102, 241, 0.1);
+    background-color: rgba(34, 197, 94, 0.1);
 }
 
 .hamburger {
     display: none;
+    margin-left: auto;
     font-size: 1.5rem;
     background: none;
     border: none;
@@ -94,10 +99,32 @@ body {
 
 /* --- Page Title Banner --- */
 .page-title-banner {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0b0d11 0%, #0f1115 60%, #0b0d11 100%);
     color: var(--bg-white);
     text-align: center;
-    padding: 4rem 5% 3rem;
+    padding: 6.5rem 5% 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(34, 197, 94, 0.02) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(34, 197, 94, 0.02) 50%, transparent 51%);
+    background-size: 60px 60px;
+    animation: gridMove 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
 }
 
 .page-title-banner h1 {
@@ -119,23 +146,39 @@ body {
     text-align: center;
     background: var(--bg-lighter);
     border-bottom: 1px solid var(--border-light);
+    position: relative;
+}
+
+.search-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.3;
 }
 
 #searchBar {
     width: 100%;
     max-width: 600px;
     padding: 1rem 1.5rem;
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--border-light);
     border-radius: var(--border-radius-lg);
     font-size: 1rem;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
+    background: var(--bg-white);
+    color: var(--text-primary);
 }
 
 #searchBar:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    box-shadow: 
+        0 0 0 4px rgba(34, 197, 94, 0.2),
+        0 0 20px rgba(34, 197, 94, 0.1);
 }
 
 /* --- Main Project Section Container --- */
@@ -153,11 +196,19 @@ body {
 }
 
 .accordion-item {
-    background-color: var(--bg-white);
+    background-color: var(--bg-light);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-light);
+    border: 1px solid #1e293b;
     overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.accordion-item:hover {
+    border-color: rgba(34, 197, 94, 0.2);
+    box-shadow: 
+        var(--shadow-md),
+        0 0 20px rgba(34, 197, 94, 0.1);
 }
 
 .accordion-header {
@@ -174,11 +225,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color var(--transition-normal);
+    transition: all var(--transition-normal);
+    position: relative;
 }
 
 .accordion-header:hover {
     background-color: var(--bg-lighter);
+    border-left: 3px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(34, 197, 94, 0.05);
 }
 
 .accordion-icon {
@@ -189,6 +243,8 @@ body {
 
 .accordion-header.active .accordion-icon {
     transform: rotate(180deg);
+    color: var(--primary-light);
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
 }
 
 .accordion-content {
@@ -196,7 +252,24 @@ body {
     overflow: hidden;
     transition: max-height 0.5s ease-out;
     background-color: var(--bg-lighter);
-    border-top: 1px solid var(--border-light);
+    border-top: 1px solid #243244;
+    position: relative;
+}
+
+.accordion-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.accordion-header.active + .accordion-content::before {
+    opacity: 1;
 }
 
 /* --- Project Card Grid (inside accordion) --- */
@@ -208,26 +281,54 @@ body {
 }
 
 .project-card {
-    background-color: var(--bg-white);
+    background-color: var(--bg-light);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     transition: all var(--transition-normal);
-    border: 1px solid var(--border-light);
+    border: 1px solid #1e293b;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 
+        var(--shadow-md),
+        0 0 20px rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
 }
 
 .project-card img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
     border-top-left-radius: var(--border-radius-lg);
     border-top-right-radius: var(--border-radius-lg);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    transition: all var(--transition-normal);
+}
+
+.project-card:hover img {
+    border-color: rgba(34, 197, 94, 0.4);
+    filter: brightness(1.05) contrast(1.05);
 }
 
 .project-card h3 {
@@ -256,20 +357,23 @@ body {
     border-radius: var(--border-radius-md);
     font-weight: 500;
     text-align: center;
+    transition: all var(--transition-normal);
 }
 
 .project-card .btn:hover {
     background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
 }
 
 /* --- Main Site Footer --- */
 .site-footer {
     padding: 4rem 10% 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0b0d11 0%, #0f1115 60%, #0b0d11 100%);
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
