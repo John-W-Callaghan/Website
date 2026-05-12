@@ -19,6 +19,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#academic-work">Academic Work</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -28,15 +29,29 @@
   <section id="home" class="hero-section">
     <div class="hero-text">
       <h1>Hi, I'm John</h1>
-      <p class="subtitle">Specialising in Cyber Security • Software Engineering • AI</p>
-      <p class="description">Passionate 4th-year student pursuing a Master's in Cyber Security, building secure solutions and defending against cyber threats with cutting-edge technology and ethical hacking expertise.</p>
+      <p class="subtitle">Computing Sciences graduate. AI, security, and software.</p>
+      <p class="description">I hold a BSc in Computing Sciences from the University of East Anglia, completed a research internship building tooling for medical imaging workflows, and have shipped a wide mix of projects across AI, data, and full-stack development. I am now in my fourth year, adding an MSc in Cyber Security as my current focus specialist depth on top of that broader base.</p>
       <div class="hero-buttons">
         <a href="#contact" class="btn">Get In Touch 🚀</a>
         <a href="#projects" class="btn secondary">View My Work</a>
       </div>
+      <p class="hero-status-wrap">
+        <span class="hero-status-pill" role="status">🎓 Currently: MSc Cyber Security @ UEA — open to summer internships &amp; placements</span>
+      </p>
     </div>
     <div class="hero-image">
       <img src="assets/profile.png" alt="John's profile" />
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="overview-section">
+    <h2 class="section-title">Overview</h2>
+    <p class="section-subtitle">A brief on what's inside</p>
+    <div class="overview-content">
+      <p>
+        This portfolio highlights my focus on Cybersecurity alongside my work in AI and software engineering. Explore curated projects, academic research, and practical builds that reflect secure-by-design thinking. Below, the Academic Work section gathers reports and dissertations, with space for formal credentials and online certifications as they are completed.
+      </p>
     </div>
   </section>
 
@@ -56,7 +71,7 @@
         </p>
         
         <p>
-          Through hands-on learning and real-world projects, I aim to contribute to impactful, secure and intelligent solutions that protect systems and data from cyber threats while harnessing the potential of AI for security applications.
+          I build things that work — from deep learning OCR systems to secure full-stack apps. Currently deepening my specialism in cyber security while staying active across AI and software engineering.
         </p>
 
         <div class="about-stats">
@@ -70,7 +85,64 @@
           <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942" style='border:none; width:100%; max-width:400px; height:120px;'></iframe>
         </div>
 
-        <a href="#contact" class="btn">Leave a message 💬</a>
+        <a href="projects.html" class="btn secondary">Browse all projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Work Section -->
+  <section id="academic-work" class="certifications-section">
+    <h2 class="section-title">Academic Work</h2>
+    <p class="section-subtitle">Reports, dissertations, and research</p>
+    <p class="section-academic-note">Formal credentials and online certifications will be added here as completed.</p>
+
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-header">
+          <span class="icon">🛡️</span>
+          <div>
+            <h3>Cybersecurity Policies — Academic Report</h3>
+            <p class="issuer"><span class="cert-badge">Report</span></p>
+          </div>
+        </div>
+        <p class="cert-desc">Research-driven report on the role, design, and implementation of security policies in modern organizations.</p>
+        <a class="btn outline" href="assets/cyber.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-header">
+          <span class="icon">🤖</span>
+          <div>
+            <h3>AI Chatbot — Project Report</h3>
+            <p class="issuer"><span class="cert-badge">Report</span></p>
+          </div>
+        </div>
+        <p class="cert-desc">Report detailing a conversational AI for train services, including ML pipeline and evaluation.</p>
+        <a class="btn outline" href="assets/chatbottrain.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-header">
+          <span class="icon">🧠</span>
+          <div>
+            <h3>Classifiers & Model Evaluation</h3>
+            <p class="issuer"><span class="cert-badge">Report</span></p>
+          </div>
+        </div>
+        <p class="cert-desc">Comparative evaluation of RF, K-NN and SVM on MNIST with cross-validation and tuning.</p>
+        <a class="btn outline" href="assets/classifiers.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-header">
+          <span class="icon">🔎</span>
+          <div>
+            <h3>Deep Learning for OCR</h3>
+            <p class="issuer"><span class="cert-badge">Report</span></p>
+          </div>
+        </div>
+        <p class="cert-desc">OCR for Odia script using CNN and transfer learning; includes tooling and methodology.</p>
+        <a class="btn outline" href="assets/ocrodia.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
       </div>
     </div>
   </section>
@@ -219,75 +291,52 @@
 
   <section id="projects" class="projects-section">
     <h2 class="section-title">Featured Projects</h2>
-    <p class="section-subtitle">A selection of my best work in Cyber Security and Development</p>
+    <p class="section-subtitle">A static snapshot of builds across ML, NLP, search, and secure web development — see the projects page for the full catalogue.</p>
 
-    <div class="carousel">
-        <button class="nav prev" onclick="prevSlide()">❮</button>
-
-        <div class="carousel-track" id="carouselTrack">
-
-            <div class="project-slide reveal">
-                <img src="assets/OCRODIA.png" alt="Odia Character Recognition Project" />
-                <div class="project-details">
-                    <h3>Deep Learning for OCR</h3>
-                    <p>
-                        A dissertation project to build a high-accuracy OCR system for the low-resource Odia script. Achieved 84% test accuracy by combining a Convolutional Neural Network (CNN) with transfer learning and a custom-built GUI for data augmentation.
-                    </p>
-                    <div class="meta">
-                        <a href="https://github.com/John-W-Callaghan/OCRODIA" target="_blank">View on GitHub</a>
-                    </div>
-                    <a href="Projects/project15.html" class="btn">View Details →</a>
-                </div>
-            </div>
-
-            <div class="project-slide reveal">
-                <img src="assets/securewebbased.png" alt="Secure Blog Project" />
-                <div class="project-details">
-                    <h3>Secure Web-Based Blog</h3>
-                    <p>
-                        Developed a secure blog system using Node.js and PostgreSQL. Implemented robust security measures to mitigate the top 5 common vulnerabilities, including SQL Injection, XSS, and session hijacking.
-                    </p>
-                    <div class="meta">
-                        <a href="https://github.com/John-W-Callaghan/Secure-Blog" target="_blank">View on GitHub</a>
-                    </div>
-                    <a href="Projects/project-secure-blog.html" class="btn">View Details →</a>
-                </div>
-            </div>
-
-            <div class="project-slide reveal">
-                <img src="assets/train.png" alt="Intelligent Chatbot Project" />
-                <div class="project-details">
-                    <h3>Intelligent Chatbot for Train Services</h3>
-                    <p>
-                        A conversational AI that finds the cheapest train tickets via web scraping and predicts train delays using a Random Forest model. The delay predictor achieved a Mean Absolute Error of just 0.34 minutes.
-                    </p>
-                    <div class="meta">
-                        <a href="https://github.com/John-W-Callaghan/Train-Chatbot" target="_blank">View on GitHub</a>
-                    </div>
-                    <a href="Projects/project-chatbot.html" class="btn">View Details →</a>
-                </div>
-            </div>
-
-            <div class="project-slide reveal">
-              <img src="assets/gamesearch engine.png" alt="Video Game Search Engine" />
-              <div class="project-details">
-                <h3>Video Game Search Engine</h3>
-                <p>
-                  A custom search engine built for video game HTML datasets using TF-IDF and cosine similarity. The project includes query expansion with WordNet, tokenization, lemmatization, and a search interface that returns the most relevant results.
-                </p>
-                <div class="meta">
-                  <a href="https://github.com/John-W-Callaghan/Videogame-Search-engine" target="_blank">View on GitHub</a>
-                </div>
-                <a href="Projects/project1.html" class="btn">View Details →</a>
-              </div>
-            </div>
-            
+    <div class="projects-featured-grid">
+      <article class="project-feature-card reveal">
+        <img src="assets/OCRODIA.png" alt="Odia character recognition system" />
+        <div class="project-feature-card__body">
+          <h4>Deep learning for OCR</h4>
+          <p>CNN-based recogniser for low-resource Odia script with transfer learning, custom augmentation tooling, and 84% test accuracy.</p>
+          <a href="projects.html" class="btn">View details →</a>
         </div>
-
-        <button class="nav next" onclick="nextSlide()">❯</button>
+      </article>
+      <article class="project-feature-card reveal">
+        <img src="assets/train.png" alt="Train chatbot project" />
+        <div class="project-feature-card__body">
+          <h4>Intelligent chatbot for train services</h4>
+          <p>Conversational flow with ticket discovery via scraping and delay prediction using Random Forest (MAE 0.34 minutes).</p>
+          <a href="projects.html" class="btn">View details →</a>
+        </div>
+      </article>
+      <article class="project-feature-card reveal">
+        <img src="assets/gamesearch engine.png" alt="Video game search engine" />
+        <div class="project-feature-card__body">
+          <h4>Video game search engine</h4>
+          <p>TF-IDF and cosine similarity over HTML game data with WordNet query expansion, tokenisation, and lemmatisation.</p>
+          <a href="projects.html" class="btn">View details →</a>
+        </div>
+      </article>
+      <article class="project-feature-card reveal">
+        <img src="assets/securewebbased.png" alt="Secure blog application" />
+        <div class="project-feature-card__body">
+          <h4>Secure web-based blog</h4>
+          <p>Node.js and PostgreSQL blog with defences for SQL injection, XSS, CSRF-style risks, session abuse, and related OWASP-style issues.</p>
+          <a href="projects.html" class="btn">View details →</a>
+        </div>
+      </article>
+      <article class="project-feature-card reveal">
+        <img src="assets/emotionpred.png" alt="Emotion prediction from text application" />
+        <div class="project-feature-card__body">
+          <h4>Emotion prediction from text</h4>
+          <p>NLP logistic regression classifier with vectorised text features. Tkinter GUI for real-time emotion detection as you type or paste input.</p>
+          <a href="projects.html" class="btn">View details →</a>
+        </div>
+      </article>
     </div>
 
-    <a href="projects.html" class="btn outline all-projects reveal">See All Projects</a>
+    <a href="projects.html" class="btn outline all-projects reveal">See all projects</a>
 </section>
 
   <!-- Contact Section -->
@@ -319,7 +368,7 @@
         <div>
           <h3>LinkedIn</h3>
           <p>Connect with me professionally</p>
-          <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" class="contact-link">View profile</a>
+          <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" class="contact-link">View profile</a>
         </div>
       </div>
     </div>
@@ -334,21 +383,22 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
+        <a href="#academic-work">Academic Work</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="social-icons">
-        <a href="https://github.com/John-W-Callaghan" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/John-W-Callaghan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <img src="assets/github.png" alt="GitHub" />
         </a>
-        <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <img src="assets/Linkedin.png" alt="LinkedIn" />
         </a>
       </div>
     </div>
 
-    <p class="footer-copy">© John Callaghan 2025</p>
+    <p class="footer-copy">© John Callaghan 2026</p>
 
     <a href="#home" class="scroll-top" aria-label="Scroll to top">↑</a>
   </footer>
@@ -397,28 +447,6 @@
       professionalTimeline.classList.add('show');
       academicTimeline.classList.remove('show');
     });
-
-    // Carousel Functionality
-    let currentSlide = 0;
-    const track = document.getElementById("carouselTrack");
-    const totalSlides = track.children.length;
-
-    function updateCarousel() {
-      const slideWidth = track.children[0].offsetWidth;
-      track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateCarousel();
-    }
-
-    window.addEventListener("resize", updateCarousel);
 
     // Navbar scroll style
     const navbar = document.querySelector('.navbar');
