@@ -3,350 +3,392 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Callaghan - Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Primary meta -->
+  <title>John Callaghan — Cyber Security &amp; AI</title>
+  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA. 20+ projects across AI, security, and software engineering. Open to summer internships and placements." />
+  <meta name="author" content="John Callaghan" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="John Callaghan — Cyber Security &amp; AI" />
+  <meta property="og:description" content="MSc Cyber Security @ UEA. Deep learning, secure web apps, network security, CVE tooling. Open to placements." />
+  <meta property="og:image"       content="assets/profile.png" />
+
+  <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Portfolio</div>
-    <button class="hamburger" id="hamburger">☰</button>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="logo">jc</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#academic-work">Academic Work</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
   <section id="home" class="hero-section">
+
     <div class="hero-text">
-      <h1>Hi, I'm John</h1>
-      <p class="subtitle">Computing Sciences graduate. AI, security, and software.</p>
-      <p class="description">I hold a BSc in Computing Sciences from the University of East Anglia, completed a research internship building tooling for medical imaging workflows, and have shipped a wide mix of projects across AI, data, and full-stack development. I am now in my fourth year, adding an MSc in Cyber Security as my current focus specialist depth on top of that broader base.</p>
+      <span class="hero-eyebrow">// security engineer in training</span>
+
+      <h1>John<br>Callaghan</h1>
+
+      <p class="hero-position">
+        MSc Cyber Security @ UEA &mdash; AI, security, software
+      </p>
+
       <div class="hero-buttons">
-        <a href="#contact" class="btn">Get In Touch 🚀</a>
-        <a href="#projects" class="btn secondary">View My Work</a>
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#projects" class="btn btn-ghost">View my work</a>
       </div>
-      <p class="hero-status-wrap">
-        <span class="hero-status-pill" role="status">🎓 Currently: MSc Cyber Security @ UEA — open to summer internships &amp; placements</span>
+
+      <p class="hero-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Open to summer internships &amp; placements
       </p>
     </div>
-    <div class="hero-image">
-      <img src="assets/profile.png" alt="John's profile" />
+
+    <!-- Terminal signature element -->
+    <div class="hero-terminal"
+         role="img"
+         aria-label="Terminal showing: MSc Cyber Security, AI and security focus, open to placements 2026">
+      <div class="terminal-chrome" aria-hidden="true">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="terminal-title">john@uea — bash</span>
+      </div>
+      <div class="terminal-body" aria-hidden="true">
+        <div class="terminal-line">
+          <span class="t-prompt">john@uea:~$</span>
+          <span id="termCmd" class="t-cmd"></span><span class="t-cursor" id="termCursor">▋</span>
+        </div>
+        <div id="termOutput"></div>
+      </div>
     </div>
+
   </section>
 
-  <!-- Overview Section -->
-  <section id="overview" class="overview-section">
-    <h2 class="section-title">Overview</h2>
-    <p class="section-subtitle">A brief on what's inside</p>
-    <div class="overview-content">
-      <p>
-        This portfolio highlights my focus on Cybersecurity alongside my work in AI and software engineering. Explore curated projects, academic research, and practical builds that reflect secure-by-design thinking. Below, the Academic Work section gathers reports and dissertations, with space for formal credentials and online certifications as they are completed.
-      </p>
-    </div>
-  </section>
-
-  <!-- About Section -->
+  <!-- ─── ABOUT ────────────────────────────────────────────── -->
   <section id="about" class="about-section">
-    <h2 class="section-title">About</h2>
+    <span class="section-eyebrow">01 — About</span>
+    <h2 class="section-title" data-reveal="fade">About</h2>
     <p class="section-subtitle">My Introduction</p>
 
     <div class="about-content">
-      <div class="about-image">
-        <img src="assets/img2.png" alt="Profile Photo" />
+      <div class="about-image" data-reveal="left">
+        <img src="assets/img2.png" alt="John Callaghan" loading="lazy" />
       </div>
 
-      <div class="about-text">
+      <div class="about-text" data-reveal="right">
         <p>
-          I'm a recent BSc Computing Sciences graduate from the University of East Anglia and have now entered my fourth year, pursuing a Master's in Cyber Security. I'm passionate about Cyber Security and ethical hacking, and I'm continuously building on my foundation in Python, C++, and secure, defensive technologies.
+          I'm a recent BSc Computing Sciences graduate from the University of East Anglia, now
+          pursuing an MSc in Cyber Security. I'm passionate about ethical hacking and defensive
+          engineering, and I'm continuously building on my foundation in Python, C++, and secure
+          system design.
         </p>
-        
         <p>
-          I build things that work — from deep learning OCR systems to secure full-stack apps. Currently deepening my specialism in cyber security while staying active across AI and software engineering.
+          I build things that work — from deep learning OCR systems to secure full-stack apps and
+          CVE-triage tooling. Currently deepening my specialism in cyber security while staying
+          active across AI and software engineering.
         </p>
 
         <div class="about-stats">
           <div><strong>4th</strong><span>Year Studying</span></div>
-          <div><strong>20+</strong><span>Projects Completed</span></div>
+          <div><strong>20+</strong><span>Projects</span></div>
           <div><strong>8+</strong><span>Years Coding</span></div>
         </div>
 
         <div class="thm-badge-container">
           <h4>Cybersecurity Credentials</h4>
-          <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942" style='border:none; width:100%; max-width:400px; height:120px;'></iframe>
+          <iframe
+            src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942"
+            title="TryHackMe badge"
+            style="border:none; width:100%; max-width:400px; height:120px;"
+            loading="lazy">
+          </iframe>
         </div>
 
-        <a href="projects.html" class="btn secondary">Browse all projects</a>
+        <a href="projects.html" class="btn btn-ghost">Browse all projects</a>
       </div>
     </div>
   </section>
 
-  <!-- Academic Work Section -->
-  <section id="academic-work" class="certifications-section">
-    <h2 class="section-title">Academic Work</h2>
-    <p class="section-subtitle">Reports, dissertations, and research</p>
-    <p class="section-academic-note">Formal credentials and online certifications will be added here as completed.</p>
-
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-header">
-          <span class="icon">🛡️</span>
-          <div>
-            <h3>Cybersecurity Policies — Academic Report</h3>
-            <p class="issuer"><span class="cert-badge">Report</span></p>
-          </div>
-        </div>
-        <p class="cert-desc">Research-driven report on the role, design, and implementation of security policies in modern organizations.</p>
-        <a class="btn outline" href="assets/cyber.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
-      </div>
-
-      <div class="cert-card reveal">
-        <div class="cert-header">
-          <span class="icon">🤖</span>
-          <div>
-            <h3>AI Chatbot — Project Report</h3>
-            <p class="issuer"><span class="cert-badge">Report</span></p>
-          </div>
-        </div>
-        <p class="cert-desc">Report detailing a conversational AI for train services, including ML pipeline and evaluation.</p>
-        <a class="btn outline" href="assets/chatbottrain.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
-      </div>
-
-      <div class="cert-card reveal">
-        <div class="cert-header">
-          <span class="icon">🧠</span>
-          <div>
-            <h3>Classifiers & Model Evaluation</h3>
-            <p class="issuer"><span class="cert-badge">Report</span></p>
-          </div>
-        </div>
-        <p class="cert-desc">Comparative evaluation of RF, K-NN and SVM on MNIST with cross-validation and tuning.</p>
-        <a class="btn outline" href="assets/classifiers.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
-      </div>
-
-      <div class="cert-card reveal">
-        <div class="cert-header">
-          <span class="icon">🔎</span>
-          <div>
-            <h3>Deep Learning for OCR</h3>
-            <p class="issuer"><span class="cert-badge">Report</span></p>
-          </div>
-        </div>
-        <p class="cert-desc">OCR for Odia script using CNN and transfer learning; includes tooling and methodology.</p>
-        <a class="btn outline" href="assets/ocrodia.pdf" target="_blank" rel="noopener noreferrer">View Certificate/Report</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
+  <!-- ─── EXPERIENCE ───────────────────────────────────────── -->
   <section id="experience" class="experience-section">
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">My journey in the academic & professional front</p>
+    <span class="section-eyebrow">02 — Experience</span>
+    <h2 class="section-title" data-reveal="fade">Experience</h2>
+    <p class="section-subtitle">Academic and professional journey</p>
 
-    <div class="experience-toggle">
-      <button id="academicBtn" class="toggle-btn active">🎓 Academic</button>
-      <button id="professionalBtn" class="toggle-btn">💼 Professional</button>
-    </div>
-
-    <!-- Academic Timeline -->
-    <div id="academicTimeline" class="timeline show">
-      <div class="timeline-item">
-        <h3>University of East Anglia</h3>
-        <p>MSc Cyber Security</p>
-        <span>📅 Sep 2025 – Sep 2026 (Expected)</span>
-        <p>Pursuing a Master's degree in Cyber Security, focused on ethical hacking, network security, cryptography, and defensive programming. Specializing in penetration testing, incident response, and secure software development.</p>
-        <p><strong>Planned Areas of Study:</strong> Ethical Hacking, Network Security, Cryptography, Secure Software Development, Digital Forensics, Incident Response</p>
-        <p><strong>Goals:</strong> Research-driven learning in cyber defense, industrial placement in security firms, and building high-impact security tools.</p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3>University of East Anglia</h3>
-        <p>BSc Hons Computing Sciences with a Year in Industry</p>
-        <span>📅 2022 – Jun 2025</span>
-        <p><strong>Activities:</strong> Basketball, Swimming & Water Polo</p>
-        <p><strong>Skills:</strong> Software Development, Project Management, Programming, Web Development, Computer Science, Mathematics</p>
+    <div style="max-width:760px; margin:0 auto;">
+      <div class="experience-toggle">
+        <button id="academicBtn"      class="toggle-btn active">Academic</button>
+        <button id="professionalBtn"  class="toggle-btn">Professional</button>
       </div>
 
-      <div class="timeline-item">
-        <h3>American University of Beirut (AUB)</h3>
-        <p>3-Credit Course Recognition – Data Science</p>
-        <span>📅 Jan 2024 – Feb 2024</span>
-        <p>Completed a Data Science learning path equivalent to a 3-credit graduate-level course at AUB.</p>
-        <p><strong>Skills:</strong> Data Science, Analytics, Statistical Analysis, Mathematics</p>
+      <!-- Academic Timeline -->
+      <div id="academicTimeline" class="timeline show">
+
+        <div class="timeline-item">
+          <h3>University of East Anglia</h3>
+          <p>MSc Cyber Security</p>
+          <span>Sep 2025 – Sep 2026 (Expected)</span>
+          <p>Pursuing a Master's degree in Cyber Security. Focus areas include ethical hacking,
+          network security, cryptography, and defensive programming.</p>
+          <p><strong>Planned study areas:</strong> Ethical Hacking · Network Security · Cryptography ·
+          Secure Software Development · Digital Forensics · Incident Response</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>University of East Anglia</h3>
+          <p>BSc Hons Computing Sciences with a Year in Industry</p>
+          <span>2022 – Jun 2025</span>
+          <p><strong>Activities:</strong> Basketball, Swimming &amp; Water Polo</p>
+          <p><strong>Areas:</strong> Software Development · Project Management · Programming ·
+          Web Development · Computer Science · Mathematics</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>American University of Beirut (AUB)</h3>
+          <p>3-Credit Course Recognition – Data Science</p>
+          <span>Jan 2024 – Feb 2024</span>
+          <p>Completed a Data Science learning path equivalent to a 3-credit graduate-level course
+          at AUB.</p>
+          <p><strong>Areas:</strong> Data Science · Analytics · Statistical Analysis · Mathematics</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Hinchley Wood Sixth Form</h3>
+          <p>A Levels: Business, Computer Science, Physics</p>
+          <span>Sep 2020 – Jun 2022</span>
+        </div>
+
       </div>
 
-      <div class="timeline-item">
-        <h3>Hinchley Wood Sixth Form</h3>
-        <p>A Levels: Business, Computer Science, Physics</p>
-        <span>📅 Sep 2020 – Jun 2022</span>
-      </div>
-    </div>
+      <!-- Professional Timeline -->
+      <div id="professionalTimeline" class="timeline">
 
-    <!-- Professional Timeline -->
-    <div id="professionalTimeline" class="timeline">
-      <div class="timeline-item">
-        <h3>Interactive Segmentation Tool Developer (Intern)</h3>
-        <p>University of East Anglia — School of Computing Sciences</p>
-        <span>📅 Summer 2023</span>
-        <p>Contributed to an EPSRC research project building a semi-automated GUI for labeling medical X-ray image segmentation data using pre-trained deep learning models. Enhanced skills in Python, computer vision, and model adaptation. Developed an interactive interface and validated segmentation outputs for research-grade accuracy.</p>
+        <div class="timeline-item">
+          <h3>Interactive Segmentation Tool Developer (Intern)</h3>
+          <p>University of East Anglia — School of Computing Sciences</p>
+          <span>Summer 2023</span>
+          <p>Contributed to an EPSRC research project building a semi-automated GUI for labelling
+          medical X-ray image segmentation data using pre-trained deep learning models. Enhanced
+          skills in Python, computer vision, and model adaptation. Developed an interactive
+          interface and validated segmentation outputs for research-grade accuracy.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- ─── SKILLS ───────────────────────────────────────────── -->
   <section id="skills" class="skills-section">
-    <h2 class="section-title">Skills</h2>
-    <p class="section-subtitle">Cyber Security, AI and Software Engineering</p>
+    <span class="section-eyebrow">03 — Skills</span>
+    <h2 class="section-title" data-reveal="fade">Skills</h2>
+    <p class="section-subtitle">
+      What I've actually built, and what I'm building towards.
+    </p>
 
-    <div class="skills-grid">
+    <!-- Core tier -->
+    <div class="skills-core" data-reveal="up">
+      <span class="skills-tier-label">// core &mdash; evidenced by shipped projects</span>
 
-        <div class="skill-box" onclick="toggleSkill(this)">
-            <div class="skill-header">
-                <span class="icon">🛡️</span>
-                <div>
-                    <h3>Cyber Security & Ethical Hacking</h3>
-                    <p>My expertise in offensive and defensive security</p>
-                </div>
-                <span class="arrow">▾</span>
-            </div>
-            <ul class="skill-list">
-                <li>Penetration Testing & Vulnerability Assessment</li>
-                <li>Network Security & Firewall Configuration</li>
-                <li>Cryptography & Secure Communications</li>
-                <li>Incident Response & Digital Forensics</li>
-                <li>Secure Software Development (OWASP)</li>
-                <li>Security Tools (Metasploit, Wireshark, Nmap)</li>
-            </ul>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <span class="skill-group-label">// python</span>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>OOP</span>
+            <span>Unit Testing</span>
+            <span>Socket Programming</span>
+            <span>JSON / File I/O</span>
+            <span>Exception Handling</span>
+          </div>
         </div>
 
-        <div class="skill-box" onclick="toggleSkill(this)">
-            <div class="skill-header">
-                <span class="icon">💻</span>
-                <div>
-                    <h3>Programming & Databases</h3>
-                    <p>Languages and data systems I work with</p>
-                </div>
-                <span class="arrow">▾</span>
-            </div>
-            <ul class="skill-list">
-                <li>Python (Advanced)</li>
-                <li>JavaScript (Node.js)</li>
-                <li>SQL (PostgreSQL, SQLite)</li>
-                <li>HTML5 & CSS3</li>
-                <li>C++ (Intermediate)</li>
-                <li>MATLAB</li>
-            </ul>
+        <div class="skill-group">
+          <span class="skill-group-label">// ml &amp; ai</span>
+          <div class="skill-tags">
+            <span>TensorFlow</span>
+            <span>Keras</span>
+            <span>Scikit-learn</span>
+            <span>CNNs</span>
+            <span>Transfer Learning</span>
+            <span>Random Forest</span>
+            <span>SVM</span>
+            <span>K-NN</span>
+            <span>spaCy</span>
+            <span>NLTK</span>
+            <span>TF-IDF</span>
+            <span>Logistic Regression</span>
+          </div>
         </div>
 
-        <div class="skill-box" onclick="toggleSkill(this)">
-            <div class="skill-header">
-                <span class="icon">🌐</span>
-                <div>
-                    <h3>Web Development & Security</h3>
-                    <p>Building and securing web applications (cyber-first)</p>
-                </div>
-                <span class="arrow">▾</span>
-            </div>
-            <ul class="skill-list">
-                <li>Full-Stack Development (Node.js)</li>
-                <li>Cybersecurity Principles</li>
-                <li>Vulnerability Mitigation (SQLi, XSS, CSRF)</li>
-                <li>API & Web Services</li>
-                <li>Templating Engines (Pug)</li>
-                <li>Responsive Design</li>
-            </ul>
+        <div class="skill-group">
+          <span class="skill-group-label">// data science</span>
+          <div class="skill-tags">
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>Seaborn</span>
+            <span>SciPy</span>
+            <span>Tkinter</span>
+            <span>BeautifulSoup</span>
+            <span>Selenium</span>
+          </div>
         </div>
 
-        <div class="skill-box" onclick="toggleSkill(this)">
-            <div class="skill-header">
-                <span class="icon">🛠️</span>
-                <div>
-                    <h3>Tools & Methodologies</h3>
-                    <p>My development and security workflow tools</p>
-                </div>
-                <span class="arrow">▾</span>
-            </div>
-            <ul class="skill-list">
-                <li>Git & Version Control</li>
-                <li>Docker & Containerization</li>
-                <li>Agile Methodology</li>
-                <li>Desktop App GUIs (Tkinter)</li>
-                <li>Technical Writing & Reporting</li>
-                <li>Cloud Platforms (AWS, Google Cloud)</li>
-            </ul>
+        <div class="skill-group">
+          <span class="skill-group-label">// web &amp; security</span>
+          <div class="skill-tags">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>PostgreSQL</span>
+            <span>SQLite</span>
+            <span>HTML · CSS · JS</span>
+            <span>SQL injection defence</span>
+            <span>XSS / CSRF mitigation</span>
+            <span>Session management</span>
+            <span>Docker</span>
+            <span>Pug</span>
+          </div>
         </div>
-        
+
+        <div class="skill-group">
+          <span class="skill-group-label">// networking</span>
+          <div class="skill-tags">
+            <span>Cisco Packet Tracer</span>
+            <span>ACLs</span>
+            <span>IPSec VPN</span>
+            <span>SSL/TLS analysis</span>
+            <span>Static routing</span>
+            <span>Linux / SSH</span>
+            <span>DNS / Pi-hole</span>
+            <span>NetworkManager</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// tools &amp; process</span>
+          <div class="skill-tags">
+            <span>Git / GitHub</span>
+            <span>LaTeX</span>
+            <span>NVD API</span>
+            <span>EPSS scoring</span>
+            <span>CISA KEV</span>
+            <span>rapidfuzz</span>
+            <span>Technical Writing</span>
+          </div>
+        </div>
+
+      </div>
     </div>
-</section>
 
+    <!-- Developing tier -->
+    <div class="skills-developing" data-reveal="up">
+      <span class="skills-tier-label skills-tier-label--muted">
+        // developing &mdash; through MSc Cyber Security
+      </span>
+      <p class="skills-developing-note">
+        Areas I'm actively studying at UEA; evidenced by coursework and research,
+        not yet by shipped tools.
+      </p>
+      <div class="skill-tags skill-tags--muted">
+        <span>Ethical Hacking</span>
+        <span>Penetration Testing</span>
+        <span>Adversarial ML</span>
+        <span>Cryptography</span>
+        <span>Digital Forensics</span>
+        <span>Incident Response</span>
+        <span>Blockchain concepts</span>
+      </div>
+    </div>
 
+  </section>
+
+  <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
   <section id="projects" class="projects-section">
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-subtitle">A static snapshot of builds across ML, NLP, search, and secure web development — see the projects page for the full catalogue.</p>
+    <span class="section-eyebrow">04 — Projects</span>
+    <h2 class="section-title" data-reveal="fade">Featured builds</h2>
+    <p class="section-subtitle">Three highlights — AI, security, and interactive systems</p>
 
-    <div class="projects-featured-grid">
-      <article class="project-feature-card reveal">
-        <img src="assets/OCRODIA.png" alt="Odia character recognition system" />
-        <div class="project-feature-card__body">
-          <h4>Deep learning for OCR</h4>
-          <p>CNN-based recogniser for low-resource Odia script with transfer learning, custom augmentation tooling, and 84% test accuracy.</p>
-          <a href="projects.html" class="btn">View details →</a>
+    <div class="carousel-wrapper" data-reveal="up">
+      <div class="carousel-container">
+        <div class="carousel-slide" id="carouselSlide">
+
+          <!-- Slide 1: OCR -->
+          <div class="carousel-card">
+            <img src="assets/OCRODIA.png" alt="Deep learning OCR for Odia script" loading="lazy">
+            <div class="carousel-card-body">
+              <h3>Deep learning for OCR</h3>
+              <p>CNN + transfer learning for low-resource Odia script. Custom augmentation pipeline &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">84% test accuracy</strong>.</p>
+              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Slide 2: Train Chatbot -->
+          <div class="carousel-card">
+            <img src="assets/train.png" alt="Intelligent train chatbot" loading="lazy">
+            <div class="carousel-card-body">
+              <h3>Intelligent train chatbot</h3>
+              <p>Conversational AI for ticket discovery &amp; delay prediction &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Random Forest MAE: 0.34 min</strong>.</p>
+              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Slide 3: Secure Blog -->
+          <div class="carousel-card">
+            <img src="assets/securewebbased.png" alt="Secure web blog" loading="lazy">
+            <div class="carousel-card-body">
+              <h3>Secure web-based blog</h3>
+              <p>Node.js + PostgreSQL with defence against SQLi, XSS, CSRF, session hijacking, and account enumeration.</p>
+              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+            </div>
+          </div>
+
         </div>
-      </article>
-      <article class="project-feature-card reveal">
-        <img src="assets/train.png" alt="Train chatbot project" />
-        <div class="project-feature-card__body">
-          <h4>Intelligent chatbot for train services</h4>
-          <p>Conversational flow with ticket discovery via scraping and delay prediction using Random Forest (MAE 0.34 minutes).</p>
-          <a href="projects.html" class="btn">View details →</a>
-        </div>
-      </article>
-      <article class="project-feature-card reveal">
-        <img src="assets/gamesearch engine.png" alt="Video game search engine" />
-        <div class="project-feature-card__body">
-          <h4>Video game search engine</h4>
-          <p>TF-IDF and cosine similarity over HTML game data with WordNet query expansion, tokenisation, and lemmatisation.</p>
-          <a href="projects.html" class="btn">View details →</a>
-        </div>
-      </article>
-      <article class="project-feature-card reveal">
-        <img src="assets/securewebbased.png" alt="Secure blog application" />
-        <div class="project-feature-card__body">
-          <h4>Secure web-based blog</h4>
-          <p>Node.js and PostgreSQL blog with defences for SQL injection, XSS, CSRF-style risks, session abuse, and related OWASP-style issues.</p>
-          <a href="projects.html" class="btn">View details →</a>
-        </div>
-      </article>
-      <article class="project-feature-card reveal">
-        <img src="assets/emotionpred.png" alt="Emotion prediction from text application" />
-        <div class="project-feature-card__body">
-          <h4>Emotion prediction from text</h4>
-          <p>NLP logistic regression classifier with vectorised text features. Tkinter GUI for real-time emotion detection as you type or paste input.</p>
-          <a href="projects.html" class="btn">View details →</a>
-        </div>
-      </article>
+      </div>
+
+      <div class="carousel-buttons">
+        <button class="carousel-btn" id="prevBtn" aria-label="Previous project">&#10094;</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Next project">&#10095;</button>
+      </div>
+      <div class="dots-container" id="dotsContainer"></div>
     </div>
 
-    <a href="projects.html" class="btn outline all-projects reveal">See all projects</a>
-</section>
+    <div class="view-all-wrapper">
+      <a href="projects.html" class="btn btn-project">View all projects &rarr;</a>
+    </div>
+  </section>
 
-  <!-- Contact Section -->
+  <!-- ─── CONTACT ──────────────────────────────────────────── -->
   <section id="contact" class="contact-section">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">Get in touch with me</p>
+    <span class="section-eyebrow">05 — Contact</span>
+    <h2 class="section-title" data-reveal="fade">Contact</h2>
+    <p class="section-subtitle">Get in touch</p>
 
     <div class="contact-container">
+
       <div class="contact-item">
-        <span class="icon">📧</span>
+        <span class="icon" aria-hidden="true">📧</span>
         <div>
           <h3>Email</h3>
           <p>johnwiam@icloud.com</p>
@@ -355,7 +397,7 @@
       </div>
 
       <div class="contact-item">
-        <span class="icon">📍</span>
+        <span class="icon" aria-hidden="true">📍</span>
         <div>
           <h3>Location</h3>
           <p>London, United Kingdom</p>
@@ -364,184 +406,255 @@
       </div>
 
       <div class="contact-item">
-        <span class="icon">💼</span>
+        <span class="icon" aria-hidden="true">💼</span>
         <div>
           <h3>LinkedIn</h3>
-          <p>Connect with me professionally</p>
-          <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" class="contact-link">View profile</a>
+          <p>Connect professionally</p>
+          <a href="https://www.linkedin.com/in/john-callaghan-35816b269"
+             target="_blank" rel="noopener noreferrer" class="contact-link">View profile</a>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer-content">
-      <h2 class="footer-logo">John</h2>
-
-      <nav class="footer-nav">
+      <span class="footer-logo">John Callaghan</span>
+      <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#academic-work">Academic Work</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-
       <div class="social-icons">
-        <a href="https://github.com/John-W-Callaghan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="assets/github.png" alt="GitHub" />
+        <a href="https://github.com/John-W-Callaghan"
+           target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="assets/github.png" alt="GitHub" loading="lazy" />
         </a>
-        <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="assets/Linkedin.png" alt="LinkedIn" />
+        <a href="https://www.linkedin.com/in/john-callaghan-35816b269"
+           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="assets/Linkedin.png" alt="LinkedIn" loading="lazy" />
         </a>
       </div>
     </div>
-
-    <p class="footer-copy">© John Callaghan 2026</p>
-
-    <a href="#home" class="scroll-top" aria-label="Scroll to top">↑</a>
+    <p class="footer-copy">&copy; John Callaghan 2026</p>
   </footer>
 
-  <!-- JavaScript -->
+  <a href="#home" class="scroll-top" aria-label="Back to top">&uarr;</a>
+
   <script>
-    // Smooth Scroll Behavior
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function (e) {
+    /* ─── Smooth scroll ───────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const id = a.getAttribute('href');
+        if (id === '#') return;
+        const el = document.querySelector(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // Mobile Navigation Toggle
+    /* ─── Mobile nav ──────────────────────────────────────── */
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Skills Toggle
-    function toggleSkill(box) {
-      box.classList.toggle('active');
+    const navLinks  = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+      });
     }
 
-    // Experience Timeline Toggle
-    const academicBtn = document.getElementById('academicBtn');
-    const professionalBtn = document.getElementById('professionalBtn');
-    const academicTimeline = document.getElementById('academicTimeline');
-    const professionalTimeline = document.getElementById('professionalTimeline');
-
-    academicBtn.addEventListener('click', () => {
-      academicBtn.classList.add('active');
-      professionalBtn.classList.remove('active');
-      academicTimeline.classList.add('show');
-      professionalTimeline.classList.remove('show');
-    });
-
-    professionalBtn.addEventListener('click', () => {
-      professionalBtn.classList.add('active');
-      academicBtn.classList.remove('active');
-      professionalTimeline.classList.add('show');
-      academicTimeline.classList.remove('show');
-    });
-
-    // Navbar scroll style
+    /* ─── Navbar scroll state ─────────────────────────────── */
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
 
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+    /* ─── Scroll progress bar ─────────────────────────────── */
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+      window.addEventListener('scroll', () => {
+        const total    = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }, { passive: true });
+    }
+
+    /* ─── Experience toggle ───────────────────────────────── */
+    const academicBtn          = document.getElementById('academicBtn');
+    const professionalBtn      = document.getElementById('professionalBtn');
+    const academicTimeline     = document.getElementById('academicTimeline');
+    const professionalTimeline = document.getElementById('professionalTimeline');
+
+    if (academicBtn && professionalBtn) {
+      academicBtn.addEventListener('click', () => {
+        academicBtn.classList.add('active');
+        professionalBtn.classList.remove('active');
+        academicTimeline.classList.add('show');
+        professionalTimeline.classList.remove('show');
+      });
+      professionalBtn.addEventListener('click', () => {
+        professionalBtn.classList.add('active');
+        academicBtn.classList.remove('active');
+        professionalTimeline.classList.add('show');
+        academicTimeline.classList.remove('show');
+      });
+    }
+
+    /* ─── IntersectionObserver — scroll reveals ───────────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+    /* ─── Timeline animate-in ─────────────────────────────── */
+    const timelineObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.timeline-item').forEach(el => timelineObs.observe(el));
+
+    /* ─── Contact animate-in ──────────────────────────────── */
+    const contactObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.contact-item').forEach(el => contactObs.observe(el));
+
+    /* ─── Carousel ────────────────────────────────────────── */
+    (function () {
+      const slide     = document.getElementById('carouselSlide');
+      const prevBtn   = document.getElementById('prevBtn');
+      const nextBtn   = document.getElementById('nextBtn');
+      const dotsCont  = document.getElementById('dotsContainer');
+      if (!slide) return;
+
+      let cur = 0, total = 0, timer, paused = false;
+
+      function init() {
+        total = slide.querySelectorAll('.carousel-card').length;
+        if (!total) return;
+        dotsCont.innerHTML = '';
+        for (let i = 0; i < total; i++) {
+          const d = document.createElement('div');
+          d.className = 'dot' + (i === 0 ? ' active' : '');
+          d.addEventListener('click', () => { goTo(i); resetAuto(); });
+          dotsCont.appendChild(d);
+        }
+        update();
+        startAuto();
+        slide.parentElement.addEventListener('mouseenter', () => { paused = true; clearInterval(timer); });
+        slide.parentElement.addEventListener('mouseleave', () => { paused = false; startAuto(); });
+      }
+
+      function update() {
+        slide.style.transform = `translateX(-${cur * 100}%)`;
+        dotsCont.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+      }
+
+      function goTo(i)    { cur = ((i % total) + total) % total; update(); }
+      function next()     { goTo(cur + 1); }
+      function prev()     { goTo(cur - 1); }
+      function startAuto(){ if (!paused) timer = setInterval(() => { if (!paused) next(); }, 4800); }
+      function resetAuto(){ clearInterval(timer); startAuto(); }
+
+      prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+      nextBtn && nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+      window.addEventListener('resize', update);
+      init();
+    })();
+
+    /* ─── Terminal animation ──────────────────────────────── */
+    (function () {
+      const cmdEl    = document.getElementById('termCmd');
+      const cursorEl = document.getElementById('termCursor');
+      const outputEl = document.getElementById('termOutput');
+      if (!cmdEl || !outputEl) return;
+
+      const CMD = 'cat focus.txt';
+
+      const LINES = [
+        { key: 'role  ', val: 'MSc Cyber Security · UEA' },
+        { key: 'focus ', val: 'AI · security engineering · software' },
+        { key: 'status', val: 'open to placements 2026' },
+      ];
+
+      /* Respect reduced-motion — show content statically */
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        cmdEl.textContent = CMD;
+        LINES.forEach(l => {
+          const d = document.createElement('div');
+          d.className = 't-out-line';
+          d.innerHTML =
+            `<span class="t-out-key">${l.key}</span>` +
+            `<span class="t-out-sep">→</span>` +
+            `<span class="t-out-val">${l.val}</span>`;
+          outputEl.appendChild(d);
         });
-      }, { threshold: 0.15 });
-      revealEls.forEach(el => observer.observe(el));
-    } else {
-      revealEls.forEach(el => el.classList.add('visible'));
-    }
+        cursorEl.style.display = 'none';
+        return;
+      }
 
-    // Animate timeline items
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, { threshold: 0.3 });
-    timelineItems.forEach(item => timelineObserver.observe(item));
+      let i = 0;
 
-    // Animate skill boxes
-    const skillBoxes = document.querySelectorAll('.skill-box');
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, { threshold: 0.2 });
-    skillBoxes.forEach(box => skillObserver.observe(box));
-
-    // Animate contact items
-    const contactItems = document.querySelectorAll('.contact-item');
-    const contactObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, { threshold: 0.2 });
-    contactItems.forEach(item => contactObserver.observe(item));
-
-    // Add floating particles effect
-    function createFloatingParticle() {
-      const particle = document.createElement('div');
-      particle.style.position = 'fixed';
-      particle.style.width = '2px';
-      particle.style.height = '2px';
-      particle.style.background = 'rgba(34, 197, 94, 0.6)';
-      particle.style.borderRadius = '50%';
-      particle.style.pointerEvents = 'none';
-      particle.style.zIndex = '1';
-      particle.style.left = Math.random() * 100 + 'vw';
-      particle.style.top = '100vh';
-      particle.style.animation = `floatUp ${Math.random() * 10 + 10}s linear forwards`;
-      
-      document.body.appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 15000);
-    }
-
-    // Create particles periodically
-    setInterval(createFloatingParticle, 2000);
-
-    // Add CSS for floating particles
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes floatUp {
-        to {
-          transform: translateY(-100vh) rotate(360deg);
-          opacity: 0;
+      function typeCmd() {
+        if (i < CMD.length) {
+          cmdEl.textContent = CMD.slice(0, ++i);
+          setTimeout(typeCmd, 48 + Math.random() * 32);
+        } else {
+          setTimeout(showLines, 380);
         }
       }
-    `;
-    document.head.appendChild(style);
+
+      let lineIdx = 0;
+
+      function showLines() {
+        if (lineIdx >= LINES.length) {
+          /* Hide inline cursor, add a fresh blinking prompt */
+          cursorEl.style.display = 'none';
+          const np = document.createElement('div');
+          np.className = 'terminal-line';
+          np.style.marginTop = '0.15rem';
+          np.innerHTML =
+            '<span class="t-prompt">john@uea:~$</span> ' +
+            '<span class="t-cursor">▋</span>';
+          outputEl.appendChild(np);
+          return;
+        }
+
+        const line = LINES[lineIdx++];
+        const d = document.createElement('div');
+        d.className = 't-out-line';
+        const uid = 'ov' + lineIdx;
+        d.innerHTML =
+          `<span class="t-out-key">${line.key}</span>` +
+          `<span class="t-out-sep">→</span>` +
+          `<span class="t-out-val" id="${uid}"></span>`;
+        outputEl.appendChild(d);
+
+        const valEl = document.getElementById(uid);
+        let vi = 0;
+        (function typeVal() {
+          if (vi < line.val.length) {
+            valEl.textContent = line.val.slice(0, ++vi);
+            setTimeout(typeVal, 14 + Math.random() * 10);
+          } else {
+            setTimeout(showLines, 100);
+          }
+        })();
+      }
+
+      setTimeout(typeCmd, 1100);
+    })();
   </script>
 </body>
 </html>

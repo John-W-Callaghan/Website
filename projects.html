@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="projects.css">
-    <title>Projects - John Callaghan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects · John Callaghan</title>
+  <link rel="stylesheet" href="projects.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">John</div>
-        <ul class="nav-links" id="mainNavLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-        </ul>
-        <button class="hamburger" id="hamburger">☰</button>
+<nav class="navbar">
+  <div class="logo">John</div>
+  <ul class="nav-links" id="mainNavLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+
+<header class="page-title-banner">
+  <h1>All Projects</h1>
+  <p>A complete collection of my work in AI, Security, and Development</p>
+</header>
+
+<div class="search-container">
+  <input type="text" id="searchBar" placeholder="Search projects by title, technology or description...">
+</div>
+
+<div class="filter-bar" id="filterBar">
+  <button data-cat="all" class="filter-chip active">All</button>
+  <button data-cat="AI & ML" class="filter-chip">AI & ML</button>
+  <button data-cat="Web & Security" class="filter-chip"> Web & Security</button>
+  <button data-cat="Data Analysis" class="filter-chip"> Data Analysis</button>
+  <button data-cat="Python" class="filter-chip"> Python</button>
+  <button data-cat="Academic" class="filter-chip">Academic</button>
+  <button data-cat="Hackathon" class="filter-chip">🏆 Hackathon</button>
+</div>
+
+<section class="projects-grid-container">
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<!-- Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close-button">&times;</span>
+    <img id="modalImage" src="" alt="Project preview" class="modal-project-image">
+    <h2 id="modalTitle">Project Title</h2>
+    <div id="modalDescription"></div>
+    <div id="modalTech"></div>
+    <div class="modal-actions">
+      <a id="modalGithubLink" href="#" target="_blank" class="modal-link-btn">GitHub →</a>
+      <a id="modalReportLink" href="#" target="_blank" class="modal-link-btn btn-outline">Report →</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <h2 class="footer-logo">John</h2>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
     </nav>
-
-    <header class="page-title-banner" style="position:relative;">
-        <h1>All Projects</h1>
-        <p>A complete collection of my work in AI, Security, and Development</p>
-    </header>
-
-    <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search projects..." onkeyup="filterProjects()">
+    <div class="social-icons">
+      <a href="https://github.com/John-W-Callaghan" target="_blank" aria-label="GitHub"><img src="assets/github.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" aria-label="LinkedIn"><img src="assets/Linkedin.png" alt="LinkedIn"></a>
     </div>
+  </div>
+  <p class="footer-copy">© John Callaghan 2026</p>
+</footer>
 
-    <section class="projects-grid-container">
-        <div class="project-accordion" id="projectAccordion"></div>
-    </section>
-
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close-button">&times;</span>
-            <img id="modalImage" src="" alt="Project Image" class="modal-project-image">
-            <h2 id="modalTitle">Project Title</h2>
-            <div id="modalDescription">
-                <p>Project description goes here.</p>
-            </div>
-            <div id="modalTech"></div>
-            <div id="modalActions" class="modal-actions">
-                <a id="modalGithubLink" href="#" target="_blank" rel="noopener noreferrer" class="btn modal-link-btn">View on GitHub →</a>
-                <a id="modalReportLink" href="#" target="_blank" rel="noopener noreferrer" class="btn modal-link-btn btn-outline">View Report →</a>
-            </div>
-        </div>
-    </div>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <h2 class="footer-logo">John</h2>
-            <nav class="footer-nav">
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-            </nav>
-            <div class="social-icons">
-                <a href="https://github.com/John-W-Callaghan" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="assets/github.png" alt="GitHub" /></a>
-                <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/Linkedin.png" alt="LinkedIn" /></a>
-            </div>
-        </div>
-        <p class="footer-copy">© John Callaghan 2026</p>
-    </footer>
-
-    <script src="projects.js" defer></script>
-
+<script src="projects.js"></script>
 </body>
 </html>

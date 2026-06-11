@@ -1,456 +1,443 @@
-document.addEventListener('DOMContentLoaded', function () {
+// projects.js - Complete project data with auto-generated placeholders
 
-    const projectData = {
-        'odia-ocr': {
-            title: 'Deep Learning for OCR',
-            category: 'AI & ML',
-            featured: true,
-            image: 'assets/OCRODIA.png',
-            description: `<p>This dissertation project focused on building a high-accuracy OCR system for the low-resource Odia script. The core challenge was the severe lack of available data.</p><p>By implementing a Convolutional Neural Network (CNN) and leveraging Transfer Learning from a pre-trained Bengali model, the system overcame data scarcity. A custom GUI was also developed to augment the dataset, which was crucial in boosting the final test accuracy to <strong>84.0%</strong>.</p>`,
-            technologies: ['Python', 'TensorFlow', 'Keras', 'Tkinter', 'Deep Learning', 'Pandas'],
-            github: 'https://github.com/John-W-Callaghan/OCRODIA',
-            reportPDF: 'assets/ocrodia.pdf'
-        },
-        'chatbot': {
-            title: 'Intelligent Chatbot for Train Services',
-            category: 'AI & ML',
-            featured: true,
-            image: 'assets/train.png',
-            description: `<p>A group project to build a conversational AI for a train company. The chatbot helps users find the cheapest tickets by scraping the National Rail website and predicts train delays using a machine learning model.</p><p>The final Random Forest model achieved a Mean Absolute Error of just <strong>0.34 minutes</strong>, providing highly accurate real-time delay estimates.</p>`,
-            technologies: ['Python', 'Scikit-learn', 'Selenium', 'spaCy', 'Tkinter', 'SQLite'],
-            github: 'https://github.com/BabaRootsMg/AI-CW2-Developing-An-Intelligent-Chatbot-System',
-            reportPDF: 'assets/chatbottrain.pdf'
-        },
-        'emotion-pred': {
-            title: 'Emotion Prediction from Text',
-            category: 'AI & ML',
-            featured: true,
-            image: 'assets/emotionpred.png',
-            description: `<p>This project uses Natural Language Processing (NLP) to predict emotions from text. A user interface was built for emotion prediction using logistic regression.</p><p>The process involved tokenization, vectorization with CountVectorizer, training a Logistic Regression model, and building an interactive GUI with Tkinter to show real-time predictions.</p>`,
-            technologies: ['Python', 'Scikit-learn', 'NLTK', 'Tkinter', 'NLP'],
-            github: 'https://github.com/John-W-Callaghan/Emotions_predictor'
-        },
-        'search-engine': {
-            title: 'Video Game Search Engine',
-            category: 'AI & ML',
-            featured: true,
-            image: 'assets/gamesearch engine.png',
-            description: `<p>This project involved building a custom search engine for video games, using HTML files as the dataset. The process covered several steps, from extracting data to implementing TF-IDF for handling search queries.</p><p>The engine uses BeautifulSoup to parse HTML, NLTK WordNet for query expansion, and Scikit-learn's TfidfVectorizer for ranking results based on cosine similarity.</p>`,
-            technologies: ['Python', 'Scikit-learn', 'BeautifulSoup', 'NLTK'],
-            github: 'https://github.com/John-W-Callaghan/Videogame-Search-engine'
-        },
-        'secure-blog': {
-            title: 'Secure Web-Based Blog',
-            category: 'Web & Security',
-            featured: true,
-            image: 'assets/securewebbased.png',
-            description: `<p>Developed a full-stack blog application with a strong focus on security. The project required implementing defensive coding practices to protect against the top 5 most common web vulnerabilities.</p><p>Mitigations for SQL Injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), session hijacking, and account enumeration were successfully implemented and demonstrated.</p>`,
-            technologies: ['Node.js', 'PostgreSQL', 'JavaScript', 'Cybersecurity'],
-            github: 'https://github.com/BabaRootsMg/DSS-UG-002'
-        },
-        'parking-system': {
-            title: 'Parking Management System',
-            category: 'Web & Security',
-            featured: true,
-            image: 'assets/pARKINGSYSTEM.png',
-            description: `<p>A digital car parking system designed to eliminate the hassle of searching for a parking spot, developed collaboratively by a team of five members using Agile methodology.</p><p>This full-stack application allows users to book parking spaces in advance and is built with a modern technology stack, including Node.js for the backend, PostgreSQL for the database, and Docker for containerization.</p>`,
-            technologies: ['Node.js', 'PostgreSQL', 'Docker', 'JavaScript', 'Pug', 'Agile'],
-            github: 'https://github.com/Anthony-de-cruz/Parking-Management-System'
-        },
-        'portfolio': {
-            title: 'Portfolio Website',
-            category: 'Web & Security',
-            featured: false,
-            image: 'assets/website.png',
-            description: `<p>A custom portfolio website built from the ground up to showcase my skills, projects, and achievements. The site is built with a user-friendly navigation system and features a responsive design to work across all devices.</p><p>An animated particle background was implemented with JavaScript to create a more dynamic and engaging user experience.</p>`,
-            technologies: ['HTML', 'CSS', 'JavaScript'],
-            github: 'https://github.com/John-W-Callaghan/Portfolio'
-        },
-        'med-viz': {
-            title: 'Medical Data Visualizer',
-            category: 'Data Analysis',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>This project demonstrates advanced data preprocessing and visualization techniques using medical examination data, leveraging pandas, seaborn, and matplotlib to create insightful visualizations including categorical plots and a correlation heatmap.</p>',
-            technologies: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-            github: 'https://github.com/John-W-Callaghan/Data-Analysis-Projects'
-        },
-        'sea-level': {
-            title: 'Sea Level Rise Visualizer',
-            category: 'Data Analysis',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>This project creates a comprehensive visualization of sea level rise by plotting historical data and forecasting future trends to 2050 using linear regression analysis with Python libraries like Pandas, Matplotlib, and SciPy.</p>',
-            technologies: ['Python', 'Pandas', 'Matplotlib', 'SciPy'],
-            github: 'https://github.com/John-W-Callaghan/Data-Analysis-Projects'
-        },
-        'page-views': {
-            title: 'Page Views Time Series Analyzer',
-            category: 'Data Analysis',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>This data visualization project focuses on analyzing the page views of the FreeCodeCamp forum. The project demonstrates data cleaning by removing outliers and creating line plots, bar plots, and box plots to identify trends and seasonality.</p>',
-            technologies: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
-            github: 'https://github.com/John-W-Callaghan/Data-Analysis-Projects'
-        },
-        'demo-analysis': {
-            title: 'Demographic Data Analyzer',
-            category: 'Data Analysis',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>This project features a comprehensive function that performs in-depth analysis on a demographic dataset using pandas, extracting various insights like race representation, education levels, and earnings statistics.</p>',
-            technologies: ['Python', 'Pandas', 'NumPy'],
-            github: 'https://github.com/John-W-Callaghan/Data-Analysis-Projects'
-        },
-        'arithmetic': {
-            title: 'Arithmetic Formatter',
-            category: 'Python',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>A Python function to neatly format and arrange multiple arithmetic problems in a visually appealing way, with robust error handling for input validation.</p>',
-            technologies: ['Python', 'String Manipulation'],
-            github: 'https://github.com/John-W-Callaghan/Scientific-Computing-Projects'
-        },
-        'time-calc': {
-            title: 'Time Calculator',
-            category: 'Python',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>A function to add a given duration to a start time, correctly handling complex scenarios like AM/PM transitions and changes in the day of the week.</p>',
-            technologies: ['Python', 'Time Calculation'],
-            github: 'https://github.com/John-W-Callaghan/Scientific-Computing-Projects'
-        },
-        'budget-app': {
-            title: 'Budget App',
-            category: 'Python',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>An object-oriented Python app for managing budgets across different categories. It includes methods for deposits, withdrawals, transfers, and a function to visualize spending in a text-based bar chart.</p>',
-            technologies: ['Python', 'OOP'],
-            github: 'https://github.com/John-W-Callaghan/Scientific-Computing-Projects'
-        },
-        'poly-calc': {
-            title: 'Polygon Area Calculator',
-            category: 'Python',
-            featured: false,
-            image: 'assets/codecamp.png',
-            description: '<p>An object-oriented program that uses a Rectangle class and an inherited Square class to calculate properties like area, perimeter, and diagonal, demonstrating key OOP principles.</p>',
-            technologies: ['Python', 'OOP', 'Geometry'],
-            github: 'https://github.com/John-W-Callaghan/Scientific-Computing-Projects'
-        },
-        'mnist': {
-            title: 'MNIST Classifier Analysis',
-            category: 'Academic',
-            featured: false,
-            image: 'assets/mnist.png',
-            description: `<p>This project evaluates the performance of three supervised learning algorithms—Random Forest, K-Nearest Neighbors (K-NN), and Support Vector Machines (SVM)—on the MNIST dataset of handwritten digits.</p><p>The methodology involved using 5-fold cross-validation and hyperparameter tuning to optimize and compare the effectiveness of each classifier.</p>`,
-            technologies: ['Python', 'Scikit-learn', 'Random Forest', 'K-NN', 'SVM'],
-            reportPDF: 'assets/classifiers.pdf'
-        },
-        'cyber-report': {
-            title: 'Cybersecurity Policies Report',
-            category: 'Academic',
-            featured: false,
-            image: 'assets/policys.png',
-            description: `<p>A formal research report exploring the crucial role and importance of security policies within modern organizations.</p><p>The report covers why security policies are essential for defending against cyber threats, ensuring compliance, and guiding employees in maintaining a secure working environment. It also discusses various security frameworks and best practices for their implementation.</p>`,
-            technologies: ['Research', 'Technical Writing', 'Cybersecurity'],
-            reportPDF: 'assets/cyber.pdf'
-        }
-    };
+const PROJECTS_DATA = [
+  // ========== AI & ML ==========
+  {
+    id: "odia-ocr",
+    title: "Deep Learning for OCR (Odia Script)",
+    category: "AI & ML",
+    image: "assets/OCRODIA.png",
+    shortDesc: "CNN + transfer learning for low‑resource Odia script – 84% test accuracy.",
+    fullDesc: `<p>Dissertation project building a high‑accuracy OCR system for the Odia script. Due to severe data scarcity, a CNN with transfer learning from a Bengali model was used. A custom GUI augmented the dataset, boosting final accuracy to <strong>84.0%</strong>.</p>`,
+    technologies: ["Python", "TensorFlow", "Keras", "Tkinter", "Deep Learning"],
+    github: "https://github.com/John-W-Callaghan/OCRODIA",
+    reportPDF: "assets/ocrodia.pdf"
+  },
+  {
+    id: "chatbot",
+    title: "Intelligent Chatbot for Train Services",
+    category: "AI & ML",
+    image: "assets/train.png",
+    shortDesc: "Conversational AI + delay prediction (Random Forest MAE: 0.34 min).",
+    fullDesc: `<p>A chatbot that scrapes National Rail for cheap tickets and predicts train delays. The Random Forest model achieved a Mean Absolute Error of <strong>0.34 minutes</strong>.</p>`,
+    technologies: ["Python", "Scikit-learn", "Selenium", "spaCy", "SQLite"],
+    github: "https://github.com/BabaRootsMg/AI-CW2-Developing-An-Intelligent-Chatbot-System",
+    reportPDF: "assets/chatbottrain.pdf"
+  },
+  {
+    id: "emotion-pred",
+    title: "Emotion Prediction from Text",
+    category: "AI & ML",
+    image: "assets/emotionpred.png",
+    shortDesc: "Logistic regression + Tkinter GUI for real‑time emotion detection.",
+    fullDesc: `<p>NLP pipeline using CountVectorizer and logistic regression, wrapped in an interactive Tkinter GUI that predicts emotion as you type.</p>`,
+    technologies: ["Python", "Scikit-learn", "NLTK", "Tkinter"],
+    github: "https://github.com/John-W-Callaghan/Emotions_predictor"
+  },
+  {
+    id: "search-engine",
+    title: "Video Game Search Engine",
+    category: "AI & ML",
+    image: "assets/gamesearch engine.png",
+    shortDesc: "TF‑IDF, WordNet query expansion, cosine similarity ranking.",
+    fullDesc: `<p>Custom search engine over HTML game data using BeautifulSoup, NLTK WordNet, and Scikit‑learn's TfidfVectorizer.</p>`,
+    technologies: ["Python", "Scikit-learn", "BeautifulSoup", "NLTK"],
+    github: "https://github.com/John-W-Callaghan/Videogame-Search-engine"
+  },
 
-    const CATEGORY_ORDER = ['AI & ML', 'Web & Security', 'Data Analysis', 'Python', 'Academic'];
+  // ========== Web & Security ==========
+  {
+    id: "secure-blog",
+    title: "Secure Web-Based Blog",
+    category: "Web & Security",
+    image: "assets/securewebbased.png",
+    shortDesc: "Node.js + PostgreSQL blog with SQLi, XSS, CSRF protection.",
+    fullDesc: `<p>Full‑stack blog with defensive mitigations against OWASP Top 5: SQL injection, XSS, CSRF, session hijacking, and account enumeration.</p>`,
+    technologies: ["Node.js", "PostgreSQL", "JavaScript", "Cybersecurity"],
+    github: "https://github.com/BabaRootsMg/DSS-UG-002"
+  },
+  {
+    id: "parking-system",
+    title: "Parking Management System",
+    category: "Web & Security",
+    image: "assets/pARKINGSYSTEM.png",
+    shortDesc: "Full‑stack booking with Docker, Node.js, PostgreSQL.",
+    fullDesc: `<p>A full-stack parking booking system allowing users to reserve spaces in advance. Built with Node.js, PostgreSQL, Docker, and Pug templating.</p>`,
+    technologies: ["Node.js", "PostgreSQL", "Docker", "JavaScript", "Pug"],
+    github: "https://github.com/Anthony-de-cruz/Parking-Management-System"
+  },
+  {
+    id: "portfolio",
+    title: "Portfolio Website",
+    category: "Web & Security",
+    image: "assets/website.png",
+    shortDesc: "Responsive personal site with particle animations.",
+    fullDesc: `<p>Custom portfolio built from scratch with smooth UI, particle background, and full responsiveness.</p>`,
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/John-W-Callaghan/Portfolio"
+  },
+  {
+    id: "pihole",
+    title: "Network-Level Ad Blocker (Pi-hole)",
+    category: "Web & Security",
+    image: null,  // Auto-generated placeholder
+    shortDesc: "Self‑hosted DNS sinkhole blocking ads across entire home network.",
+    fullDesc: `<p>Deployed a Raspberry Pi running Pi-hole as a network-wide DNS sinkhole. Configured static IP via NetworkManager (nmcli), resolved IP conflicts, and configured router to use Pi-hole as primary DNS – blocking thousands of ad/tracker domains across all devices without per-device software.</p>`,
+    technologies: ["Raspberry Pi", "Linux", "DNS", "Pi-hole", "NetworkManager", "SSH"],
+    github: null,
+    reportPDF: "assets/Rasberry_pi.pdf"
+  },
 
-    function htmlToPlainSummary(html, maxLen) {
-        const tmp = document.createElement('div');
-        tmp.innerHTML = html;
-        let text = tmp.textContent.replace(/\s+/g, ' ').trim();
-        if (text.length > maxLen) {
-            text = text.slice(0, maxLen).trim() + '…';
-        }
-        return text;
-    }
+  // ========== Data Analysis ==========
+  {
+    id: "med-viz",
+    title: "Medical Data Visualizer",
+    category: "Data Analysis",
+    image: "assets/codecamp.png",
+    shortDesc: "Pandas, seaborn, matplotlib: medical examination plots.",
+    fullDesc: `<p>Data preprocessing and visualisation (categorical plots, correlation heatmap) on medical exam data.</p>`,
+    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
+    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
+  },
+  {
+    id: "sea-level",
+    title: "Sea Level Rise Visualizer",
+    category: "Data Analysis",
+    image: "assets/codecamp.png",
+    shortDesc: "Linear regression forecast to 2050 using SciPy.",
+    fullDesc: `<p>Historical sea level data + linear regression to predict future rise up to 2050.</p>`,
+    technologies: ["Python", "Pandas", "Matplotlib", "SciPy"],
+    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
+  },
+  {
+    id: "page-views",
+    title: "Page Views Time Series Analyzer",
+    category: "Data Analysis",
+    image: "assets/codecamp.png",
+    shortDesc: "Line/bar/box plots to visualise forum traffic trends.",
+    fullDesc: `<p>Cleaned and visualised forum page view data, identifying seasonality and outliers.</p>`,
+    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
+    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
+  },
+  {
+    id: "demo-analysis",
+    title: "Demographic Data Analyzer",
+    category: "Data Analysis",
+    image: "assets/codecamp.png",
+    shortDesc: "Pandas analysis of demographic dataset (race, education, income).",
+    fullDesc: `<p>Used Pandas to load a CSV and answer statistical questions about race representation, education levels, and earnings.</p>`,
+    technologies: ["Python", "Pandas", "NumPy"],
+    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
+  },
+  {
+    id: "mean-variance",
+    title: "Mean‑Variance‑Standard Deviation Calculator",
+    category: "Data Analysis",
+    image: "assets/codecamp.png",
+    shortDesc: "NumPy statistical analysis for a 3×3 matrix.",
+    fullDesc: `<p>Takes a list of 9 numbers, converts to a 3×3 NumPy array, and returns mean, variance, standard deviation, max, min, and sum along rows, columns, and flattened matrix.</p>`,
+    technologies: ["Python", "NumPy"],
+    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
+  },
 
-    function getCategoryEmoji(category) {
-        const map = {
-            'Data Analysis': '📊',
-            'Python': '🐍',
-            'AI & ML': '🤖',
-            'Web & Security': '🔒',
-            'Academic': '📄'
-        };
-        return map[category] || '📁';
-    }
+  // ========== Python / Game Development ==========
+  {
+    id: "mud-game",
+    title: "MUD Game – Multi-User Dungeon",
+    category: "Python",
+    image: null,
+    shortDesc: "Command-line adventure game with character creation, save/load, and unit testing.",
+    fullDesc: `<p>A command-line MUD (Multi-User Dungeon) game built in Python. Features include character customisation, location exploration, inventory management, save/load to JSON, exception handling, and unit testing.</p>`,
+    technologies: ["Python", "OOP", "Unit Testing", "JSON", "Game Development"],
+    github: "https://github.com/simonrawks/ap-assessment2-game",
+    reportPDF: null
+  },
+  {
+    id: "networks-cw",
+    title: "Networks Programming Assignment",
+    category: "Python",
+    image: null,
+    shortDesc: "Python networking game with client-server architecture.",
+    fullDesc: `<p>A networked multiplayer game implementing client-server communication, game state synchronisation, and custom protocol design using Python sockets.</p>`,
+    technologies: ["Python", "Networking", "Sockets", "Client-Server"],
+    github: "https://github.com/John-W-Callaghan/NetworksCW",
+    reportPDF: "assets/networks_cw_report.pdf"
+  },
 
-    function buildAccordion() {
-        const container = document.getElementById('projectAccordion');
-        if (!container) {
-            return;
-        }
+  // ========== Scientific Computing ==========
+  {
+    id: "arithmetic",
+    title: "Arithmetic Formatter",
+    category: "Python",
+    image: "assets/codecamp.png",
+    shortDesc: "Formats arithmetic problems vertically and side‑by‑side.",
+    fullDesc: `<p>A Python function that neatly formats multiple arithmetic problems in a visually appealing layout, with robust error handling.</p>`,
+    technologies: ["Python", "String Manipulation"],
+    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
+  },
+  {
+    id: "time-calc",
+    title: "Time Calculator",
+    category: "Python",
+    image: "assets/codecamp.png",
+    shortDesc: "Add duration to start time, handle AM/PM and weekday changes.",
+    fullDesc: `<p>Adds a given duration to a start time, correctly managing AM/PM transitions and day‑of‑week changes.</p>`,
+    technologies: ["Python"],
+    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
+  },
+  {
+    id: "budget-app",
+    title: "Budget App",
+    category: "Python",
+    image: "assets/codecamp.png",
+    shortDesc: "Object‑oriented budget manager with spending charts.",
+    fullDesc: `<p>OOP app for managing budgets across categories. Supports deposits, withdrawals, transfers, and a text‑based bar chart visualisation.</p>`,
+    technologies: ["Python", "OOP"],
+    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
+  },
+  {
+    id: "poly-calc",
+    title: "Polygon Area Calculator",
+    category: "Python",
+    image: "assets/codecamp.png",
+    shortDesc: "Rectangle & Square classes demonstrating inheritance.",
+    fullDesc: `<p>Uses a Rectangle class and an inherited Square class to calculate area, perimeter, and diagonal – showing key OOP principles.</p>`,
+    technologies: ["Python", "OOP", "Geometry"],
+    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
+  },
 
-        container.innerHTML = '';
+  // ========== Hackathon ==========
+  {
+    id: "cve-translator",
+    title: "CVE-to-My-Stack Translator",
+    category: "Hackathon",
+    image: "assets/HACKATHONCERT.png",
+    shortDesc: "CyberHack 2026 — filters NVD CVEs to only the vulnerabilities that actually affect your asset list.",
+    fullDesc: `<p>Built at <strong>CyberHack 2026 — CSE Connect Hackathon</strong>. With hundreds of new CVEs published daily, the vast majority don't affect any given organisation. This tool solves that noise problem: input your asset list and it cross-references against the <strong>National Vulnerability Database (NVD)</strong>, then enriches every match with <strong>EPSS exploitation probability scores</strong> and <strong>CISA Known Exploited Vulnerabilities (KEV)</strong> flags. Output is a prioritised CSV ranked by real-world threat urgency.</p>
+    <p><strong>Pipeline:</strong> Four modular stages — <code>normalisation.py</code> (product name → CPE mapping via fuzzy matching), <code>matcher.py</code> (CVE lookup &amp; enrichment), <code>ranker.py</code> (CSV generation), and <code>test_pipeline.py</code> (51 unit tests).</p>
+    <p><strong>Data sources:</strong> NVD CVE records · EPSS scores · CISA KEV catalog · CPE Dictionary</p>`,
+    technologies: ["Python", "NVD API", "EPSS", "CISA KEV", "rapidfuzz", "Cybersecurity"],
+    github: "https://github.com/John-W-Callaghan/Hackathon-2026"
+  },
 
-        CATEGORY_ORDER.forEach(function (category) {
-            const entries = Object.entries(projectData).filter(function (entry) {
-                return entry[1].category === category;
-            });
+  // ========== Academic & Security Research ==========
+  {
+    id: "mnist",
+    title: "MNIST Classifier Analysis",
+    category: "Academic",
+    image: "assets/mnist.png",
+    shortDesc: "RF, K‑NN, SVM comparison with cross-validation and tuning.",
+    fullDesc: `<p>Evaluated three supervised learning algorithms (Random Forest, K‑NN, SVM) on the MNIST dataset using 5‑fold cross-validation and hyperparameter tuning.</p>`,
+    technologies: ["Python", "Scikit-learn", "Random Forest", "K-NN", "SVM"],
+    reportPDF: "assets/classifiers.pdf"
+  },
+  {
+    id: "cyber-report",
+    title: "Cybersecurity Policies Report",
+    category: "Academic",
+    image: "assets/Policys.png",
+    shortDesc: "Research on security policies, frameworks, and compliance.",
+    fullDesc: `<p>Formal report exploring why security policies are essential for defending against threats, ensuring compliance, and guiding employees.</p>`,
+    technologies: ["Research", "Technical Writing", "Cybersecurity"],
+    reportPDF: "assets/cyber.pdf"
+  },
+  {
+    id: "network-packet-tracer",
+    title: "Network Security Design (Cisco Packet Tracer)",
+    category: "Academic",
+    image: null,
+    shortDesc: "ACLs, IPSec VPN, SSL/TLS handshake analysis.",
+    fullDesc: `<p>Designed and analysed secure networks using Cisco Packet Tracer. Implemented Standard/Extended ACLs, IPSec VPN tunnels with cryptographic security associations, and analysed SSL/TLS handshakes and cipher suites.</p>`,
+    technologies: ["Cisco Packet Tracer", "ACL", "IPSec VPN", "SSL/TLS", "Packet Analysis"],
+    github: null,
+    reportPDF: "assets/Networks.pdf"
+  },
+  {
+    id: "ai-ids",
+    title: "AI-Based Intrusion Detection Systems & Their Vulnerabilities",
+    category: "Academic",
+    image: "assets/Policys.png",
+    shortDesc: "Literature review on AI-driven NIDS and adversarial ML attacks.",
+    fullDesc: `<p>Critical literature review examining supervised/unsupervised learning for intrusion detection, adversarial vulnerabilities (evasion and poisoning attacks), and defensive strategies including adversarial training and explainable AI. References 19 academic sources.</p>`,
+    technologies: ["Machine Learning", "NIDS", "Adversarial ML", "Explainable AI", "Cybersecurity"],
+    github: null,
+    reportPDF: "assets/Proffesional.pdf"
+  },
+  {
+    id: "blockchain-evoting",
+    title: "Blockchain + AI for Secure E-Voting",
+    category: "Academic",
+    image: null,
+    shortDesc: "Hybrid framework combining blockchain integrity with AI behavioural analysis.",
+    fullDesc: `<p>A hybrid framework for secure e-voting simulation using blockchain (immutable ledger, smart contracts) and AI-driven behavioural analysis (anomaly detection for vote manipulation).</p>`,
+    technologies: ["Blockchain", "AI/ML", "Smart Contracts", "Anomaly Detection", "Cryptography"],
+    github: "https://github.com/John-W-Callaghan/NetworksCW",
+    reportPDF: "assets/Networks and IOT.pdf"
+  }
+];
 
-            if (entries.length === 0) {
-                return;
-            }
+// ========== AUTO-GENERATE PLACEHOLDER IMAGES ==========
+function generatePlaceholder(project) {
+  const categoryColors = {
+    "AI & ML": { gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", icon: "🤖", label: "AI/ML" },
+    "Web & Security": { gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)", icon: "🔒", label: "Security" },
+    "Data Analysis": { gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)", icon: "📊", label: "Data" },
+    "Python": { gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)", icon: "🐍", label: "Python" },
+    "Academic": { gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)", icon: "📄", label: "Research" },
+    "Hackathon": { gradient: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)", icon: "🏆", label: "Hackathon" }
+  };
+  
+  const config = categoryColors[project.category] || categoryColors["Academic"];
+  
+  return `data:image/svg+xml,${encodeURIComponent(`
+    <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:${config.gradient.split(',')[0].split('(')[1]}" />
+          <stop offset="100%" style="stop-color:${config.gradient.split(',')[1].split(')')[0]}" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="200" fill="url(#grad)" rx="12" ry="12"/>
+      <text x="200" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" fill="white" opacity="0.9">${config.icon}</text>
+      <text x="200" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.85" font-weight="bold">${config.label}</text>
+      <text x="200" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.6">${escapeHtmlForSvg(project.title).substring(0, 35)}${project.title.length > 35 ? '...' : ''}</text>
+    </svg>
+  `)}`;
+}
 
-            entries.sort(function (a, b) {
-                const fa = a[1].featured ? 1 : 0;
-                const fb = b[1].featured ? 1 : 0;
-                if (fb !== fa) {
-                    return fb - fa;
-                }
-                return a[1].title.localeCompare(b[1].title);
-            });
+function escapeHtmlForSvg(str) {
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  });
+}
 
-            const item = document.createElement('div');
-            item.className = 'accordion-item';
+function getProjectImage(project) {
+  if (project.image) {
+    return project.image;
+  }
+  return generatePlaceholder(project);
+}
 
-            const header = document.createElement('button');
-            header.type = 'button';
-            header.className = 'accordion-header';
-            header.innerHTML = category +
-                ' <span class="count-badge">' + entries.length + '</span>' +
-                ' <span class="accordion-icon">▾</span>';
+// ---------- RENDERING LOGIC ----------
+let currentFilter = "all";
+let currentSearch = "";
 
-            const content = document.createElement('div');
-            content.className = 'accordion-content';
+const gridContainer = document.getElementById("projectsGrid");
+const searchInput = document.getElementById("searchBar");
+const filterChips = document.querySelectorAll(".filter-chip");
+const modal = document.getElementById("projectModal");
+const modalClose = document.querySelector(".modal-close-button");
+const modalTitle = document.getElementById("modalTitle");
+const modalImage = document.getElementById("modalImage");
+const modalDescription = document.getElementById("modalDescription");
+const modalTech = document.getElementById("modalTech");
+const modalGithub = document.getElementById("modalGithubLink");
+const modalReport = document.getElementById("modalReportLink");
 
-            const grid = document.createElement('div');
-            grid.className = 'project-card-grid';
+function renderProjects() {
+  const filtered = PROJECTS_DATA.filter(proj => {
+    const matchCategory = currentFilter === "all" || proj.category === currentFilter;
+    const term = currentSearch.trim().toLowerCase();
+    const matchSearch = term === "" ||
+      proj.title.toLowerCase().includes(term) ||
+      proj.shortDesc.toLowerCase().includes(term) ||
+      proj.technologies.some(t => t.toLowerCase().includes(term));
+    return matchCategory && matchSearch;
+  });
 
-            entries.forEach(function (entry) {
-                const id = entry[0];
-                const data = entry[1];
+  if (filtered.length === 0) {
+    gridContainer.innerHTML = `<div class="no-results">✨ No projects match. Try another filter or keyword.</div>`;
+    return;
+  }
 
-                const card = document.createElement('div');
-                card.className = 'project-card';
+  gridContainer.innerHTML = filtered.map(proj => `
+    <div class="project-card" data-id="${proj.id}">
+      <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy" onerror="this.src='${generatePlaceholder(proj)}'">
+      <div class="card-body">
+        <div class="card-category">${proj.category}</div>
+        <h3 class="card-title">${escapeHtml(proj.title)}</h3>
+        <p class="card-desc">${escapeHtml(proj.shortDesc)}</p>
+        <div class="card-tech">
+          ${proj.technologies.slice(0, 4).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
+          ${proj.technologies.length > 4 ? `<span class="tech-tag">+${proj.technologies.length - 4}</span>` : ''}
+        </div>
+        <div class="card-buttons">
+          <button class="card-btn card-btn-primary" data-detail="${proj.id}">Details</button>
+          ${proj.github ? `<a href="${proj.github}" target="_blank" class="card-btn card-btn-outline">GitHub</a>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
 
-                let mediaEl;
-                if (data.image === 'assets/codecamp.png') {
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'project-card-placeholder';
-                    placeholder.setAttribute('role', 'img');
-                    placeholder.setAttribute('aria-label', data.title);
-
-                    const emoji = document.createElement('span');
-                    emoji.className = 'project-card-placeholder-emoji';
-                    emoji.setAttribute('aria-hidden', 'true');
-                    emoji.textContent = getCategoryEmoji(data.category);
-
-                    const titleSpan = document.createElement('span');
-                    titleSpan.className = 'project-card-placeholder-title';
-                    titleSpan.textContent = data.title;
-
-                    placeholder.appendChild(emoji);
-                    placeholder.appendChild(titleSpan);
-                    mediaEl = placeholder;
-                } else {
-                    const img = document.createElement('img');
-                    img.src = data.image;
-                    img.alt = data.title;
-                    mediaEl = img;
-                }
-
-                const h3 = document.createElement('h3');
-                h3.textContent = data.title;
-
-                const p = document.createElement('p');
-                p.textContent = htmlToPlainSummary(data.description, 280);
-
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'btn';
-                btn.setAttribute('data-project-id', id);
-                btn.textContent = 'View Details →';
-
-                card.appendChild(mediaEl);
-                card.appendChild(h3);
-                card.appendChild(p);
-                card.appendChild(btn);
-                grid.appendChild(card);
-            });
-
-            content.appendChild(grid);
-            item.appendChild(header);
-            item.appendChild(content);
-            container.appendChild(item);
-        });
-    }
-
-    buildAccordion();
-
-    // --- Modal Functionality ---
-    const modal = document.getElementById('projectModal');
-    const modalCloseButton = document.querySelector('.modal-close-button');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalImage = document.getElementById('modalImage');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalTech = document.getElementById('modalTech');
-    const modalGithubLink = document.getElementById('modalGithubLink');
-    const modalReportLink = document.getElementById('modalReportLink');
-
-    function openModal(projectId) {
-        const data = projectData[projectId];
-        if (!data) {
-            console.error('Project data not found for ID:', projectId);
-            return;
-        }
-
-        modalTitle.textContent = data.title;
-        modalImage.src = data.image;
-        modalDescription.innerHTML = data.description;
-
-        const hasGithub = !!data.github;
-        const hasReport = !!data.reportPDF;
-
-        modalGithubLink.className = 'btn modal-link-btn';
-        modalReportLink.className = 'btn modal-link-btn btn-outline';
-
-        if (hasGithub && hasReport) {
-            modalGithubLink.href = data.github;
-            modalGithubLink.textContent = 'View on GitHub →';
-            modalGithubLink.style.display = 'inline-flex';
-            modalReportLink.href = data.reportPDF;
-            modalReportLink.textContent = 'View Report →';
-            modalReportLink.style.display = 'inline-flex';
-        } else if (hasGithub) {
-            modalGithubLink.href = data.github;
-            modalGithubLink.textContent = 'View on GitHub →';
-            modalGithubLink.style.display = 'inline-flex';
-            modalReportLink.style.display = 'none';
-        } else if (hasReport) {
-            modalGithubLink.style.display = 'none';
-            modalReportLink.href = data.reportPDF;
-            modalReportLink.textContent = 'View Report →';
-            modalReportLink.className = 'btn modal-link-btn';
-            modalReportLink.style.display = 'inline-flex';
-        } else {
-            modalGithubLink.style.display = 'none';
-            modalReportLink.style.display = 'none';
-        }
-
-        modalTech.innerHTML = '';
-        if (data.technologies && data.technologies.length > 0) {
-            data.technologies.forEach(function (tech) {
-                const techTag = document.createElement('span');
-                techTag.textContent = tech;
-                modalTech.appendChild(techTag);
-            });
-        }
-        modal.style.display = 'block';
-    }
-
-    function closeModal() {
-        modal.style.display = 'none';
-    }
-
-    document.querySelectorAll('.project-card .btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            const projectId = button.getAttribute('data-project-id');
-            openModal(projectId);
-        });
+  document.querySelectorAll('[data-detail]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = btn.getAttribute('data-detail');
+      const project = PROJECTS_DATA.find(p => p.id === id);
+      if (project) openModal(project);
     });
+  });
+}
 
-    if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
+function escapeHtml(str) {
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  });
+}
 
-    window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    });
+function openModal(project) {
+  modalTitle.innerText = project.title;
+  modalImage.src = getProjectImage(project);
+  modalDescription.innerHTML = project.fullDesc || `<p>${project.shortDesc}</p>`;
+  modalTech.innerHTML = project.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('');
+  
+  if (project.github) {
+    modalGithub.href = project.github;
+    modalGithub.style.display = "inline-flex";
+  } else {
+    modalGithub.style.display = "none";
+  }
+  if (project.reportPDF) {
+    modalReport.href = project.reportPDF;
+    modalReport.style.display = "inline-flex";
+  } else {
+    modalReport.style.display = "none";
+  }
+  modal.style.display = "block";
+}
 
-    // --- Accordion Functionality ---
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    accordionHeaders.forEach(function (header) {
-        header.addEventListener('click', function () {
-            header.classList.toggle('active');
-            const accordionContent = header.nextElementSibling;
-            if (accordionContent.style.maxHeight) {
-                accordionContent.style.maxHeight = null;
-            } else {
-                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-            }
-        });
-    });
+function closeModal() {
+  modal.style.display = "none";
+}
 
-    const firstAccordionHeader = document.querySelector('#projectAccordion .accordion-header');
-    if (firstAccordionHeader) {
-        firstAccordionHeader.click();
-    }
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    currentSearch = e.target.value;
+    renderProjects();
+  });
+}
 
-    // --- Mobile Nav Hamburger ---
-    const hamburger = document.getElementById('hamburger');
-    const mainNavLinks = document.getElementById('mainNavLinks');
-    if (hamburger && mainNavLinks) {
-        hamburger.addEventListener('click', function () {
-            mainNavLinks.classList.toggle('open');
-        });
-    }
+filterChips.forEach(chip => {
+  chip.addEventListener("click", () => {
+    filterChips.forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    currentFilter = chip.getAttribute("data-cat");
+    renderProjects();
+  });
 });
 
-// --- Search Filter Function ---
-function filterProjects() {
-    const raw = document.getElementById('searchBar').value;
-    const searchInput = raw.trim().toLowerCase();
-    const accordionItems = document.querySelectorAll('#projectAccordion .accordion-item');
+if (modalClose) modalClose.addEventListener("click", closeModal);
+window.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
 
-    if (searchInput === '') {
-        accordionItems.forEach(function (item) {
-            item.style.display = 'block';
-            item.querySelectorAll('.project-card').forEach(function (project) {
-                project.style.display = 'flex';
-            });
-            const header = item.querySelector('.accordion-header');
-            const content = item.querySelector('.accordion-content');
-            if (header && content) {
-                header.classList.remove('active');
-                content.style.maxHeight = null;
-            }
-        });
-        const firstHeader = document.querySelector('#projectAccordion .accordion-header');
-        if (firstHeader) {
-            firstHeader.click();
-        }
-        return;
-    }
-
-    accordionItems.forEach(function (item) {
-        const projects = item.querySelectorAll('.project-card');
-        let hasVisibleProject = false;
-
-        projects.forEach(function (project) {
-            const titleEl = project.querySelector('h3');
-            const descEl = project.querySelector('p');
-            const title = titleEl ? titleEl.innerText.toLowerCase() : '';
-            const desc = descEl ? descEl.innerText.toLowerCase() : '';
-            if (title.includes(searchInput) || desc.includes(searchInput)) {
-                project.style.display = 'flex';
-                hasVisibleProject = true;
-            } else {
-                project.style.display = 'none';
-            }
-        });
-
-        const header = item.querySelector('.accordion-header');
-        const content = item.querySelector('.accordion-content');
-
-        if (hasVisibleProject) {
-            item.style.display = 'block';
-            if (header && content) {
-                header.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px';
-            }
-        } else {
-            if (header && content) {
-                header.classList.remove('active');
-                content.style.maxHeight = null;
-            }
-            item.style.display = 'none';
-        }
-    });
+const hamburger = document.getElementById('hamburger');
+const mainNavLinks = document.getElementById('mainNavLinks');
+if (hamburger && mainNavLinks) {
+  hamburger.addEventListener('click', () => mainNavLinks.classList.toggle('open'));
 }
+
+renderProjects();
