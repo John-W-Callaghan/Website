@@ -123,6 +123,22 @@
             style="border:none; width:100%; max-width:400px; height:120px;"
             loading="lazy">
           </iframe>
+
+          <details class="cert-drawer">
+            <summary class="cert-drawer-trigger">
+              <span class="cert-drawer-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              </span>
+              <div class="cert-drawer-info">
+                <span class="cert-drawer-name">CyberHack 2026 Certificate</span>
+                <span class="cert-drawer-meta">// CSE Connect Hackathon &middot; CVE-to-My-Stack Translator</span>
+              </div>
+              <svg class="cert-drawer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </summary>
+            <div class="cert-drawer-panel">
+              <img src="assets/HACKATHONCERT.png" alt="CyberHack 2026 — CSE Connect Hackathon Certificate" loading="lazy">
+            </div>
+          </details>
         </div>
 
         <a href="projects.html" class="btn btn-ghost">Browse all projects</a>
@@ -336,7 +352,7 @@
 
           <!-- Slide 1: OCR -->
           <div class="carousel-card">
-            <img src="assets/OCRODIA.png" alt="Deep learning OCR for Odia script" loading="lazy">
+            <img id="feat-0" alt="Deep learning OCR for Odia script">
             <div class="carousel-card-body">
               <h3>Deep learning for OCR</h3>
               <p>CNN + transfer learning for low-resource Odia script. Custom augmentation pipeline &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">84% test accuracy</strong>.</p>
@@ -346,7 +362,7 @@
 
           <!-- Slide 2: Train Chatbot -->
           <div class="carousel-card">
-            <img src="assets/train.png" alt="Intelligent train chatbot" loading="lazy">
+            <img id="feat-1" alt="Intelligent train chatbot">
             <div class="carousel-card-body">
               <h3>Intelligent train chatbot</h3>
               <p>Conversational AI for ticket discovery &amp; delay prediction &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Random Forest MAE: 0.34 min</strong>.</p>
@@ -356,7 +372,7 @@
 
           <!-- Slide 3: Secure Blog -->
           <div class="carousel-card">
-            <img src="assets/securewebbased.png" alt="Secure web blog" loading="lazy">
+            <img id="feat-2" alt="Secure web blog">
             <div class="carousel-card-body">
               <h3>Secure web-based blog</h3>
               <p>Node.js + PostgreSQL with defence against SQLi, XSS, CSRF, session hijacking, and account enumeration.</p>
@@ -516,6 +532,13 @@
 
     document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
 
+    /* Fallback: ensure nothing stays invisible if observer misfires */
+    setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.in-view)').forEach(el => {
+        el.classList.add('in-view');
+      });
+    }, 1500);
+
     /* ─── Timeline animate-in ─────────────────────────────── */
     const timelineObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
@@ -529,6 +552,65 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.contact-item').forEach(el => contactObs.observe(el));
+
+    /* Fallback: ensure timeline/contact items are never stuck invisible */
+    setTimeout(() => {
+      document.querySelectorAll('.timeline-item:not(.animate), .contact-item:not(.animate)')
+        .forEach(el => el.classList.add('animate'));
+    }, 1500);
+
+    /* ─── SVG placeholder generator (mirrors projects.js) ── */
+    function escapeForSvg(str) {
+      return str.replace(/[&<>"]/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[m]));
+    }
+    function featPlaceholder(project) {
+      const cats = {
+        'AI & ML':        { label: '// ai &amp; machine learning', shape: 'nodes'    },
+        'Web & Security': { label: '// web &amp; security',        shape: 'shield'   },
+        'Data Analysis':  { label: '// data analysis',             shape: 'bars'     },
+        'Python':         { label: '// python',                    shape: 'brackets' },
+        'Academic':       { label: '// academic research',         shape: 'lines'    },
+        'Hackathon':      { label: '// hackathon',                 shape: 'star'     }
+      };
+      const cat = cats[project.category] || cats['Academic'];
+      const bp = project.title.lastIndexOf(' ', 30);
+      const t  = escapeForSvg(project.title.length > 30 ? project.title.slice(0, bp > 0 ? bp : 30) + '…' : project.title);
+      const tags = project.technologies.slice(0, 3);
+      let tx = 50;
+      const tagEls = tags.map(tag => {
+        const w = Math.max(50, Math.round(tag.length * 7 + 18));
+        const el = `<rect x="${tx}" y="268" width="${w}" height="20" rx="3" fill="#0D1520" stroke="#1B2C42" stroke-width="1"/>`
+                 + `<text x="${tx + w/2}" y="282" font-family="Courier New,monospace" font-size="10" fill="#4B6680" text-anchor="middle">${escapeForSvg(tag)}</text>`;
+        tx += w + 8; return el;
+      }).join('');
+      const shapes = {
+        nodes:    `<g fill="none" stroke="#1B2C42" stroke-width="2"><circle cx="575" cy="150" r="18"/><circle cx="638" cy="100" r="13"/><circle cx="638" cy="200" r="13"/><circle cx="700" cy="72" r="10"/><circle cx="700" cy="150" r="10"/><circle cx="700" cy="228" r="10"/><line x1="592" y1="143" x2="626" y2="109"/><line x1="592" y1="157" x2="626" y2="191"/><line x1="650" y1="95" x2="691" y2="79"/><line x1="650" y1="105" x2="691" y2="144"/><line x1="650" y1="195" x2="691" y2="156"/><line x1="650" y1="205" x2="691" y2="222"/></g>`,
+        shield:   `<g fill="none" stroke="#1B2C42" stroke-width="2"><path d="M650 82 L698 100 L698 155 C698 178 650 198 650 198 C650 198 602 178 602 155 L602 100 Z"/><path d="M634 148 L647 162 L668 130" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>`,
+        bars:     `<g fill="#111E32" stroke="#1B2C42" stroke-width="1.5"><rect x="560" y="172" width="24" height="78" rx="2"/><rect x="594" y="132" width="24" height="118" rx="2"/><rect x="628" y="105" width="24" height="145" rx="2"/><rect x="662" y="140" width="24" height="110" rx="2"/><rect x="696" y="118" width="24" height="132" rx="2"/></g>`,
+        brackets: `<text x="572" y="236" font-family="Courier New,monospace" font-size="112" fill="#14223A" font-weight="700">{}</text>`,
+        lines:    `<g fill="#172334"><rect x="560" y="92" width="175" height="11" rx="2"/><rect x="560" y="115" width="148" height="11" rx="2"/><rect x="560" y="138" width="162" height="11" rx="2"/><rect x="560" y="161" width="130" height="11" rx="2"/><rect x="560" y="184" width="155" height="11" rx="2"/><rect x="560" y="207" width="115" height="11" rx="2"/><rect x="560" y="230" width="142" height="11" rx="2"/></g>`,
+        star:     `<polygon points="650,82 663,125 710,125 674,152 687,195 650,168 613,195 626,152 590,125 637,125" fill="none" stroke="#1B2C42" stroke-width="2" stroke-linejoin="round"/>`
+      };
+      const svg = `<svg width="800" height="440" viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">`
+        + `<defs><pattern id="dp" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1" fill="#1B2C42" opacity="0.5"/></pattern></defs>`
+        + `<rect width="800" height="440" fill="#0D1520"/><rect width="800" height="440" fill="url(#dp)"/>`
+        + `<rect x="0" y="0" width="4" height="440" fill="#C49A3C"/>`
+        + (shapes[cat.shape] || shapes.lines)
+        + `<text x="50" y="172" font-family="Courier New,monospace" font-size="11" fill="#C49A3C" letter-spacing="2">${cat.label}</text>`
+        + `<text x="50" y="218" font-family="system-ui,-apple-system,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">${t}</text>`
+        + tagEls + `</svg>`;
+      return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+
+    /* ─── Inject featured project images ─────────────────── */
+    [
+      { title: 'Deep Learning for OCR',       category: 'AI & ML',        technologies: ['Python', 'TensorFlow', 'Keras']         },
+      { title: 'Intelligent Train Chatbot',   category: 'AI & ML',        technologies: ['Python', 'Scikit-learn', 'spaCy']       },
+      { title: 'Secure Web-Based Blog',       category: 'Web & Security', technologies: ['Node.js', 'PostgreSQL', 'JavaScript']   }
+    ].forEach((p, i) => {
+      const el = document.getElementById('feat-' + i);
+      if (el) el.src = featPlaceholder(p);
+    });
 
     /* ─── Carousel ────────────────────────────────────────── */
     (function () {

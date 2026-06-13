@@ -278,31 +278,82 @@ const PROJECTS_DATA = [
 
 // ========== AUTO-GENERATE PLACEHOLDER IMAGES ==========
 function generatePlaceholder(project) {
-  const categoryColors = {
-    "AI & ML": { gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", icon: "🤖", label: "AI/ML" },
-    "Web & Security": { gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)", icon: "🔒", label: "Security" },
-    "Data Analysis": { gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)", icon: "📊", label: "Data" },
-    "Python": { gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)", icon: "🐍", label: "Python" },
-    "Academic": { gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)", icon: "📄", label: "Research" },
-    "Hackathon": { gradient: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)", icon: "🏆", label: "Hackathon" }
+  const catConfig = {
+    "AI & ML":        { label: "// ai & machine learning", shape: "nodes"    },
+    "Web & Security": { label: "// web & security",        shape: "shield"   },
+    "Data Analysis":  { label: "// data analysis",         shape: "bars"     },
+    "Python":         { label: "// python",                shape: "brackets" },
+    "Academic":       { label: "// academic research",     shape: "lines"    },
+    "Hackathon":      { label: "// hackathon",             shape: "star"     }
   };
-  
-  const config = categoryColors[project.category] || categoryColors["Academic"];
-  
-  return `data:image/svg+xml,${encodeURIComponent(`
-    <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:${config.gradient.split(',')[0].split('(')[1]}" />
-          <stop offset="100%" style="stop-color:${config.gradient.split(',')[1].split(')')[0]}" />
-        </linearGradient>
-      </defs>
-      <rect width="400" height="200" fill="url(#grad)" rx="12" ry="12"/>
-      <text x="200" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" fill="white" opacity="0.9">${config.icon}</text>
-      <text x="200" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.85" font-weight="bold">${config.label}</text>
-      <text x="200" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.6">${escapeHtmlForSvg(project.title).substring(0, 35)}${project.title.length > 35 ? '...' : ''}</text>
-    </svg>
-  `)}`;
+
+  const cat = catConfig[project.category] || catConfig["Academic"];
+
+  const breakPoint = project.title.lastIndexOf(' ', 30);
+  const titleRaw = project.title.length > 30
+    ? project.title.slice(0, breakPoint > 0 ? breakPoint : 30) + '…'
+    : project.title;
+  const titleSvg = escapeHtmlForSvg(titleRaw);
+
+  const tags = project.technologies.slice(0, 3);
+  let tagX = 50;
+  const tagEls = tags.map(tag => {
+    const w = Math.max(50, Math.round(escapeHtmlForSvg(tag).length * 7 + 18));
+    const el = `<rect x="${tagX}" y="268" width="${w}" height="20" rx="3" fill="#0D1520" stroke="#1B2C42" stroke-width="1"/>`
+             + `<text x="${tagX + w / 2}" y="282" font-family="Courier New,monospace" font-size="10" fill="#4B6680" text-anchor="middle">${escapeHtmlForSvg(tag)}</text>`;
+    tagX += w + 8;
+    return el;
+  }).join('');
+
+  const shapes = {
+    nodes:    `<g fill="none" stroke="#1B2C42" stroke-width="2">`
+            + `<circle cx="575" cy="150" r="18"/><circle cx="638" cy="100" r="13"/><circle cx="638" cy="200" r="13"/>`
+            + `<circle cx="700" cy="72" r="10"/><circle cx="700" cy="150" r="10"/><circle cx="700" cy="228" r="10"/>`
+            + `<line x1="592" y1="143" x2="626" y2="109"/><line x1="592" y1="157" x2="626" y2="191"/>`
+            + `<line x1="650" y1="95" x2="691" y2="79"/><line x1="650" y1="105" x2="691" y2="144"/>`
+            + `<line x1="650" y1="195" x2="691" y2="156"/><line x1="650" y1="205" x2="691" y2="222"/></g>`,
+
+    shield:   `<g fill="none" stroke="#1B2C42" stroke-width="2">`
+            + `<path d="M650 82 L698 100 L698 155 C698 178 650 198 650 198 C650 198 602 178 602 155 L602 100 Z"/>`
+            + `<path d="M634 148 L647 162 L668 130" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>`,
+
+    bars:     `<g fill="#111E32" stroke="#1B2C42" stroke-width="1.5">`
+            + `<rect x="560" y="172" width="24" height="78" rx="2"/>`
+            + `<rect x="594" y="132" width="24" height="118" rx="2"/>`
+            + `<rect x="628" y="105" width="24" height="145" rx="2"/>`
+            + `<rect x="662" y="140" width="24" height="110" rx="2"/>`
+            + `<rect x="696" y="118" width="24" height="132" rx="2"/></g>`,
+
+    brackets: `<text x="572" y="236" font-family="Courier New,monospace" font-size="112" fill="#14223A" font-weight="700">{}</text>`,
+
+    lines:    `<g fill="#172334">`
+            + `<rect x="560" y="92"  width="175" height="11" rx="2"/>`
+            + `<rect x="560" y="115" width="148" height="11" rx="2"/>`
+            + `<rect x="560" y="138" width="162" height="11" rx="2"/>`
+            + `<rect x="560" y="161" width="130" height="11" rx="2"/>`
+            + `<rect x="560" y="184" width="155" height="11" rx="2"/>`
+            + `<rect x="560" y="207" width="115" height="11" rx="2"/>`
+            + `<rect x="560" y="230" width="142" height="11" rx="2"/></g>`,
+
+    star:     `<polygon points="650,82 663,125 710,125 674,152 687,195 650,168 613,195 626,152 590,125 637,125" `
+            + `fill="none" stroke="#1B2C42" stroke-width="2" stroke-linejoin="round"/>`
+  };
+
+  const shape = shapes[cat.shape] || shapes.lines;
+
+  const svg = `<svg width="800" height="440" viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">`
+    + `<defs><pattern id="dp" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">`
+    + `<circle cx="12" cy="12" r="1" fill="#1B2C42" opacity="0.5"/></pattern></defs>`
+    + `<rect width="800" height="440" fill="#0D1520"/>`
+    + `<rect width="800" height="440" fill="url(#dp)"/>`
+    + `<rect x="0" y="0" width="4" height="440" fill="#C49A3C"/>`
+    + shape
+    + `<text x="50" y="172" font-family="Courier New,monospace" font-size="11" fill="#C49A3C" letter-spacing="2">${escapeHtmlForSvg(cat.label)}</text>`
+    + `<text x="50" y="218" font-family="system-ui,-apple-system,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">${titleSvg}</text>`
+    + tagEls
+    + `</svg>`;
+
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
 function escapeHtmlForSvg(str) {
@@ -315,9 +366,6 @@ function escapeHtmlForSvg(str) {
 }
 
 function getProjectImage(project) {
-  if (project.image) {
-    return project.image;
-  }
   return generatePlaceholder(project);
 }
 
@@ -355,7 +403,7 @@ function renderProjects() {
 
   gridContainer.innerHTML = filtered.map(proj => `
     <div class="project-card" data-id="${proj.id}">
-      <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy" onerror="this.src='${generatePlaceholder(proj)}'">
+      <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy">
       <div class="card-body">
         <div class="card-category">${proj.category}</div>
         <h3 class="card-title">${escapeHtml(proj.title)}</h3>
