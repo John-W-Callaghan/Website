@@ -163,9 +163,28 @@ body {
   padding: calc(var(--pad-v) + 4.5rem) var(--pad-h) var(--pad-v);
   max-width: var(--max-w);
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-text { max-width: 520px; }
+/* Ambient amber glow — subtle depth behind terminal */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -8%;
+  right: -8%;
+  width: 58vw;
+  height: 58vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle at center, rgba(196, 154, 60, 0.065) 0%, transparent 62%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: ambientPulse 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-text { max-width: 520px; position: relative; z-index: 1; }
 
 .hero-eyebrow {
   display: block;
@@ -186,9 +205,24 @@ body {
   line-height: 1.05;
   color: #fff;
   margin-bottom: 1rem;
-  opacity: 0;
-  animation: fadeUp 0.45s var(--ease) 0.2s forwards;
 }
+
+/* Word-by-word reveal — text clips up from below */
+.name-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+}
+
+.name-reveal > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: nameReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.name-reveal:first-of-type > span { animation-delay: 0.18s; }
+.name-reveal:last-of-type  > span { animation-delay: 0.36s; }
 
 .hero-position {
   font-size: clamp(0.9rem, 1.7vw, 1rem);
@@ -223,8 +257,8 @@ body {
   width: 6px; height: 6px;
   border-radius: 50%;
   background: #4ade80;
-  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12);
   flex-shrink: 0;
+  animation: statusPulse 2.5s ease-in-out 1.2s infinite;
 }
 
 
@@ -237,8 +271,10 @@ body {
   border-radius: var(--r-lg);
   overflow: hidden;
   font-family: var(--font-mono);
+  position: relative;
+  z-index: 1;
   opacity: 0;
-  animation: fadeUp 0.55s var(--ease) 0.6s forwards;
+  animation: slideRight 0.68s var(--ease) 0.55s forwards;
 }
 
 .terminal-chrome {
@@ -409,10 +445,23 @@ body {
   color: #fff;
   text-align: center;
   margin-bottom: 0.5rem;
+  position: relative;
 }
 
-/* The in-view rule is now a no-op (kept for JS compat, no visible animation) */
-.section-title.in-view::after { width: 0; }
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+  border-radius: 1px;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.section-title.in-view::after { width: 52px; }
 
 .section-subtitle {
   font-size: 0.9rem;
@@ -466,6 +515,12 @@ body {
   object-fit: cover;
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-image img:hover {
+  border-color: rgba(196, 154, 60, 0.3);
+  box-shadow: 0 0 48px rgba(196, 154, 60, 0.07);
 }
 
 .about-text p {
@@ -524,6 +579,90 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 0.75rem;
+}
+
+/* ── Credly badge grid ────────────────────────────────────── */
+.badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.9rem 0 0.75rem;
+}
+
+.badge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.32rem;
+  padding: 0.95rem 0.85rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  color: inherit;
+  min-width: 128px;
+  max-width: 155px;
+  transition: border-color var(--dur), transform 0.25s var(--ease), box-shadow 0.25s ease;
+}
+
+.badge-card:hover {
+  border-color: rgba(196, 154, 60, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.badge-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.badge-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.badge-name {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.badge-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.025em;
+}
+
+.badge-date {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--muted);
+}
+
+.badge-verified {
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-top: 0.05rem;
+  opacity: 0.7;
+}
+
+.badge-verified::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0090ff;
+  flex-shrink: 0;
 }
 
 /* ── Certificate drawer ───────────────────────────────────── */
@@ -695,8 +834,8 @@ body {
   position: relative;
   padding: 0 0 2.25rem 2rem;
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  transform: translateX(-16px);
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
 }
 
 .timeline-item.animate {
@@ -793,10 +932,14 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
-  transition: border-color var(--dur);
+  transition: border-color var(--dur), transform 0.28s var(--ease), box-shadow 0.28s ease;
 }
 
-.skill-group:hover { border-color: rgba(196, 154, 60, 0.28); }
+.skill-group:hover {
+  border-color: rgba(196, 154, 60, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
 
 .skill-group-label {
   display: block;
@@ -823,6 +966,14 @@ body {
   border-radius: var(--r-sm);
   white-space: nowrap;
   line-height: 1.5;
+  opacity: 0;
+  transform: translateY(5px) scale(0.92);
+  transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-tags span.tag-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* Developing tier */
@@ -878,6 +1029,7 @@ body {
 .carousel-slide {
   display: flex;
   transition: transform 0.5s var(--ease);
+  will-change: transform;
 }
 
 .carousel-card {
@@ -1158,6 +1310,26 @@ body {
   to   { opacity: 1; transform: none; }
 }
 
+@keyframes nameReveal {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(34px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes ambientPulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.09); opacity: 0.62; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12); }
+  50%       { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0.05); }
+}
+
 
 /* 18 — RESPONSIVE
    ---------------------------------------------------------- */
@@ -1298,6 +1470,19 @@ body {
     opacity: 1;
     animation: none;
   }
+
+  /* Name reveal — show immediately */
+  .name-reveal > span { transform: none; animation: none; }
+
+  /* Skill tags — visible without stagger */
+  .skill-tags span { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+  /* Ambient glow and status pulse — static */
+  .hero-section::before { animation: none; }
+  .status-dot { animation: none; box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12); }
+
+  /* Section title underline — instant */
+  .section-title::after { transition: none; }
 
   /* Reveal items visible immediately */
   [data-reveal] { opacity: 1; transform: none; }

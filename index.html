@@ -6,13 +6,13 @@
 
   <!-- Primary meta -->
   <title>John Callaghan — Cyber Security &amp; AI</title>
-  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA. 20+ projects across AI, security, and software engineering. Open to summer internships and placements." />
+  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA specialising in defensive engineering, secure software development, and threat analysis. Open to placements 2026." />
   <meta name="author" content="John Callaghan" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="John Callaghan — Cyber Security &amp; AI" />
-  <meta property="og:description" content="MSc Cyber Security @ UEA. Deep learning, secure web apps, network security, CVE tooling. Open to placements." />
+  <meta property="og:description" content="MSc Cyber Security @ UEA. Defensive engineering, OWASP hardening, network security, CVE tooling. Open to placements 2026." />
   <meta property="og:image"       content="assets/profile.png" />
 
   <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) -->
@@ -45,12 +45,15 @@
   <section id="home" class="hero-section">
 
     <div class="hero-text">
-      <span class="hero-eyebrow">// security engineer in training</span>
+      <span class="hero-eyebrow">// cyber security engineer &amp; developer</span>
 
-      <h1>John<br>Callaghan</h1>
+      <h1>
+        <span class="name-reveal"><span>John</span></span><br>
+        <span class="name-reveal"><span>Callaghan</span></span>
+      </h1>
 
       <p class="hero-position">
-        MSc Cyber Security @ UEA &mdash; AI, security, software
+        MSc Cyber Security @ UEA &mdash; defensive engineering &amp; secure software
       </p>
 
       <div class="hero-buttons">
@@ -67,7 +70,7 @@
     <!-- Terminal signature element -->
     <div class="hero-terminal"
          role="img"
-         aria-label="Terminal showing: MSc Cyber Security, AI and security focus, open to placements 2026">
+         aria-label="Terminal showing: Cyber Security Engineer, defensive engineering and secure software, open to placements 2026">
       <div class="terminal-chrome" aria-hidden="true">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
@@ -98,31 +101,50 @@
 
       <div class="about-text" data-reveal="right">
         <p>
-          I'm a recent BSc Computing Sciences graduate from the University of East Anglia, now
-          pursuing an MSc in Cyber Security. I'm passionate about ethical hacking and defensive
-          engineering, and I'm continuously building on my foundation in Python, C++, and secure
-          system design.
+          I'm a Cyber Security MSc student at UEA with 8+ years of programming experience. My
+          focus is defensive engineering — building systems that are as secure as they are
+          functional, grounded in a strong foundation across Python, networking, and web
+          technologies.
         </p>
         <p>
-          I build things that work — from deep learning OCR systems to secure full-stack apps and
-          CVE-triage tooling. Currently deepening my specialism in cyber security while staying
-          active across AI and software engineering.
+          I've shipped a CVE-triage tool that won CyberHack 2026, a Node.js web app hardened
+          against the OWASP Top 10, and a Cisco network lab modelling IPSec VPNs and ACLs —
+          alongside AI and data science projects that show the coding depth behind the security
+          work.
         </p>
 
         <div class="about-stats">
-          <div><strong>4th</strong><span>Year Studying</span></div>
-          <div><strong>20+</strong><span>Projects</span></div>
-          <div><strong>8+</strong><span>Years Coding</span></div>
+          <div><strong data-count="4" data-suffix="th">4th</strong><span>Year Studying</span></div>
+          <div><strong data-count="20" data-suffix="+">20+</strong><span>Projects</span></div>
+          <div><strong data-count="8" data-suffix="+">8+</strong><span>Years Coding</span></div>
         </div>
 
         <div class="thm-badge-container">
           <h4>Cybersecurity Credentials</h4>
           <iframe
-            src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942"
+            data-src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942"
             title="TryHackMe badge"
-            style="border:none; width:100%; max-width:400px; height:120px;"
-            loading="lazy">
+            style="border:none; width:100%; max-width:400px; height:120px;">
           </iframe>
+
+          <!-- Credly badges -->
+          <div class="badge-grid" aria-label="Credly certifications">
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/c077f312-b099-4e1c-8fa0-bd9b9858cf6a"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Introduction to Cybersecurity — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png"
+                   alt="Introduction to Cybersecurity badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Intro to Cybersecurity</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+          </div>
 
           <details class="cert-drawer">
             <summary class="cert-drawer-trigger">
@@ -219,7 +241,7 @@
     <span class="section-eyebrow">03 — Skills</span>
     <h2 class="section-title" data-reveal="fade">Skills</h2>
     <p class="section-subtitle">
-      What I've actually built, and what I'm building towards.
+      Core skills evidenced by shipped security projects — and what I'm studying in the MSc.
     </p>
 
     <!-- Core tier -->
@@ -227,6 +249,35 @@
       <span class="skills-tier-label">// core &mdash; evidenced by shipped projects</span>
 
       <div class="skills-grid">
+
+        <div class="skill-group">
+          <span class="skill-group-label">// cyber security</span>
+          <div class="skill-tags">
+            <span>OWASP Top 10</span>
+            <span>SQLi defence</span>
+            <span>XSS / CSRF mitigation</span>
+            <span>Session hardening</span>
+            <span>Account enumeration</span>
+            <span>CVE triage</span>
+            <span>EPSS scoring</span>
+            <span>CISA KEV</span>
+            <span>NVD API</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// networking &amp; infra</span>
+          <div class="skill-tags">
+            <span>Cisco Packet Tracer</span>
+            <span>ACLs</span>
+            <span>IPSec VPN</span>
+            <span>SSL/TLS analysis</span>
+            <span>Static routing</span>
+            <span>Linux / SSH</span>
+            <span>DNS / Pi-hole</span>
+            <span>NetworkManager</span>
+          </div>
+        </div>
 
         <div class="skill-group">
           <span class="skill-group-label">// python</span>
@@ -237,6 +288,19 @@
             <span>Socket Programming</span>
             <span>JSON / File I/O</span>
             <span>Exception Handling</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// secure web dev</span>
+          <div class="skill-tags">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>PostgreSQL</span>
+            <span>SQLite</span>
+            <span>HTML · CSS · JS</span>
+            <span>Docker</span>
+            <span>Pug</span>
           </div>
         </div>
 
@@ -252,53 +316,9 @@
             <span>SVM</span>
             <span>K-NN</span>
             <span>spaCy</span>
-            <span>NLTK</span>
-            <span>TF-IDF</span>
-            <span>Logistic Regression</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// data science</span>
-          <div class="skill-tags">
             <span>Pandas</span>
             <span>NumPy</span>
             <span>Matplotlib</span>
-            <span>Seaborn</span>
-            <span>SciPy</span>
-            <span>Tkinter</span>
-            <span>BeautifulSoup</span>
-            <span>Selenium</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// web &amp; security</span>
-          <div class="skill-tags">
-            <span>Node.js</span>
-            <span>Express</span>
-            <span>PostgreSQL</span>
-            <span>SQLite</span>
-            <span>HTML · CSS · JS</span>
-            <span>SQL injection defence</span>
-            <span>XSS / CSRF mitigation</span>
-            <span>Session management</span>
-            <span>Docker</span>
-            <span>Pug</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// networking</span>
-          <div class="skill-tags">
-            <span>Cisco Packet Tracer</span>
-            <span>ACLs</span>
-            <span>IPSec VPN</span>
-            <span>SSL/TLS analysis</span>
-            <span>Static routing</span>
-            <span>Linux / SSH</span>
-            <span>DNS / Pi-hole</span>
-            <span>NetworkManager</span>
           </div>
         </div>
 
@@ -307,10 +327,10 @@
           <div class="skill-tags">
             <span>Git / GitHub</span>
             <span>LaTeX</span>
-            <span>NVD API</span>
-            <span>EPSS scoring</span>
-            <span>CISA KEV</span>
             <span>rapidfuzz</span>
+            <span>BeautifulSoup</span>
+            <span>Selenium</span>
+            <span>Tkinter</span>
             <span>Technical Writing</span>
           </div>
         </div>
@@ -328,13 +348,13 @@
         not yet by shipped tools.
       </p>
       <div class="skill-tags skill-tags--muted">
-        <span>Ethical Hacking</span>
         <span>Penetration Testing</span>
         <span>Adversarial ML</span>
-        <span>Cryptography</span>
+        <span>Advanced Cryptography</span>
         <span>Digital Forensics</span>
         <span>Incident Response</span>
-        <span>Blockchain concepts</span>
+        <span>Malware Analysis</span>
+        <span>Threat Intelligence</span>
       </div>
     </div>
 
@@ -343,39 +363,39 @@
   <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
   <section id="projects" class="projects-section">
     <span class="section-eyebrow">04 — Projects</span>
-    <h2 class="section-title" data-reveal="fade">Featured builds</h2>
-    <p class="section-subtitle">Three highlights — AI, security, and interactive systems</p>
+    <h2 class="section-title" data-reveal="fade">Security &amp; engineering projects</h2>
+    <p class="section-subtitle">Three highlights — defensive security, threat tooling, and AI engineering</p>
 
     <div class="carousel-wrapper" data-reveal="up">
       <div class="carousel-container">
         <div class="carousel-slide" id="carouselSlide">
 
-          <!-- Slide 1: OCR -->
+          <!-- Slide 1: Secure Blog -->
           <div class="carousel-card">
-            <img id="feat-0" alt="Deep learning OCR for Odia script">
-            <div class="carousel-card-body">
-              <h3>Deep learning for OCR</h3>
-              <p>CNN + transfer learning for low-resource Odia script. Custom augmentation pipeline &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">84% test accuracy</strong>.</p>
-              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Slide 2: Train Chatbot -->
-          <div class="carousel-card">
-            <img id="feat-1" alt="Intelligent train chatbot">
-            <div class="carousel-card-body">
-              <h3>Intelligent train chatbot</h3>
-              <p>Conversational AI for ticket discovery &amp; delay prediction &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Random Forest MAE: 0.34 min</strong>.</p>
-              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Slide 3: Secure Blog -->
-          <div class="carousel-card">
-            <img id="feat-2" alt="Secure web blog">
+            <img id="feat-0" alt="Secure web-based blog">
             <div class="carousel-card-body">
               <h3>Secure web-based blog</h3>
-              <p>Node.js + PostgreSQL with defence against SQLi, XSS, CSRF, session hijacking, and account enumeration.</p>
+              <p>Node.js + PostgreSQL hardened against SQLi, XSS, CSRF, session hijacking and account enumeration &mdash; full OWASP Top 10 analysis.</p>
+              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Slide 2: CVE Tool -->
+          <div class="carousel-card">
+            <img id="feat-1" alt="CVE-to-My-Stack Translator">
+            <div class="carousel-card-body">
+              <h3>CVE-to-My-Stack Translator</h3>
+              <p>Node.js tool querying NVD API, EPSS, and CISA KEV to triage CVEs against a user's tech stack &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">CyberHack 2026 winner</strong>.</p>
+              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Slide 3: OCR -->
+          <div class="carousel-card">
+            <img id="feat-2" alt="Deep learning OCR for Odia script">
+            <div class="carousel-card-body">
+              <h3>Deep learning for OCR</h3>
+              <p>CNN + transfer learning for low-resource Odia script recognition &mdash; custom augmentation pipeline &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">84% test accuracy</strong>.</p>
               <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
             </div>
           </div>
@@ -483,21 +503,22 @@
       });
     }
 
-    /* ─── Navbar scroll state ─────────────────────────────── */
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
-
-    /* ─── Scroll progress bar ─────────────────────────────── */
+    /* ─── Scroll handlers — single rAF-throttled listener ── */
+    const navbar      = document.querySelector('.navbar');
     const progressBar = document.getElementById('scrollProgress');
-    if (progressBar) {
-      window.addEventListener('scroll', () => {
-        const total    = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
-        progressBar.style.width = progress + '%';
-      }, { passive: true });
+    let scrollPending = false;
+
+    function onScroll() {
+      const y     = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      navbar.classList.toggle('scrolled', y > 10);
+      if (progressBar) progressBar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
+      scrollPending = false;
     }
+
+    window.addEventListener('scroll', () => {
+      if (!scrollPending) { scrollPending = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
 
     /* ─── Experience toggle ───────────────────────────────── */
     const academicBtn          = document.getElementById('academicBtn');
@@ -553,11 +574,73 @@
 
     document.querySelectorAll('.contact-item').forEach(el => contactObs.observe(el));
 
-    /* Fallback: ensure timeline/contact items are never stuck invisible */
+    /* Fallback: ensure timeline/contact items and skill tags are never stuck invisible */
     setTimeout(() => {
       document.querySelectorAll('.timeline-item:not(.animate), .contact-item:not(.animate)')
         .forEach(el => el.classList.add('animate'));
+      document.querySelectorAll('.skill-tags span:not(.tag-visible)')
+        .forEach(el => el.classList.add('tag-visible'));
     }, 1500);
+
+    /* ─── Count-up stats ─────────────────────────────────── */
+    (function () {
+      const statsEl = document.querySelector('.about-stats');
+      if (!statsEl) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.querySelectorAll('[data-count]').forEach(el => {
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            const dur = 950;
+            const start = Date.now();
+            (function tick() {
+              const t = Math.min((Date.now() - start) / dur, 1);
+              const ease = 1 - Math.pow(1 - t, 3);
+              el.textContent = Math.round(ease * target) + suffix;
+              if (t < 1) requestAnimationFrame(tick);
+            })();
+          });
+          obs.unobserve(e.target);
+        });
+      }, { threshold: 0.6 });
+
+      obs.observe(statsEl);
+    })();
+
+    /* ─── Lazy-load TryHackMe iframe ────────────────────── */
+    (function () {
+      const iframe = document.querySelector('.thm-badge-container iframe[data-src]');
+      if (!iframe) return;
+      new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.src = e.target.dataset.src; obs.unobserve(e.target); }
+        });
+      }, { rootMargin: '300px' }).observe(iframe);
+    })();
+
+    /* ─── Skill tag stagger ───────────────────────────────── */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.skill-tags span').forEach(el => el.classList.add('tag-visible'));
+        return;
+      }
+
+      const groupObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const tags = e.target.querySelectorAll('.skill-tags span');
+          tags.forEach((tag, i) => {
+            setTimeout(() => tag.classList.add('tag-visible'), i * 36);
+          });
+          groupObs.unobserve(e.target);
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.skill-group, .skills-developing').forEach(el => groupObs.observe(el));
+    })();
 
     /* ─── SVG placeholder generator (mirrors projects.js) ── */
     function escapeForSvg(str) {
@@ -603,13 +686,16 @@
     }
 
     /* ─── Inject featured project images ─────────────────── */
-    [
-      { title: 'Deep Learning for OCR',       category: 'AI & ML',        technologies: ['Python', 'TensorFlow', 'Keras']         },
-      { title: 'Intelligent Train Chatbot',   category: 'AI & ML',        technologies: ['Python', 'Scikit-learn', 'spaCy']       },
-      { title: 'Secure Web-Based Blog',       category: 'Web & Security', technologies: ['Node.js', 'PostgreSQL', 'JavaScript']   }
-    ].forEach((p, i) => {
+    const featData = [
+      { src: 'assets/securewebbased.png', title: 'Secure Web-Based Blog',      category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  },
+      { src: 'assets/cve-tool.png',       title: 'CVE-to-My-Stack Translator', category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
+      { src: 'assets/OCRODIA.png',        title: 'Deep Learning for OCR',      category: 'AI & ML',        technologies: ['Python', 'TensorFlow', 'Keras']    }
+    ];
+    featData.forEach((p, i) => {
       const el = document.getElementById('feat-' + i);
-      if (el) el.src = featPlaceholder(p);
+      if (!el) return;
+      el.src = p.src;
+      el.onerror = () => { el.src = featPlaceholder(p); el.onerror = null; };
     });
 
     /* ─── Carousel ────────────────────────────────────────── */
@@ -651,7 +737,8 @@
 
       prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
       nextBtn && nextBtn.addEventListener('click', () => { next(); resetAuto(); });
-      window.addEventListener('resize', update);
+      let resizeTimer;
+      window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(update, 150); });
       init();
     })();
 
@@ -662,11 +749,11 @@
       const outputEl = document.getElementById('termOutput');
       if (!cmdEl || !outputEl) return;
 
-      const CMD = 'cat focus.txt';
+      const CMD = './whoami.sh';
 
       const LINES = [
-        { key: 'role  ', val: 'MSc Cyber Security · UEA' },
-        { key: 'focus ', val: 'AI · security engineering · software' },
+        { key: 'role  ', val: 'Cyber Security Engineer · UEA MSc' },
+        { key: 'focus ', val: 'defensive engineering · secure software · AI' },
         { key: 'status', val: 'open to placements 2026' },
       ];
 
