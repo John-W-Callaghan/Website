@@ -5,15 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary meta -->
-  <title>John Callaghan — Cyber Security &amp; AI</title>
-  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA specialising in defensive engineering, secure software development, and threat analysis. Open to placements 2026." />
+  <title>John Callaghan — Cyber Security &amp; GRC</title>
+  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA specialising in security analysis, GRC, and risk management. Available for graduate roles September 2026." />
   <meta name="author" content="John Callaghan" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="John Callaghan — Cyber Security &amp; AI" />
-  <meta property="og:description" content="MSc Cyber Security @ UEA. Defensive engineering, OWASP hardening, network security, CVE tooling. Open to placements 2026." />
+  <meta property="og:title"       content="John Callaghan — Cyber Security &amp; GRC" />
+  <meta property="og:description" content="MSc Cyber Security @ UEA. Security analysis, GRC, risk management, policy &amp; compliance. Available for graduate roles September 2026." />
   <meta property="og:image"       content="assets/profile.png" />
+
+  <!-- Security headers — best-effort via meta tag (static GitHub Pages site, no server config
+       access). CSP keeps 'unsafe-inline' for script/style because the site's interactivity (nav,
+       scroll reveals, terminal animation, modal) lives in one inline <script> block and several
+       inline style="" attributes; a static site with no build step has no nonce/hash mechanism.
+       Tightening this further means moving all inline JS/CSS to external files first.
+       X-Content-Type-Options and Permissions-Policy are NOT included here because browsers only
+       honour them as real HTTP response headers, not <meta> tags — they'd be decorative and
+       wrongly imply protection that isn't there. Same applies to HSTS (Strict-Transport-Security),
+       which GitHub Pages sets automatically for github.io domains but can't be set via meta. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https://images.credly.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; frame-src https://tryhackme.com; base-uri 'self'; form-action 'self';" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
   <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,6 +49,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#practice">Practice</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -45,7 +59,7 @@
   <section id="home" class="hero-section">
 
     <div class="hero-text">
-      <span class="hero-eyebrow">// cyber security engineer &amp; developer</span>
+      <span class="hero-eyebrow">// security analyst &amp; grc</span>
 
       <h1>
         <span class="name-reveal"><span>John</span></span><br>
@@ -53,24 +67,35 @@
       </h1>
 
       <p class="hero-position">
-        MSc Cyber Security @ UEA &mdash; defensive engineering &amp; secure software
+        MSc Cyber Security @ UEA &mdash; security analysis, GRC &amp; risk management
       </p>
 
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
         <a href="#projects" class="btn btn-ghost">View my work</a>
+        <a href="assets/John_Callaghan_CV.pdf" class="btn btn-ghost" download>Download CV &darr;</a>
+        <!-- TODO: John to upload actual CV PDF to assets/John_Callaghan_CV.pdf — link is wired but file doesn't exist yet -->
       </div>
 
       <p class="hero-status">
         <span class="status-dot" aria-hidden="true"></span>
-        Open to summer internships &amp; placements
+        Available September 2026 &mdash; Open to UK Graduate Security Roles
       </p>
+
+      <div class="social-icons hero-social" aria-label="Social links">
+        <a href="https://github.com/John-W-Callaghan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="assets/github.png" alt="GitHub" loading="lazy" />
+        </a>
+        <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="assets/Linkedin.png" alt="LinkedIn" loading="lazy" />
+        </a>
+      </div>
     </div>
 
     <!-- Terminal signature element -->
     <div class="hero-terminal"
          role="img"
-         aria-label="Terminal showing: Cyber Security Engineer, defensive engineering and secure software, open to placements 2026">
+         aria-label="Terminal showing: Security Analyst, GRC and risk management, available September 2026 for UK graduate security roles">
       <div class="terminal-chrome" aria-hidden="true">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
@@ -100,27 +125,49 @@
       </div>
 
       <div class="about-text" data-reveal="right">
+        <!-- TODO: John to personalize — these 2 paragraphs are a first draft. Replace/edit with
+             your own reasons for getting into security and what you want to work on. Prompts:
+             what drew you to GRC/risk over pure technical security? what's a policy or compliance
+             problem you actually want to solve? -->
         <p>
-          I'm a Cyber Security MSc student at UEA with 8+ years of programming experience. My
-          focus is defensive engineering — building systems that are as secure as they are
-          functional, grounded in a strong foundation across Python, networking, and web
-          technologies.
+          I got into cyber security through the technical side — breaking and hardening systems —
+          but what kept me there was the bigger question: how do you translate a technical
+          vulnerability into something a business actually acts on? That's what pulled me toward
+          GRC. Risk only matters if someone with budget understands it.
         </p>
         <p>
-          I've shipped a CVE-triage tool that won CyberHack 2026, a Node.js web app hardened
-          against the OWASP Top 10, and a Cisco network lab modelling IPSec VPNs and ACLs —
-          alongside AI and data science projects that show the coding depth behind the security
-          work.
+          I'm a Cyber Security MSc student at UEA with 8+ years of programming experience. I've
+          written formal security policy and compliance research, built a CVE-triage tool at
+          CyberHack 2026, hardened a Node.js app against the OWASP Top 10, and modelled IPSec VPNs
+          and ACLs in a Cisco lab — technical depth that lets me assess risk from evidence, not
+          just frameworks.
         </p>
 
+        <p class="clearance-line">UK national — eligible for SC clearance.</p>
+
         <div class="about-stats">
-          <div><strong data-count="4" data-suffix="th">4th</strong><span>Year Studying</span></div>
-          <div><strong data-count="20" data-suffix="+">20+</strong><span>Projects</span></div>
-          <div><strong data-count="8" data-suffix="+">8+</strong><span>Years Coding</span></div>
+          <div><strong data-count="10" data-suffix="+">10+</strong><span>OWASP Vulns Mitigated</span></div>
+          <div><strong data-count="84" data-suffix="%">84%</strong><span>Model Accuracy</span></div>
+          <div><strong data-count="20" data-suffix="+">20+</strong><span>Projects Shipped</span></div>
         </div>
 
         <div class="thm-badge-container">
           <h4>Cybersecurity Credentials</h4>
+
+          <!-- Lead credential: CyberHack 2026 participation -->
+          <figure class="cert-thumb">
+            <a href="assets/HACKATHONCERT.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/HACKATHONCERT.png"
+                   alt="CyberHack 2026 — CSE Connect Hackathon Participant certificate"
+                   loading="lazy" />
+            </a>
+            <figcaption>
+              CyberHack 2026 &mdash; CSE Connect Hackathon Participant
+              <a href="assets/HACKATHONCERT.png" target="_blank" rel="noopener noreferrer" class="cert-thumb-link">View full certificate &rarr;</a>
+            </figcaption>
+          </figure>
+
+          <!-- Supplementary credentials -->
           <iframe
             data-src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=5535942"
             title="TryHackMe badge"
@@ -172,23 +219,65 @@
               <span class="badge-verified">Verified · Credly</span>
             </a>
 
+            <a class="badge-card"
+               href="https://www.credly.com/badges/554e6d8b-82e1-4ca9-ab46-e365bd4ca6ca"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Cyber Threat Management — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/image.png"
+                   alt="Cyber Threat Management badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Cyber Threat Management</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/ef9eb3d2-dd8c-479d-a783-dca1cb49de20"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Endpoint Security — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/0ca5f542-fb5e-4a22-9b7a-c1a1ce4c3db7/EndpointSecurity.png"
+                   alt="Endpoint Security badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Endpoint Security</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Junior Cybersecurity Analyst Career Path — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/441578ec-c0f3-46cc-95fc-86b27e90cf4f/image.png"
+                   alt="Junior Cybersecurity Analyst Career Path badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Jr. Cybersecurity Analyst Career Path</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/4663d851-b335-4fb4-9dea-f635f74a168e"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Network Defense — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png"
+                   alt="Network Defense badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Network Defense</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
           </div>
 
-          <details class="cert-drawer">
-            <summary class="cert-drawer-trigger">
-              <span class="cert-drawer-icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-              </span>
-              <div class="cert-drawer-info">
-                <span class="cert-drawer-name">CyberHack 2026 Certificate</span>
-                <span class="cert-drawer-meta">// CSE Connect Hackathon &middot; CVE-to-My-Stack Translator</span>
-              </div>
-              <svg class="cert-drawer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </summary>
-            <div class="cert-drawer-panel">
-              <img src="assets/HACKATHONCERT.png" alt="CyberHack 2026 — CSE Connect Hackathon Certificate" loading="lazy">
-            </div>
-          </details>
+          <!-- TODO: John — add certifications in progress here, e.g. ISC2 CC / CompTIA Security+ -->
         </div>
 
         <a href="projects.html" class="btn btn-ghost">Browse all projects</a>
@@ -226,8 +315,6 @@
           <p>BSc Hons Computing Sciences</p>
           <span>2022 – Jun 2025</span>
           <p><strong>Activities:</strong> Basketball, Swimming &amp; Water Polo</p>
-          <p><strong>Areas:</strong> Software Development · Project Management · Programming ·
-          Web Development · Computer Science · Mathematics</p>
         </div>
 
         <div class="timeline-item">
@@ -236,7 +323,6 @@
           <span>Jan 2024 – Feb 2024</span>
           <p>Completed a Data Science learning path equivalent to a 3-credit graduate-level course
           at AUB.</p>
-          <p><strong>Areas:</strong> Data Science · Analytics · Statistical Analysis · Mathematics</p>
         </div>
 
         <div class="timeline-item">
@@ -308,20 +394,11 @@
         </div>
 
         <div class="skill-group">
-          <span class="skill-group-label">// python</span>
+          <span class="skill-group-label">// python &amp; web dev</span>
           <div class="skill-tags">
             <span>Python</span>
             <span>OOP</span>
-            <span>Unit Testing</span>
             <span>Socket Programming</span>
-            <span>JSON / File I/O</span>
-            <span>Exception Handling</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// secure web dev</span>
-          <div class="skill-tags">
             <span>Node.js</span>
             <span>Express</span>
             <span>PostgreSQL</span>
@@ -366,14 +443,18 @@
       </div>
     </div>
 
-    <!-- Developing tier -->
+    <!-- Current MSc focus tier -->
+    <!-- TODO: John — tag each skill below with the specific UEA module name or a practical
+         exercise (a lab, CTF room, or assignment) once you have one to point to, e.g.
+         "Penetration Testing — CMP-xxxx coursework" or "Malware Analysis — THM room: ...".
+         Untagged is fine for now; tags just make this section evidence-backed instead of a list. -->
     <div class="skills-developing" data-reveal="up">
       <span class="skills-tier-label skills-tier-label--muted">
-        // developing &mdash; through MSc Cyber Security
+        // current msc focus areas
       </span>
       <p class="skills-developing-note">
-        Areas I'm actively studying at UEA; evidenced by coursework and research,
-        not yet by shipped tools.
+        Studying at UEA now — evidenced by coursework and research to date, with practical
+        write-ups (CTF rooms, labs) being added as I complete them.
       </p>
       <div class="skill-tags skill-tags--muted">
         <span>Penetration Testing</span>
@@ -388,54 +469,57 @@
 
   </section>
 
+  <!-- ─── HANDS-ON PRACTICE ────────────────────────────────── -->
+  <!-- TODO: John — add HackTheBox profile, CTF team/event names, and writeup links as you build
+       these up. TryHackMe badges already live in the About section above. -->
+  <section id="practice" class="practice-section">
+    <span class="section-eyebrow">04 — Hands-On Practice</span>
+    <h2 class="section-title" data-reveal="fade">Hands-On Practice</h2>
+    <p class="section-subtitle">Practical security work outside coursework</p>
+    <p class="practice-note" data-reveal="up">
+      Active <a href="#about">TryHackMe profile</a> (badges shown in About). Building out
+      HackTheBox rooms and CTF writeups as I complete them — check back for updates.
+    </p>
+  </section>
+
   <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
   <section id="projects" class="projects-section">
-    <span class="section-eyebrow">04 — Projects</span>
+    <span class="section-eyebrow">05 — Projects</span>
     <h2 class="section-title" data-reveal="fade">Security &amp; engineering projects</h2>
-    <p class="section-subtitle">Three highlights — defensive security, threat tooling, and AI engineering</p>
+    <p class="section-subtitle">Three highlights — defensive security, threat tooling, and policy &amp; compliance</p>
 
-    <div class="carousel-wrapper" data-reveal="up">
-      <div class="carousel-container">
-        <div class="carousel-slide" id="carouselSlide">
+    <div class="project-grid" data-reveal="up">
 
-          <!-- Slide 1: Secure Blog -->
-          <div class="carousel-card">
-            <img id="feat-0" alt="Secure web-based blog">
-            <div class="carousel-card-body">
-              <h3>Secure web-based blog</h3>
-              <p>Node.js + PostgreSQL hardened against SQLi, XSS, CSRF, session hijacking and account enumeration &mdash; full OWASP Top 10 analysis.</p>
-              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Slide 2: CVE Tool -->
-          <div class="carousel-card">
-            <img id="feat-1" alt="CVE-to-My-Stack Translator">
-            <div class="carousel-card-body">
-              <h3>CVE-to-My-Stack Translator</h3>
-              <p>Node.js tool querying NVD API, EPSS, and CISA KEV to triage CVEs against a user's tech stack &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">CyberHack 2026 winner</strong>.</p>
-              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Slide 3: OCR -->
-          <div class="carousel-card">
-            <img id="feat-2" alt="Deep learning OCR for Odia script">
-            <div class="carousel-card-body">
-              <h3>Deep learning for OCR</h3>
-              <p>CNN + transfer learning for low-resource Odia script recognition &mdash; custom augmentation pipeline &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">84% test accuracy</strong>.</p>
-              <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-            </div>
-          </div>
-
+      <!-- Secure Blog -->
+      <div class="carousel-card">
+        <img id="feat-0" alt="Secure web-based blog">
+        <div class="carousel-card-body">
+          <h3>Secure web-based blog</h3>
+          <p>Node.js + PostgreSQL hardened against SQLi, XSS, CSRF, session hijacking and account enumeration &mdash; full OWASP Top 10 analysis.</p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
         </div>
       </div>
 
-      <div class="carousel-buttons">
-        <button class="carousel-btn" id="prevBtn" aria-label="Previous project">&#10094;</button>
-        <button class="carousel-btn" id="nextBtn" aria-label="Next project">&#10095;</button>
+      <!-- CVE Tool -->
+      <div class="carousel-card">
+        <img id="feat-1" alt="CVE-to-My-Stack Translator">
+        <div class="carousel-card-body">
+          <h3>CVE-to-My-Stack Translator</h3>
+          <p>Node.js tool querying NVD API, EPSS, and CISA KEV to triage CVEs against a user's tech stack &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">CyberHack 2026 participant</strong>.</p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+        </div>
       </div>
-      <div class="dots-container" id="dotsContainer"></div>
+
+      <!-- Cybersecurity Policies Report -->
+      <div class="carousel-card">
+        <img id="feat-2" alt="Cybersecurity Policies Report">
+        <div class="carousel-card-body">
+          <h3>Cybersecurity Policies Report</h3>
+          <p>Formal research report on security policy, governance frameworks, and compliance &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">GRC &amp; risk analysis</strong>.</p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="view-all-wrapper">
@@ -445,7 +529,7 @@
 
   <!-- ─── CONTACT ──────────────────────────────────────────── -->
   <section id="contact" class="contact-section">
-    <span class="section-eyebrow">05 — Contact</span>
+    <span class="section-eyebrow">06 — Contact</span>
     <h2 class="section-title" data-reveal="fade">Contact</h2>
     <p class="section-subtitle">Get in touch</p>
 
@@ -465,7 +549,7 @@
         <div>
           <h3>Location</h3>
           <p>London, United Kingdom</p>
-          <p class="contact-secondary">Available for remote work</p>
+          <p class="contact-secondary">London / Hybrid &mdash; open to relocation across the UK</p>
         </div>
       </div>
 
@@ -490,6 +574,7 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
+        <a href="#practice">Practice</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -715,9 +800,9 @@
 
     /* ─── Inject featured project images ─────────────────── */
     const featData = [
-      { src: 'assets/securewebbased.png', title: 'Secure Web-Based Blog',      category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  },
-      { src: 'assets/cve-tool.png',       title: 'CVE-to-My-Stack Translator', category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
-      { src: 'assets/OCRODIA.png',        title: 'Deep Learning for OCR',      category: 'AI & ML',        technologies: ['Python', 'TensorFlow', 'Keras']    }
+      { src: 'assets/securewebbased.png', title: 'Secure Web-Based Blog',        category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  },
+      { src: 'assets/cve-tool.png',       title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
+      { src: 'assets/Policys.png',        title: 'Cybersecurity Policies Report', category: 'Academic',      technologies: ['Research', 'GRC', 'Compliance']    }
     ];
     featData.forEach((p, i) => {
       const el = document.getElementById('feat-' + i);
@@ -725,50 +810,6 @@
       el.src = p.src;
       el.onerror = () => { el.src = featPlaceholder(p); el.onerror = null; };
     });
-
-    /* ─── Carousel ────────────────────────────────────────── */
-    (function () {
-      const slide     = document.getElementById('carouselSlide');
-      const prevBtn   = document.getElementById('prevBtn');
-      const nextBtn   = document.getElementById('nextBtn');
-      const dotsCont  = document.getElementById('dotsContainer');
-      if (!slide) return;
-
-      let cur = 0, total = 0, timer, paused = false;
-
-      function init() {
-        total = slide.querySelectorAll('.carousel-card').length;
-        if (!total) return;
-        dotsCont.innerHTML = '';
-        for (let i = 0; i < total; i++) {
-          const d = document.createElement('div');
-          d.className = 'dot' + (i === 0 ? ' active' : '');
-          d.addEventListener('click', () => { goTo(i); resetAuto(); });
-          dotsCont.appendChild(d);
-        }
-        update();
-        startAuto();
-        slide.parentElement.addEventListener('mouseenter', () => { paused = true; clearInterval(timer); });
-        slide.parentElement.addEventListener('mouseleave', () => { paused = false; startAuto(); });
-      }
-
-      function update() {
-        slide.style.transform = `translateX(-${cur * 100}%)`;
-        dotsCont.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-      }
-
-      function goTo(i)    { cur = ((i % total) + total) % total; update(); }
-      function next()     { goTo(cur + 1); }
-      function prev()     { goTo(cur - 1); }
-      function startAuto(){ if (!paused) timer = setInterval(() => { if (!paused) next(); }, 4800); }
-      function resetAuto(){ clearInterval(timer); startAuto(); }
-
-      prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
-      nextBtn && nextBtn.addEventListener('click', () => { next(); resetAuto(); });
-      let resizeTimer;
-      window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(update, 150); });
-      init();
-    })();
 
     /* ─── Terminal animation ──────────────────────────────── */
     (function () {
@@ -780,9 +821,9 @@
       const CMD = './whoami.sh';
 
       const LINES = [
-        { key: 'role  ', val: 'Cyber Security Engineer · UEA MSc' },
-        { key: 'focus ', val: 'defensive engineering · secure software · AI' },
-        { key: 'status', val: 'open to placements 2026' },
+        { key: 'role  ', val: 'Security Analyst · UEA MSc' },
+        { key: 'focus ', val: 'GRC · risk management · security analysis' },
+        { key: 'status', val: 'available Sep 2026 · UK grad security roles' },
       ];
 
       /* Respect reduced-motion — show content statically */

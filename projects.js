@@ -19,7 +19,7 @@ const PROJECTS_DATA = [
     category: "AI & ML",
     image: "assets/train.png",
     shortDesc: "Conversational AI + delay prediction (Random Forest MAE: 0.34 min).",
-    fullDesc: `<p>A chatbot that scrapes National Rail for cheap tickets and predicts train delays. The Random Forest model achieved a Mean Absolute Error of <strong>0.34 minutes</strong>.</p>`,
+    fullDesc: `<p>A chatbot that scrapes National Rail for cheap tickets and predicts train delays. The Random Forest model achieved a Mean Absolute Error of <strong>0.34 minutes</strong>.</p><p>Group project (university coursework). <!-- TODO: John — describe your specific contribution --></p>`,
     technologies: ["Python", "Scikit-learn", "Selenium", "spaCy", "SQLite"],
     github: "https://github.com/BabaRootsMg/AI-CW2-Developing-An-Intelligent-Chatbot-System",
     reportPDF: "assets/chatbottrain.pdf"
@@ -38,7 +38,7 @@ const PROJECTS_DATA = [
     id: "search-engine",
     title: "Video Game Search Engine",
     category: "AI & ML",
-    image: "assets/gamesearch engine.png",
+    image: "assets/gamesearch-engine.png",
     shortDesc: "TF‑IDF, WordNet query expansion, cosine similarity ranking.",
     fullDesc: `<p>Custom search engine over HTML game data using BeautifulSoup, NLTK WordNet, and Scikit‑learn's TfidfVectorizer.</p>`,
     technologies: ["Python", "Scikit-learn", "BeautifulSoup", "NLTK"],
@@ -52,7 +52,7 @@ const PROJECTS_DATA = [
     category: "Web & Security",
     image: "assets/securewebbased.png",
     shortDesc: "Node.js + PostgreSQL blog with SQLi, XSS, CSRF protection.",
-    fullDesc: `<p>Full‑stack blog with defensive mitigations against OWASP Top 5: SQL injection, XSS, CSRF, session hijacking, and account enumeration.</p>`,
+    fullDesc: `<p>Full‑stack blog with defensive mitigations against OWASP Top 5: SQL injection, XSS, CSRF, session hijacking, and account enumeration.</p><p>Group project (university coursework). <!-- TODO: John — describe your specific contribution, e.g. which mitigation(s) you implemented/tested --></p>`,
     technologies: ["Node.js", "PostgreSQL", "JavaScript", "Cybersecurity"],
     github: "https://github.com/BabaRootsMg/DSS-UG-002"
   },
@@ -62,7 +62,7 @@ const PROJECTS_DATA = [
     category: "Web & Security",
     image: "assets/pARKINGSYSTEM.png",
     shortDesc: "Full‑stack booking with Docker, Node.js, PostgreSQL.",
-    fullDesc: `<p>A full-stack parking booking system allowing users to reserve spaces in advance. Built with Node.js, PostgreSQL, Docker, and Pug templating.</p>`,
+    fullDesc: `<p>A full-stack parking booking system allowing users to reserve spaces in advance. Built with Node.js, PostgreSQL, Docker, and Pug templating.</p><p>Group project — my contribution: containerised the app with Docker.</p>`,
     technologies: ["Node.js", "PostgreSQL", "Docker", "JavaScript", "Pug"],
     github: "https://github.com/Anthony-de-cruz/Parking-Management-System"
   },
@@ -441,6 +441,7 @@ function escapeHtml(str) {
 function openModal(project) {
   modalTitle.innerText = project.title;
   modalImage.src = getProjectImage(project);
+  modalImage.alt = project.title;
   modalDescription.innerHTML = project.fullDesc || `<p>${project.shortDesc}</p>`;
   modalTech.innerHTML = project.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('');
   
