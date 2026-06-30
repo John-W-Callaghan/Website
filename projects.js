@@ -91,6 +91,7 @@ const PROJECTS_DATA = [
   // ========== Data Analysis ==========
   {
     id: "med-viz",
+    foundational: true,
     title: "Medical Data Visualizer",
     category: "Data Analysis",
     image: "assets/codecamp.png",
@@ -101,6 +102,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "sea-level",
+    foundational: true,
     title: "Sea Level Rise Visualizer",
     category: "Data Analysis",
     image: "assets/codecamp.png",
@@ -111,6 +113,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "page-views",
+    foundational: true,
     title: "Page Views Time Series Analyzer",
     category: "Data Analysis",
     image: "assets/codecamp.png",
@@ -121,6 +124,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "demo-analysis",
+    foundational: true,
     title: "Demographic Data Analyzer",
     category: "Data Analysis",
     image: "assets/codecamp.png",
@@ -131,6 +135,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "mean-variance",
+    foundational: true,
     title: "Mean‑Variance‑Standard Deviation Calculator",
     category: "Data Analysis",
     image: "assets/codecamp.png",
@@ -167,6 +172,7 @@ const PROJECTS_DATA = [
   // ========== Scientific Computing ==========
   {
     id: "arithmetic",
+    foundational: true,
     title: "Arithmetic Formatter",
     category: "Python",
     image: "assets/codecamp.png",
@@ -177,6 +183,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "time-calc",
+    foundational: true,
     title: "Time Calculator",
     category: "Python",
     image: "assets/codecamp.png",
@@ -187,6 +194,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "budget-app",
+    foundational: true,
     title: "Budget App",
     category: "Python",
     image: "assets/codecamp.png",
@@ -197,6 +205,7 @@ const PROJECTS_DATA = [
   },
   {
     id: "poly-calc",
+    foundational: true,
     title: "Polygon Area Calculator",
     category: "Python",
     image: "assets/codecamp.png",
@@ -385,28 +394,13 @@ const modalTech = document.getElementById("modalTech");
 const modalGithub = document.getElementById("modalGithubLink");
 const modalReport = document.getElementById("modalReportLink");
 
-function renderProjects() {
-  const filtered = PROJECTS_DATA.filter(proj => {
-    const matchCategory = currentFilter === "all" || proj.category === currentFilter;
-    const term = currentSearch.trim().toLowerCase();
-    const matchSearch = term === "" ||
-      proj.title.toLowerCase().includes(term) ||
-      proj.shortDesc.toLowerCase().includes(term) ||
-      proj.technologies.some(t => t.toLowerCase().includes(term));
-    return matchCategory && matchSearch;
-  });
-
-  if (filtered.length === 0) {
-    gridContainer.innerHTML = `<div class="no-results">✨ No projects match. Try another filter or keyword.</div>`;
-    return;
-  }
-
-  gridContainer.innerHTML = filtered.map(proj => `
+function cardHtml(proj) {
+  return `
     <div class="project-card" data-id="${proj.id}">
       <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy">
       <div class="card-body">
         <div class="card-category">${proj.category}</div>
-        <h3 class="card-title">${escapeHtml(proj.title)}</h3>
+        <h2 class="card-title">${escapeHtml(proj.title)}</h2>
         <p class="card-desc">${escapeHtml(proj.shortDesc)}</p>
         <div class="card-tech">
           ${proj.technologies.slice(0, 4).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
@@ -418,7 +412,35 @@ function renderProjects() {
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+}
+
+function renderProjects() {
+  const filtered = PROJECTS_DATA.filter(proj => {
+    const matchCategory = currentFilter === "all" || proj.category === currentFilter;
+    const term = currentSearch.trim().toLowerCase();
+    const matchSearch = term === "" ||
+      proj.title.toLowerCase().includes(term) ||
+      proj.shortDesc.toLowerCase().includes(term) ||
+      proj.technologies.some(t => t.toLowerCase().includes(term));
+    return matchCategory && matchSearch;
+  });
+
+  const mainItems = filtered.filter(p => !p.foundational);
+  const foundationalItems = filtered.filter(p => p.foundational);
+
+  gridContainer.innerHTML = mainItems.length === 0
+    ? `<div class="no-results">✨ No projects match. Try another filter or keyword.</div>`
+    : mainItems.map(cardHtml).join('');
+
+  const drawer = document.getElementById('foundationalDrawer');
+  const foundationalGrid = document.getElementById('foundationalGrid');
+  const foundationalCount = document.getElementById('foundationalCount');
+  if (drawer && foundationalGrid) {
+    drawer.style.display = foundationalItems.length === 0 ? 'none' : '';
+    foundationalCount.textContent = foundationalItems.length;
+    foundationalGrid.innerHTML = foundationalItems.map(cardHtml).join('');
+  }
 
   document.querySelectorAll('[data-detail]').forEach(btn => {
     btn.addEventListener('click', (e) => {

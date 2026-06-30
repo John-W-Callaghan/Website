@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary meta -->
-  <title>John Callaghan — Cyber Security &amp; GRC</title>
-  <meta name="description" content="John Callaghan — MSc Cyber Security student at UEA specialising in security analysis, GRC, and risk management. Available for graduate roles September 2026." />
+  <title>John Callaghan — SOC Analyst &amp; Security Engineer</title>
+  <meta name="description" content="MSc Cyber Security student at UEA targeting SOC Analyst roles — threat detection, log analysis, MITRE ATT&amp;CK, incident response. Available September 2026." />
   <meta name="author" content="John Callaghan" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="John Callaghan — Cyber Security &amp; GRC" />
-  <meta property="og:description" content="MSc Cyber Security @ UEA. Security analysis, GRC, risk management, policy &amp; compliance. Available for graduate roles September 2026." />
+  <meta property="og:title"       content="John Callaghan — SOC Analyst &amp; Security Engineer" />
+  <meta property="og:description" content="MSc Cyber Security @ UEA. SOC operations, threat detection, log analysis, MITRE ATT&amp;CK, incident response. Available September 2026." />
   <meta property="og:image"       content="assets/profile.png" />
 
   <!-- Security headers — best-effort via meta tag (static GitHub Pages site, no server config
@@ -28,10 +28,15 @@
         content="default-src 'self'; img-src 'self' data: https://images.credly.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; frame-src https://tryhackme.com; base-uri 'self'; form-action 'self';" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
-  <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) -->
+  <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) — loaded
+       non-blocking (preload + swap to stylesheet on load) so font CSS doesn't delay first
+       paint of the page's own text; noscript fallback covers JS-disabled cases. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional" /></noscript>
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -55,11 +60,12 @@
     </ul>
   </nav>
 
+  <main>
   <!-- ─── HERO ─────────────────────────────────────────────── -->
   <section id="home" class="hero-section">
 
     <div class="hero-text">
-      <span class="hero-eyebrow">// security analyst &amp; grc</span>
+      <span class="hero-eyebrow">// soc analyst &amp; security engineer</span>
 
       <h1>
         <span class="name-reveal"><span>John</span></span><br>
@@ -67,7 +73,7 @@
       </h1>
 
       <p class="hero-position">
-        MSc Cyber Security @ UEA &mdash; security analysis, GRC &amp; risk management
+        MSc Cyber Security @ UEA &mdash; SOC operations, threat detection &amp; incident response
       </p>
 
       <div class="hero-buttons">
@@ -95,7 +101,7 @@
     <!-- Terminal signature element -->
     <div class="hero-terminal"
          role="img"
-         aria-label="Terminal showing: Security Analyst, GRC and risk management, available September 2026 for UK graduate security roles">
+         aria-label="Terminal showing: SOC Analyst, threat detection and incident response, available September 2026 for UK SOC roles">
       <div class="terminal-chrome" aria-hidden="true">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
@@ -125,22 +131,20 @@
       </div>
 
       <div class="about-text" data-reveal="right">
-        <!-- TODO: John to personalize — these 2 paragraphs are a first draft. Replace/edit with
-             your own reasons for getting into security and what you want to work on. Prompts:
-             what drew you to GRC/risk over pure technical security? what's a policy or compliance
-             problem you actually want to solve? -->
+        <!-- TODO: John to personalize — these 2 paragraphs are a first draft (Option A: "The
+             Hunt"), approved direction but feel free to edit further. -->
         <p>
-          I got into cyber security through the technical side — breaking and hardening systems —
-          but what kept me there was the bigger question: how do you translate a technical
-          vulnerability into something a business actually acts on? That's what pulled me toward
-          GRC. Risk only matters if someone with budget understands it.
+          I didn't get into security to write policies — I got into it for the same reason most
+          blue teamers don't admit out loud: I like catching things. The moment a log line that
+          shouldn't be there turns out to be exactly what you were looking for — that's the part
+          of this field I want to build a career in.
         </p>
         <p>
-          I'm a Cyber Security MSc student at UEA with 8+ years of programming experience. I've
-          written formal security policy and compliance research, built a CVE-triage tool at
-          CyberHack 2026, hardened a Node.js app against the OWASP Top 10, and modelled IPSec VPNs
-          and ACLs in a Cisco lab — technical depth that lets me assess risk from evidence, not
-          just frameworks.
+          I'm an MSc Cyber Security student at UEA with 8+ years of programming experience. I've
+          built a CVE-triage tool at CyberHack 2026 that filters real-world exploit intelligence
+          down to the specific assets at risk, hardened a Node.js app against the OWASP Top 10,
+          and designed a network security lab modelling IPSec VPNs, ACLs, and DNS filtering —
+          technical depth that matters when you're reading alerts, not just generating them.
         </p>
 
         <p class="clearance-line">UK national — eligible for SC clearance.</p>
@@ -152,7 +156,7 @@
         </div>
 
         <div class="thm-badge-container">
-          <h4>Cybersecurity Credentials</h4>
+          <h3>Cybersecurity Credentials</h3>
 
           <!-- Lead credential: CyberHack 2026 participation -->
           <figure class="cert-thumb">
@@ -176,6 +180,62 @@
 
           <!-- Credly badges -->
           <div class="badge-grid" aria-label="Credly certifications">
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Junior Cybersecurity Analyst Career Path — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/441578ec-c0f3-46cc-95fc-86b27e90cf4f/image.png"
+                   alt="Junior Cybersecurity Analyst Career Path badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Jr. Cybersecurity Analyst Career Path</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/554e6d8b-82e1-4ca9-ab46-e365bd4ca6ca"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Cyber Threat Management — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/image.png"
+                   alt="Cyber Threat Management badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Cyber Threat Management</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/4663d851-b335-4fb4-9dea-f635f74a168e"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Network Defense — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png"
+                   alt="Network Defense badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Network Defense</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
+
+            <a class="badge-card"
+               href="https://www.credly.com/badges/ef9eb3d2-dd8c-479d-a783-dca1cb49de20"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Endpoint Security — Cisco, June 2026 (opens Credly)">
+              <img src="https://images.credly.com/images/0ca5f542-fb5e-4a22-9b7a-c1a1ce4c3db7/EndpointSecurity.png"
+                   alt="Endpoint Security badge"
+                   width="80" height="80"
+                   loading="lazy" decoding="async" />
+              <span class="badge-name">Endpoint Security</span>
+              <span class="badge-issuer">Cisco</span>
+              <span class="badge-date">Jun 2026</span>
+              <span class="badge-verified">Verified · Credly</span>
+            </a>
 
             <a class="badge-card"
                href="https://www.credly.com/badges/c077f312-b099-4e1c-8fa0-bd9b9858cf6a"
@@ -219,68 +279,12 @@
               <span class="badge-verified">Verified · Credly</span>
             </a>
 
-            <a class="badge-card"
-               href="https://www.credly.com/badges/554e6d8b-82e1-4ca9-ab46-e365bd4ca6ca"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Cyber Threat Management — Cisco, June 2026 (opens Credly)">
-              <img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/image.png"
-                   alt="Cyber Threat Management badge"
-                   width="80" height="80"
-                   loading="lazy" decoding="async" />
-              <span class="badge-name">Cyber Threat Management</span>
-              <span class="badge-issuer">Cisco</span>
-              <span class="badge-date">Jun 2026</span>
-              <span class="badge-verified">Verified · Credly</span>
-            </a>
-
-            <a class="badge-card"
-               href="https://www.credly.com/badges/ef9eb3d2-dd8c-479d-a783-dca1cb49de20"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Endpoint Security — Cisco, June 2026 (opens Credly)">
-              <img src="https://images.credly.com/images/0ca5f542-fb5e-4a22-9b7a-c1a1ce4c3db7/EndpointSecurity.png"
-                   alt="Endpoint Security badge"
-                   width="80" height="80"
-                   loading="lazy" decoding="async" />
-              <span class="badge-name">Endpoint Security</span>
-              <span class="badge-issuer">Cisco</span>
-              <span class="badge-date">Jun 2026</span>
-              <span class="badge-verified">Verified · Credly</span>
-            </a>
-
-            <a class="badge-card"
-               href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Junior Cybersecurity Analyst Career Path — Cisco, June 2026 (opens Credly)">
-              <img src="https://images.credly.com/images/441578ec-c0f3-46cc-95fc-86b27e90cf4f/image.png"
-                   alt="Junior Cybersecurity Analyst Career Path badge"
-                   width="80" height="80"
-                   loading="lazy" decoding="async" />
-              <span class="badge-name">Jr. Cybersecurity Analyst Career Path</span>
-              <span class="badge-issuer">Cisco</span>
-              <span class="badge-date">Jun 2026</span>
-              <span class="badge-verified">Verified · Credly</span>
-            </a>
-
-            <a class="badge-card"
-               href="https://www.credly.com/badges/4663d851-b335-4fb4-9dea-f635f74a168e"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Network Defense — Cisco, June 2026 (opens Credly)">
-              <img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png"
-                   alt="Network Defense badge"
-                   width="80" height="80"
-                   loading="lazy" decoding="async" />
-              <span class="badge-name">Network Defense</span>
-              <span class="badge-issuer">Cisco</span>
-              <span class="badge-date">Jun 2026</span>
-              <span class="badge-verified">Verified · Credly</span>
-            </a>
-
           </div>
 
           <!-- TODO: John — add certifications in progress here, e.g. ISC2 CC / CompTIA Security+ -->
         </div>
 
-        <a href="projects.html" class="btn btn-ghost">Browse all projects</a>
+        <a href="projects.html" class="btn btn-ghost">View all projects &rarr;</a>
       </div>
     </div>
   </section>
@@ -304,8 +308,13 @@
           <h3>University of East Anglia</h3>
           <p>MSc Cyber Security</p>
           <span>Sep 2025 – Sep 2026 (Expected)</span>
-          <p>Pursuing a Master's degree in Cyber Security. Focus areas include ethical hacking,
-          network security, cryptography, and defensive programming.</p>
+          <!-- TODO: John — "threat detection" / "network security monitoring" / "security
+               operations" aren't confirmed as actual UEA module names, so I kept this sentence
+               anchored to the modules already listed below (Network Security, Digital Forensics,
+               Incident Response are genuinely SOC-relevant). Edit if your modules differ. -->
+          <p>Pursuing a Master's degree in Cyber Security, with a focus on the SOC-relevant side:
+          network security, digital forensics, and incident response, alongside ethical hacking
+          and cryptography.</p>
           <p><strong>Planned study areas:</strong> Ethical Hacking · Network Security · Cryptography ·
           Secure Software Development · Digital Forensics · Incident Response</p>
         </div>
@@ -357,6 +366,28 @@
     <p class="section-subtitle">
       Core skills evidenced by shipped security projects — and what I'm studying in the MSc.
     </p>
+
+    <!-- SOC operations tier -->
+    <!-- TODO: John — the items below are NOT shown on the live page because I can't confirm you
+         have them. Once you've actually used/studied each (a module, a lab, a home SIEM setup,
+         a TryHackMe room), move it up into the visible <div class="skill-tags"> below as a real
+         tag. Don't add anything here you can't speak to in an interview.
+           - SIEM (confirm tool: Splunk / ELK / Wazuh?)
+           - MITRE ATT&CK framework
+           - Log analysis & correlation
+           - IOC / IOA analysis
+           - Endpoint detection (EDR concepts)
+           - Wireshark / Zeek (network traffic analysis tooling)
+           - KQL / SPL (query languages)
+    -->
+    <div class="skills-soc" data-reveal="up">
+      <span class="skills-tier-label">// soc operations</span>
+      <div class="skill-tags">
+        <span>Threat intelligence (CVE/EPSS/KEV feeds)</span>
+        <span>Network traffic analysis (SSL/TLS handshake)</span>
+        <span>Incident response lifecycle</span>
+      </div>
+    </div>
 
     <!-- Core tier -->
     <div class="skills-core" data-reveal="up">
@@ -476,8 +507,9 @@
     <span class="section-eyebrow">04 — Hands-On Practice</span>
     <h2 class="section-title" data-reveal="fade">Hands-On Practice</h2>
     <p class="section-subtitle">Practical security work outside coursework</p>
+    <!-- TODO: John to add TryHackMe profile URL (e.g. https://tryhackme.com/p/<username>) -->
     <p class="practice-note" data-reveal="up">
-      Active <a href="#about">TryHackMe profile</a> (badges shown in About). Building out
+      Active TryHackMe profile (badges shown in About). Building out
       HackTheBox rooms and CTF writeups as I complete them — check back for updates.
     </p>
   </section>
@@ -486,7 +518,7 @@
   <section id="projects" class="projects-section">
     <span class="section-eyebrow">05 — Projects</span>
     <h2 class="section-title" data-reveal="fade">Security &amp; engineering projects</h2>
-    <p class="section-subtitle">Three highlights — defensive security, threat tooling, and policy &amp; compliance</p>
+    <p class="section-subtitle">Three highlights — defensive security, threat detection tooling, and security operations</p>
 
     <div class="project-grid" data-reveal="up">
 
@@ -510,12 +542,12 @@
         </div>
       </div>
 
-      <!-- Cybersecurity Policies Report -->
+      <!-- Network Security Design (Cisco Packet Tracer) -->
       <div class="carousel-card">
-        <img id="feat-2" alt="Cybersecurity Policies Report">
+        <img id="feat-2" alt="Network Security Design — Cisco Packet Tracer lab">
         <div class="carousel-card-body">
-          <h3>Cybersecurity Policies Report</h3>
-          <p>Formal research report on security policy, governance frameworks, and compliance &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">GRC &amp; risk analysis</strong>.</p>
+          <h3>Network Security Design</h3>
+          <p>Cisco Packet Tracer lab: ACLs, IPSec VPN tunnels, and SSL/TLS handshake analysis &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">network defence &amp; traffic analysis</strong>.</p>
           <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
         </div>
       </div>
@@ -565,6 +597,7 @@
 
     </div>
   </section>
+  </main>
 
   <!-- ─── FOOTER ───────────────────────────────────────────── -->
   <footer class="site-footer">
@@ -752,7 +785,7 @@
         });
       }, { threshold: 0.12 });
 
-      document.querySelectorAll('.skill-group, .skills-developing').forEach(el => groupObs.observe(el));
+      document.querySelectorAll('.skill-group, .skills-soc, .skills-developing').forEach(el => groupObs.observe(el));
     })();
 
     /* ─── SVG placeholder generator (mirrors projects.js) ── */
@@ -799,99 +832,88 @@
     }
 
     /* ─── Inject featured project images ─────────────────── */
+    /* src: null means no real screenshot exists yet — go straight to the branded SVG
+       placeholder instead of requesting a file we know 404s (avoids noisy console errors). */
     const featData = [
       { src: 'assets/securewebbased.png', title: 'Secure Web-Based Blog',        category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  },
-      { src: 'assets/cve-tool.png',       title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
-      { src: 'assets/Policys.png',        title: 'Cybersecurity Policies Report', category: 'Academic',      technologies: ['Research', 'GRC', 'Compliance']    }
+      { src: null,                        title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
+      { src: null,                        title: 'Network Security Design',       category: 'Academic',      technologies: ['Cisco Packet Tracer', 'IPSec VPN', 'ACLs']    }
     ];
     featData.forEach((p, i) => {
       const el = document.getElementById('feat-' + i);
       if (!el) return;
+      if (!p.src) { el.src = featPlaceholder(p); return; }
       el.src = p.src;
       el.onerror = () => { el.src = featPlaceholder(p); el.onerror = null; };
     });
 
-    /* ─── Terminal animation ──────────────────────────────── */
+    /* ─── Terminal animation — cycles SOC-themed commands ─── */
     (function () {
       const cmdEl    = document.getElementById('termCmd');
       const cursorEl = document.getElementById('termCursor');
       const outputEl = document.getElementById('termOutput');
       if (!cmdEl || !outputEl) return;
 
-      const CMD = './whoami.sh';
-
-      const LINES = [
-        { key: 'role  ', val: 'Security Analyst · UEA MSc' },
-        { key: 'focus ', val: 'GRC · risk management · security analysis' },
-        { key: 'status', val: 'available Sep 2026 · UK grad security roles' },
+      const SEQUENCE = [
+        { cmd: 'whoami',                  out: 'MSc Cyber Security — SOC Analyst track' },
+        { cmd: 'tail -f /var/log/auth.log', out: 'Monitoring... detection > prevention' },
+        { cmd: 'cat skills.txt',          out: 'MITRE ATT&CK · SIEM · Log Analysis · IR' },
+        { cmd: './availability.sh',       out: 'Sep 2026 — Open to UK SOC roles' },
       ];
 
-      /* Respect reduced-motion — show content statically */
+      /* Respect reduced-motion — show all lines statically, no cycling */
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        cmdEl.textContent = CMD;
-        LINES.forEach(l => {
-          const d = document.createElement('div');
-          d.className = 't-out-line';
-          d.innerHTML =
-            `<span class="t-out-key">${l.key}</span>` +
-            `<span class="t-out-sep">→</span>` +
-            `<span class="t-out-val">${l.val}</span>`;
-          outputEl.appendChild(d);
-        });
         cursorEl.style.display = 'none';
+        SEQUENCE.forEach(s => {
+          const c = document.createElement('div');
+          c.className = 'terminal-line';
+          c.innerHTML = `<span class="t-prompt">john@uea:~$</span> ${s.cmd}`;
+          outputEl.appendChild(c);
+          const o = document.createElement('div');
+          o.className = 't-out-line';
+          o.innerHTML = `<span class="t-out-sep">&gt;</span><span class="t-out-val">${s.out}</span>`;
+          outputEl.appendChild(o);
+        });
         return;
       }
 
-      let i = 0;
+      let seqIdx = 0;
 
-      function typeCmd() {
-        if (i < CMD.length) {
-          cmdEl.textContent = CMD.slice(0, ++i);
-          setTimeout(typeCmd, 48 + Math.random() * 32);
-        } else {
-          setTimeout(showLines, 380);
-        }
-      }
-
-      let lineIdx = 0;
-
-      function showLines() {
-        if (lineIdx >= LINES.length) {
-          /* Hide inline cursor, add a fresh blinking prompt */
-          cursorEl.style.display = 'none';
-          const np = document.createElement('div');
-          np.className = 'terminal-line';
-          np.style.marginTop = '0.15rem';
-          np.innerHTML =
-            '<span class="t-prompt">john@uea:~$</span> ' +
-            '<span class="t-cursor">▋</span>';
-          outputEl.appendChild(np);
-          return;
-        }
-
-        const line = LINES[lineIdx++];
-        const d = document.createElement('div');
-        d.className = 't-out-line';
-        const uid = 'ov' + lineIdx;
-        d.innerHTML =
-          `<span class="t-out-key">${line.key}</span>` +
-          `<span class="t-out-sep">→</span>` +
-          `<span class="t-out-val" id="${uid}"></span>`;
-        outputEl.appendChild(d);
-
-        const valEl = document.getElementById(uid);
-        let vi = 0;
-        (function typeVal() {
-          if (vi < line.val.length) {
-            valEl.textContent = line.val.slice(0, ++vi);
-            setTimeout(typeVal, 14 + Math.random() * 10);
+      function typeInto(el, text, speed, done) {
+        let i = 0;
+        (function tick() {
+          if (i < text.length) {
+            el.textContent = text.slice(0, ++i);
+            setTimeout(tick, speed + Math.random() * (speed * 0.6));
           } else {
-            setTimeout(showLines, 100);
+            done();
           }
         })();
       }
 
-      setTimeout(typeCmd, 1100);
+      function runStep() {
+        const step = SEQUENCE[seqIdx];
+        cmdEl.textContent = '';
+        outputEl.innerHTML = '';
+        cursorEl.style.display = '';
+
+        typeInto(cmdEl, step.cmd, 48, () => {
+          setTimeout(() => {
+            cursorEl.style.display = 'none';
+            const o = document.createElement('div');
+            o.className = 't-out-line';
+            const uid = 'tov';
+            o.innerHTML = `<span class="t-out-sep">&gt;</span><span class="t-out-val" id="${uid}"></span>`;
+            outputEl.appendChild(o);
+            typeInto(document.getElementById(uid), step.out, 15, () => {
+              seqIdx = (seqIdx + 1) % SEQUENCE.length;
+              setTimeout(runStep, 2200);
+            });
+          }, 320);
+        });
+      }
+
+      setTimeout(runStep, 1100);
     })();
   </script>
 </body>

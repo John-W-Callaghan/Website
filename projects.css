@@ -1,13 +1,13 @@
 /* projects.css — Midnight Ink design system */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=swap');
+/* Font loading moved to a non-blocking <link rel="preload"> in projects.html — a CSS @import
+   is always render-blocking (more so than a <link>), so it was hurting LCP here. */
 
 :root {
   --bg:      #0D1520;
   --surface: #111E32;
   --border:  #1B2C42;
   --text:    #D6E2F0;
-  --muted:   #4B6680;
+  --muted:   #6F8AA6;
   --accent:  #C49A3C;
 
   --font-display: 'Space Grotesk', sans-serif;
@@ -198,6 +198,41 @@ body {
   gap: 1.25rem;
 }
 
+.foundational-drawer {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.foundational-trigger {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.6rem 0;
+  user-select: none;
+}
+
+.foundational-trigger::-webkit-details-marker { display: none; }
+
+.foundational-trigger:hover { color: var(--text); }
+
+.foundational-trigger::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.foundational-drawer[open] .foundational-trigger::before {
+  transform: rotate(90deg);
+}
+
+.foundational-grid {
+  margin-top: 1.25rem;
+  opacity: 0.85;
+}
+
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -270,7 +305,7 @@ body {
 .tech-tag {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: #5A7A9A;
+  color: #789AB5;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   padding: 0.15rem 0.45rem;

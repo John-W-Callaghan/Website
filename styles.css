@@ -21,7 +21,7 @@ ul  { list-style: none; }
   --surface: #111E32;
   --border:  #1B2C42;
   --text:    #D6E2F0;
-  --muted:   #4B6680;
+  --muted:   #6F8AA6;
   --accent:  #C49A3C;
 
   /* Typography */
@@ -594,7 +594,7 @@ body {
   border-radius: var(--r-md);
 }
 
-.thm-badge-container h4 {
+.thm-badge-container h3 {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   color: var(--muted);
@@ -674,7 +674,6 @@ body {
   align-items: center;
   gap: 0.28rem;
   margin-top: 0.05rem;
-  opacity: 0.7;
 }
 
 .badge-verified::before {
@@ -855,11 +854,23 @@ body {
 }
 
 .skills-core,
+.skills-soc,
 .skills-developing {
   max-width: var(--max-w);
   margin-left: auto;
   margin-right: auto;
 }
+
+.skills-soc {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--r-md);
+}
+
+.skills-soc .skill-tags { margin-top: 0.85rem; }
 
 .skills-tier-label {
   display: block;
