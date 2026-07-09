@@ -1,0 +1,4 @@
+Contact: mailto:johnwiam@icloud.com
+Expires: 2027-06-26T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://john-w-callaghan.github.io/Website/.well-known/security.txt
