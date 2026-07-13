@@ -37,7 +37,7 @@ const PROJECTS_DATA = [
   {
     id: "search-engine",
     title: "Video Game Search Engine",
-    category: "AI & ML",
+    category: "Python",
     image: "assets/gamesearch-engine.png",
     shortDesc: "TF‑IDF, WordNet query expansion, cosine similarity ranking.",
     fullDesc: `<p>Custom search engine over HTML game data using BeautifulSoup, NLTK WordNet, and Scikit‑learn's TfidfVectorizer.</p>`,
@@ -251,6 +251,8 @@ const PROJECTS_DATA = [
     reportPDF: "assets/cyber.pdf"
   },
   {
+    // TODO: John — add a repo link here (github: "https://...") once one exists, or leave as
+    // null; the GitHub button is correctly omitted on the card while this stays null.
     id: "network-packet-tracer",
     title: "Network Security Design (Cisco Packet Tracer)",
     category: "Academic",

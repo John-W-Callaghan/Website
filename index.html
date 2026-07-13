@@ -11,9 +11,11 @@
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="John Callaghan — SOC Analyst &amp; Security Engineer" />
-  <meta property="og:description" content="MSc Cyber Security @ UEA. SOC operations, threat detection, log analysis, MITRE ATT&amp;CK, incident response. Available September 2026." />
-  <meta property="og:image"       content="assets/profile.png" />
+  <meta property="og:title"       content="John Callaghan — SOC Analyst &amp; Cyber Security" />
+  <meta property="og:description" content="MSc Cyber Security at UEA. SOC operations, threat detection &amp; incident response. Available September 2026." />
+  <!-- TODO: John — upload assets/og-image.png (recommended 1200x630 screenshot of the site); this image 404s until you do -->
+  <meta property="og:image"       content="https://john-w-callaghan.github.io/Website/assets/og-image.png" />
+  <meta property="og:url"         content="https://john-w-callaghan.github.io/Website/" />
 
   <!-- Security headers — best-effort via meta tag (static GitHub Pages site, no server config
        access). CSP keeps 'unsafe-inline' for script/style because the site's interactivity (nav,
@@ -79,7 +81,8 @@
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
         <a href="#projects" class="btn btn-ghost">View my work</a>
-        <!-- CV button: add back once assets/John_Callaghan_CV.pdf is uploaded -->
+        <!-- TODO: John — upload assets/John_Callaghan_CV.pdf; this link 404s until you do -->
+        <a href="assets/John_Callaghan_CV.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Download CV</a>
       </div>
 
       <p class="hero-status">
@@ -137,7 +140,8 @@
           of this field I want to build a career in.
         </p>
         <p>
-          I'm an MSc Cyber Security student at UEA with 8+ years of programming experience. I've
+          I'm an MSc Cyber Security student at UEA, bringing hands-on programming experience in
+          Python, JavaScript, and applied ML into a security operations focus. I've
           built a CVE-triage tool at CyberHack 2026 that filters real-world exploit intelligence
           down to the specific assets at risk, hardened a Node.js app against the OWASP Top 10,
           and designed a network security lab modelling IPSec VPNs, ACLs, and DNS filtering —
@@ -339,9 +343,25 @@
       <div id="professionalTimeline" class="timeline">
 
         <div class="timeline-item">
+          <h3>Sales Experience Specialist — Qualcomm (Snapdragon)</h3>
+          <p>Currys, London</p>
+          <span>Jan 2026 – Present</span>
+          <p>Translate technical product detail — chipsets, on-device AI, connectivity — into
+          plain-language guidance for non-technical customers.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Sales Experience Specialist — HP</h3>
+          <p>Currys, London</p>
+          <span>Oct 2025 – Dec 2025</span>
+          <p>Explained technical specifications and use-case trade-offs to non-technical customers
+          to help them choose the right device.</p>
+        </div>
+
+        <div class="timeline-item">
           <h3>Interactive Segmentation Tool Developer (Intern)</h3>
           <p>University of East Anglia — School of Computing Sciences</p>
-          <span>Summer 2023</span>
+          <span>Summer 2024</span>
           <p>Contributed to an EPSRC research project building a semi-automated GUI for labelling
           medical X-ray image segmentation data using pre-trained deep learning models. Enhanced
           skills in Python, computer vision, and model adaptation. Developed an interactive
@@ -494,8 +514,10 @@
     <h2 class="section-title" data-reveal="fade">Hands-On Practice</h2>
     <p class="section-subtitle">Practical security work outside coursework</p>
     <p class="practice-note" data-reveal="up">
-      Active <a href="https://tryhackme.com/p/JohnCallaghan" target="_blank" rel="noopener noreferrer">TryHackMe profile</a>
-      (badges shown in the About section). CTF writeups and further labs being added as I complete them.
+      Working through the TryHackMe SOC Level 1 path — log analysis, SIEM fundamentals, threat
+      intelligence, and incident response. Profile:
+      <a href="https://tryhackme.com/p/JohnCallaghan" target="_blank" rel="noopener noreferrer">tryhackme.com/p/JohnCallaghan</a>.
+      Room writeups added here as I complete them.
     </p>
   </section>
 
