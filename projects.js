@@ -231,6 +231,17 @@ const PROJECTS_DATA = [
 
   // ========== Academic & Security Research ==========
   {
+    id: "pqc-dissertation",
+    title: "Post-Quantum Authentication Pipeline for Connected Vehicles",
+    category: "Academic",
+    image: null,
+    shortDesc: "End-to-end secure telemetry pipeline benchmarking NIST-standardised ML-DSA-65 against classical ECDSA across 6,000 measured iterations.",
+    fullDesc: `<p>My MSc Cyber Security dissertation at the University of East Anglia. I built a complete real-time authentication pipeline for connected vehicle telemetry: a vehicle emulator that signs every packet, a FastAPI cloud verifier that runs identity, freshness, replay and signature checks in cheap-to-expensive order, and a Docker Compose deployment for the whole stack.</p><p>Every architectural decision traced back to a STRIDE threat model with four in-scope categories (spoofing, tampering, replay, hostile enrolment). I quantified the cost of migrating from ECDSA P-256 to NIST-standardised <strong>ML-DSA-65</strong> (FIPS 204) across 30 independent runs of 200 iterations per scheme, and produced a defensible answer to the "when should I migrate" question for anyone fielding hardware whose classical cryptography will be broken before end of life (NIST IR 8547 sets 2030 deprecation for P-256).</p><p>Across 6,000 measured iterations per scheme: signing was <strong>7.8&times; slower</strong> (0.2774&nbsp;ms vs 0.0354&nbsp;ms), verification <strong>1.3&times; slower</strong> (0.0888&nbsp;ms vs 0.0667&nbsp;ms), and the end-to-end penalty just 0.069&nbsp;ms &mdash; against a 46&times; larger signature (3309&nbsp;B vs 71&nbsp;B) and a 17.6&times; larger wire packet. 45 tests passing, with 8/8 attack scenarios (4 types &times; 2 schemes) correctly rejected.</p>`,
+    technologies: ["Python 3.12", "FastAPI", "Docker Compose", "liboqs 0.15.0", "ML-DSA-65 (FIPS 204)", "ECDSA P-256", "STRIDE Threat Modelling", "RFC 8785", "Post-Quantum Cryptography"],
+    github: "https://github.com/John-W-Callaghan/Post-quantumn-Encryption",
+    reportPDF: null
+  },
+  {
     id: "mnist",
     title: "MNIST Classifier Analysis",
     category: "Academic",
