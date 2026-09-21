@@ -476,7 +476,6 @@ body {
 .about-section,
 .experience-section,
 .skills-section,
-.certifications-section,
 .projects-section,
 .contact-section {
   padding: var(--pad-v) var(--pad-h);
@@ -484,7 +483,6 @@ body {
 
 .experience-section,
 .skills-section,
-.certifications-section,
 .projects-section,
 .contact-section {
   border-top: 1px solid var(--border);
@@ -833,11 +831,9 @@ body {
 .view-all-wrapper { text-align: center; margin-top: 2rem; }
 
 
-/* 14: CERTIFICATIONS
+/* 14: CERTIFICATIONS (reused for the About-section teaser)
    ---------------------------------------------------------- */
-.certifications-section {
-  background: var(--bg);
-}
+.about-certs { margin: 1.75rem 0; }
 
 .cert-group { margin-bottom: 2.5rem; }
 .cert-group:last-child { margin-bottom: 0; }
