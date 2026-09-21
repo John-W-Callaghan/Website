@@ -1,298 +1,51 @@
-// projects.js - Complete project data with auto-generated placeholders
+// projects.js: curated project data with auto-generated placeholders
+// Each project can belong to multiple categories (categories[0] is the "primary" one used
+// for the card badge and the generated placeholder icon); the filter bar matches on any of them.
 
 const PROJECTS_DATA = [
-  // ========== AI & ML ==========
-  {
-    id: "odia-ocr",
-    title: "Deep Learning for OCR (Odia Script)",
-    category: "AI & ML",
-    image: "assets/OCRODIA.png",
-    shortDesc: "CNN + transfer learning for low‑resource Odia script – 84% test accuracy.",
-    fullDesc: `<p>Dissertation project building a high‑accuracy OCR system for the Odia script. Due to severe data scarcity, a CNN with transfer learning from a Bengali model was used. A custom GUI augmented the dataset, boosting final accuracy to <strong>84.0%</strong>.</p>`,
-    technologies: ["Python", "TensorFlow", "Keras", "Tkinter", "Deep Learning"],
-    github: "https://github.com/John-W-Callaghan/OCRODIA",
-    reportPDF: "assets/ocrodia.pdf"
-  },
-  {
-    id: "chatbot",
-    title: "Intelligent Chatbot for Train Services",
-    category: "AI & ML",
-    image: "assets/train.png",
-    shortDesc: "Conversational AI + delay prediction (Random Forest MAE: 0.34 min).",
-    fullDesc: `<p>A chatbot that scrapes National Rail for cheap tickets and predicts train delays. The Random Forest model achieved a Mean Absolute Error of <strong>0.34 minutes</strong>.</p><p>Group project (university coursework). <!-- TODO: John — describe your specific contribution --></p>`,
-    technologies: ["Python", "Scikit-learn", "Selenium", "spaCy", "SQLite"],
-    github: "https://github.com/BabaRootsMg/AI-CW2-Developing-An-Intelligent-Chatbot-System",
-    reportPDF: "assets/chatbottrain.pdf"
-  },
-  {
-    id: "emotion-pred",
-    title: "Emotion Prediction from Text",
-    category: "AI & ML",
-    image: "assets/emotionpred.png",
-    shortDesc: "Logistic regression + Tkinter GUI for real‑time emotion detection.",
-    fullDesc: `<p>NLP pipeline using CountVectorizer and logistic regression, wrapped in an interactive Tkinter GUI that predicts emotion as you type.</p>`,
-    technologies: ["Python", "Scikit-learn", "NLTK", "Tkinter"],
-    github: "https://github.com/John-W-Callaghan/Emotions_predictor"
-  },
-  {
-    id: "search-engine",
-    title: "Video Game Search Engine",
-    category: "AI & ML",
-    image: "assets/gamesearch-engine.png",
-    shortDesc: "TF‑IDF, WordNet query expansion, cosine similarity ranking.",
-    fullDesc: `<p>Custom search engine over HTML game data using BeautifulSoup, NLTK WordNet, and Scikit‑learn's TfidfVectorizer.</p>`,
-    technologies: ["Python", "Scikit-learn", "BeautifulSoup", "NLTK"],
-    github: "https://github.com/John-W-Callaghan/Videogame-Search-engine"
-  },
-
-  // ========== Web & Security ==========
-  {
-    id: "secure-blog",
-    title: "Secure Web-Based Blog",
-    category: "Web & Security",
-    image: "assets/securewebbased.png",
-    shortDesc: "Node.js + PostgreSQL blog with SQLi, XSS, CSRF protection.",
-    fullDesc: `<p>Full‑stack blog with defensive mitigations against OWASP Top 5: SQL injection, XSS, CSRF, session hijacking, and account enumeration.</p><p>Group project (university coursework). <!-- TODO: John — describe your specific contribution, e.g. which mitigation(s) you implemented/tested --></p>`,
-    technologies: ["Node.js", "PostgreSQL", "JavaScript", "Cybersecurity"],
-    github: "https://github.com/BabaRootsMg/DSS-UG-002"
-  },
-  {
-    id: "parking-system",
-    title: "Parking Management System",
-    category: "Web & Security",
-    image: "assets/pARKINGSYSTEM.png",
-    shortDesc: "Full‑stack booking with Docker, Node.js, PostgreSQL.",
-    fullDesc: `<p>A full-stack parking booking system allowing users to reserve spaces in advance. Built with Node.js, PostgreSQL, Docker, and Pug templating.</p><p>Group project — my contribution: containerised the app with Docker.</p>`,
-    technologies: ["Node.js", "PostgreSQL", "Docker", "JavaScript", "Pug"],
-    github: "https://github.com/Anthony-de-cruz/Parking-Management-System"
-  },
-  {
-    id: "portfolio",
-    title: "Portfolio Website",
-    category: "Web & Security",
-    image: "assets/website.png",
-    shortDesc: "Responsive personal site with particle animations.",
-    fullDesc: `<p>Custom portfolio built from scratch with smooth UI, particle background, and full responsiveness.</p>`,
-    technologies: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/John-W-Callaghan/Portfolio"
-  },
-  {
-    id: "pihole",
-    title: "Network-Level Ad Blocker (Pi-hole)",
-    category: "Web & Security",
-    image: null,  // Auto-generated placeholder
-    shortDesc: "Self‑hosted DNS sinkhole blocking ads across entire home network.",
-    fullDesc: `<p>Deployed a Raspberry Pi running Pi-hole as a network-wide DNS sinkhole. Configured static IP via NetworkManager (nmcli), resolved IP conflicts, and configured router to use Pi-hole as primary DNS – blocking thousands of ad/tracker domains across all devices without per-device software.</p>`,
-    technologies: ["Raspberry Pi", "Linux", "DNS", "Pi-hole", "NetworkManager", "SSH"],
-    github: null,
-    reportPDF: "assets/Rasberry_pi.pdf"
-  },
-
-  // ========== Data Analysis ==========
-  {
-    id: "med-viz",
-    foundational: true,
-    title: "Medical Data Visualizer",
-    category: "Data Analysis",
-    image: "assets/codecamp.png",
-    shortDesc: "Pandas, seaborn, matplotlib: medical examination plots.",
-    fullDesc: `<p>Data preprocessing and visualisation (categorical plots, correlation heatmap) on medical exam data.</p>`,
-    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
-  },
-  {
-    id: "sea-level",
-    foundational: true,
-    title: "Sea Level Rise Visualizer",
-    category: "Data Analysis",
-    image: "assets/codecamp.png",
-    shortDesc: "Linear regression forecast to 2050 using SciPy.",
-    fullDesc: `<p>Historical sea level data + linear regression to predict future rise up to 2050.</p>`,
-    technologies: ["Python", "Pandas", "Matplotlib", "SciPy"],
-    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
-  },
-  {
-    id: "page-views",
-    foundational: true,
-    title: "Page Views Time Series Analyzer",
-    category: "Data Analysis",
-    image: "assets/codecamp.png",
-    shortDesc: "Line/bar/box plots to visualise forum traffic trends.",
-    fullDesc: `<p>Cleaned and visualised forum page view data, identifying seasonality and outliers.</p>`,
-    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
-  },
-  {
-    id: "demo-analysis",
-    foundational: true,
-    title: "Demographic Data Analyzer",
-    category: "Data Analysis",
-    image: "assets/codecamp.png",
-    shortDesc: "Pandas analysis of demographic dataset (race, education, income).",
-    fullDesc: `<p>Used Pandas to load a CSV and answer statistical questions about race representation, education levels, and earnings.</p>`,
-    technologies: ["Python", "Pandas", "NumPy"],
-    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
-  },
-  {
-    id: "mean-variance",
-    foundational: true,
-    title: "Mean‑Variance‑Standard Deviation Calculator",
-    category: "Data Analysis",
-    image: "assets/codecamp.png",
-    shortDesc: "NumPy statistical analysis for a 3×3 matrix.",
-    fullDesc: `<p>Takes a list of 9 numbers, converts to a 3×3 NumPy array, and returns mean, variance, standard deviation, max, min, and sum along rows, columns, and flattened matrix.</p>`,
-    technologies: ["Python", "NumPy"],
-    github: "https://github.com/John-W-Callaghan/Data-Analysis-Projects"
-  },
-
-  // ========== Python / Game Development ==========
-  {
-    id: "mud-game",
-    title: "MUD Game – Multi-User Dungeon",
-    category: "Python",
-    image: null,
-    shortDesc: "Command-line adventure game with character creation, save/load, and unit testing.",
-    fullDesc: `<p>A command-line MUD (Multi-User Dungeon) game built in Python. Features include character customisation, location exploration, inventory management, save/load to JSON, exception handling, and unit testing.</p>`,
-    technologies: ["Python", "OOP", "Unit Testing", "JSON", "Game Development"],
-    github: "https://github.com/simonrawks/ap-assessment2-game",
-    reportPDF: null
-  },
-  {
-    id: "networks-cw",
-    title: "Networks Programming Assignment",
-    category: "Python",
-    image: null,
-    shortDesc: "Python networking game with client-server architecture.",
-    fullDesc: `<p>A networked multiplayer game implementing client-server communication, game state synchronisation, and custom protocol design using Python sockets.</p>`,
-    technologies: ["Python", "Networking", "Sockets", "Client-Server"],
-    github: "https://github.com/John-W-Callaghan/NetworksCW",
-    reportPDF: "assets/networks_cw_report.pdf"
-  },
-
-  // ========== Scientific Computing ==========
-  {
-    id: "arithmetic",
-    foundational: true,
-    title: "Arithmetic Formatter",
-    category: "Python",
-    image: "assets/codecamp.png",
-    shortDesc: "Formats arithmetic problems vertically and side‑by‑side.",
-    fullDesc: `<p>A Python function that neatly formats multiple arithmetic problems in a visually appealing layout, with robust error handling.</p>`,
-    technologies: ["Python", "String Manipulation"],
-    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
-  },
-  {
-    id: "time-calc",
-    foundational: true,
-    title: "Time Calculator",
-    category: "Python",
-    image: "assets/codecamp.png",
-    shortDesc: "Add duration to start time, handle AM/PM and weekday changes.",
-    fullDesc: `<p>Adds a given duration to a start time, correctly managing AM/PM transitions and day‑of‑week changes.</p>`,
-    technologies: ["Python"],
-    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
-  },
-  {
-    id: "budget-app",
-    foundational: true,
-    title: "Budget App",
-    category: "Python",
-    image: "assets/codecamp.png",
-    shortDesc: "Object‑oriented budget manager with spending charts.",
-    fullDesc: `<p>OOP app for managing budgets across categories. Supports deposits, withdrawals, transfers, and a text‑based bar chart visualisation.</p>`,
-    technologies: ["Python", "OOP"],
-    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
-  },
-  {
-    id: "poly-calc",
-    foundational: true,
-    title: "Polygon Area Calculator",
-    category: "Python",
-    image: "assets/codecamp.png",
-    shortDesc: "Rectangle & Square classes demonstrating inheritance.",
-    fullDesc: `<p>Uses a Rectangle class and an inherited Square class to calculate area, perimeter, and diagonal – showing key OOP principles.</p>`,
-    technologies: ["Python", "OOP", "Geometry"],
-    github: "https://github.com/John-W-Callaghan/Scientific-Computing-Projects"
-  },
-
-  // ========== Hackathon ==========
-  {
-    id: "cve-translator",
-    title: "CVE-to-My-Stack Translator",
-    category: "Hackathon",
-    image: "assets/HACKATHONCERT.png",
-    shortDesc: "CyberHack 2026 — filters NVD CVEs to only the vulnerabilities that actually affect your asset list.",
-    fullDesc: `<p>Built at <strong>CyberHack 2026 — CSE Connect Hackathon</strong>. With hundreds of new CVEs published daily, the vast majority don't affect any given organisation. This tool solves that noise problem: input your asset list and it cross-references against the <strong>National Vulnerability Database (NVD)</strong>, then enriches every match with <strong>EPSS exploitation probability scores</strong> and <strong>CISA Known Exploited Vulnerabilities (KEV)</strong> flags. Output is a prioritised CSV ranked by real-world threat urgency.</p>
-    <p><strong>Pipeline:</strong> Four modular stages — <code>normalisation.py</code> (product name → CPE mapping via fuzzy matching), <code>matcher.py</code> (CVE lookup &amp; enrichment), <code>ranker.py</code> (CSV generation), and <code>test_pipeline.py</code> (51 unit tests).</p>
-    <p><strong>Data sources:</strong> NVD CVE records · EPSS scores · CISA KEV catalog · CPE Dictionary</p>`,
-    technologies: ["Python", "NVD API", "EPSS", "CISA KEV", "rapidfuzz", "Cybersecurity"],
-    github: "https://github.com/John-W-Callaghan/Hackathon-2026"
-  },
-
-  // ========== Academic & Security Research ==========
   {
     id: "pqc-dissertation",
     title: "Post-Quantum Authentication Pipeline for Connected Vehicles",
-    category: "Academic",
+    categories: ["Academic", "Python", "Web & Security"],
     image: null,
-    shortDesc: "End-to-end secure telemetry pipeline benchmarking NIST-standardised ML-DSA-65 against classical ECDSA across 6,000 measured iterations.",
-    fullDesc: `<p>My MSc Cyber Security dissertation at the University of East Anglia. I built a complete real-time authentication pipeline for connected vehicle telemetry: a vehicle emulator that signs every packet, a FastAPI cloud verifier that runs identity, freshness, replay and signature checks in cheap-to-expensive order, and a Docker Compose deployment for the whole stack.</p><p>Every architectural decision traced back to a STRIDE threat model with four in-scope categories (spoofing, tampering, replay, hostile enrolment). I quantified the cost of migrating from ECDSA P-256 to NIST-standardised <strong>ML-DSA-65</strong> (FIPS 204) across 30 independent runs of 200 iterations per scheme, and produced a defensible answer to the "when should I migrate" question for anyone fielding hardware whose classical cryptography will be broken before end of life (NIST IR 8547 sets 2030 deprecation for P-256).</p><p>Across 6,000 measured iterations per scheme: signing was <strong>7.8&times; slower</strong> (0.2774&nbsp;ms vs 0.0354&nbsp;ms), verification <strong>1.3&times; slower</strong> (0.0888&nbsp;ms vs 0.0667&nbsp;ms), and the end-to-end penalty just 0.069&nbsp;ms &mdash; against a 46&times; larger signature (3309&nbsp;B vs 71&nbsp;B) and a 17.6&times; larger wire packet. 45 tests passing, with 8/8 attack scenarios (4 types &times; 2 schemes) correctly rejected.</p>`,
-    technologies: ["Python 3.12", "FastAPI", "Docker Compose", "liboqs 0.15.0", "ML-DSA-65 (FIPS 204)", "ECDSA P-256", "STRIDE Threat Modelling", "RFC 8785", "Post-Quantum Cryptography"],
+    shortDesc: "End-to-end post-quantum authentication pipeline for connected vehicle telemetry, benchmarking ML-DSA against ECDSA P-256 across 6,000 iterations.",
+    fullDesc: `<p>End-to-end post-quantum authentication pipeline for connected vehicle telemetry. Client-side OBD emulator signs telemetry using ML-DSA (NIST FIPS 204); cloud-side verifier enforces freshness and replay protection with a five-stage cheap-to-expensive check pipeline. Fully containerised with Docker Compose.</p><p>Benchmarked ML-DSA against ECDSA P-256 across 6,000 measured iterations. Key finding: the binding constraint on PQC migration is signature size, not compute (wire packet 17.6x larger, verification only 1.3x slower). 45 tests, STRIDE threat model, RFC 8785 canonicalisation.</p>`,
+    technologies: ["Python", "FastAPI", "Docker", "liboqs", "ML-DSA", "pytest"],
     github: "https://github.com/John-W-Callaghan/Post-quantumn-Encryption",
     reportPDF: null
   },
   {
-    id: "mnist",
-    title: "MNIST Classifier Analysis",
-    category: "Academic",
-    image: "assets/mnist.png",
-    shortDesc: "RF, K‑NN, SVM comparison with cross-validation and tuning.",
-    fullDesc: `<p>Evaluated three supervised learning algorithms (Random Forest, K‑NN, SVM) on the MNIST dataset using 5‑fold cross-validation and hyperparameter tuning.</p>`,
-    technologies: ["Python", "Scikit-learn", "Random Forest", "K-NN", "SVM"],
-    reportPDF: "assets/classifiers.pdf"
-  },
-  {
-    id: "cyber-report",
-    title: "Cybersecurity Policies Report",
-    category: "Academic",
-    image: "assets/Policys.png",
-    shortDesc: "Research on security policies, frameworks, and compliance.",
-    fullDesc: `<p>Formal report exploring why security policies are essential for defending against threats, ensuring compliance, and guiding employees.</p>`,
-    technologies: ["Research", "Technical Writing", "Cybersecurity"],
-    reportPDF: "assets/cyber.pdf"
-  },
-  {
-    id: "network-packet-tracer",
-    title: "Network Security Design (Cisco Packet Tracer)",
-    category: "Academic",
+    id: "odia-ocr",
+    title: "CNN OCR for Odia Script",
+    categories: ["Academic", "AI & ML", "Python"],
     image: null,
-    shortDesc: "ACLs, IPSec VPN, SSL/TLS handshake analysis.",
-    fullDesc: `<p>Designed and analysed secure networks using Cisco Packet Tracer. Implemented Standard/Extended ACLs, IPSec VPN tunnels with cryptographic security associations, and analysed SSL/TLS handshakes and cipher suites.</p>`,
-    technologies: ["Cisco Packet Tracer", "ACL", "IPSec VPN", "SSL/TLS", "Packet Analysis"],
-    github: null,
-    reportPDF: "assets/Networks.pdf"
+    shortDesc: "Deep learning OCR for handwritten Odia script using transfer learning, 84% test accuracy on a low-resource language.",
+    fullDesc: `<p>Deep learning OCR system for handwritten Odia, a low-resource Indic script. Used transfer learning on pre-trained CNN architectures adapted to the target script. Achieved 84% test accuracy despite limited training data availability. Full BSc dissertation project, University of East Anglia.</p>`,
+    technologies: ["Python", "TensorFlow", "Keras", "Transfer Learning", "CNN"],
+    github: "https://github.com/John-W-Callaghan/OCRODIA",
+    reportPDF: "assets/ocrodia.pdf"
   },
   {
-    id: "ai-ids",
-    title: "AI-Based Intrusion Detection Systems & Their Vulnerabilities",
-    category: "Academic",
-    image: "assets/Policys.png",
-    shortDesc: "Literature review on AI-driven NIDS and adversarial ML attacks.",
-    fullDesc: `<p>Critical literature review examining supervised/unsupervised learning for intrusion detection, adversarial vulnerabilities (evasion and poisoning attacks), and defensive strategies including adversarial training and explainable AI. References 19 academic sources.</p>`,
-    technologies: ["Machine Learning", "NIDS", "Adversarial ML", "Explainable AI", "Cybersecurity"],
-    github: null,
-    reportPDF: "assets/Proffesional.pdf"
-  },
-  {
-    id: "blockchain-evoting",
-    title: "Blockchain + AI for Secure E-Voting",
-    category: "Academic",
+    id: "cve-translator",
+    title: "CVE-to-My-Stack Translator",
+    categories: ["Web & Security", "Python", "Hackathon"],
     image: null,
-    shortDesc: "Hybrid framework combining blockchain integrity with AI behavioural analysis.",
-    fullDesc: `<p>A hybrid framework for secure e-voting simulation using blockchain (immutable ledger, smart contracts) and AI-driven behavioural analysis (anomaly detection for vote manipulation).</p>`,
-    technologies: ["Blockchain", "AI/ML", "Smart Contracts", "Anomaly Detection", "Cryptography"],
-    github: "https://github.com/John-W-Callaghan/NetworksCW",
-    reportPDF: "assets/Networks and IOT.pdf"
+    shortDesc: "Filters daily CVE feeds against a defined asset list, enriched with EPSS exploitation-probability scores and CISA KEV flags.",
+    fullDesc: `<p>DevSecOps tool that filters daily CVE feeds against a defined asset list, enriched with EPSS exploitation-probability scores and CISA Known Exploited Vulnerabilities flags.</p><p>This is the prioritisation model production security teams actually use. Built at CyberHack 2026 hackathon, CSE Connect London.</p>`,
+    technologies: ["Python", "NVD API", "EPSS", "CISA KEV", "Data pipelines"],
+    github: "https://github.com/John-W-Callaghan/Hackathon-2026",
+    reportPDF: null
+  },
+  {
+    id: "owasp-web-app",
+    title: "OWASP-Hardened Full-Stack Web App",
+    categories: ["Web & Security", "Academic"],
+    image: null,
+    shortDesc: "Full-stack Node.js/PostgreSQL app hardened against the OWASP Top 10, containerised with Docker.",
+    fullDesc: `<p>Full-stack web application hardened against the OWASP Top 10 as a taught-module project. Applied parameterised queries, input sanitisation, CSRF tokens, secure session management, CSP headers, and least-privilege database access from the ground up. Packaged in Docker.</p>`,
+    technologies: ["Node.js", "Express", "PostgreSQL", "Docker"],
+    github: "https://github.com/John-W-Callaghan",
+    reportPDF: null
   }
 ];
 
@@ -307,7 +60,8 @@ function generatePlaceholder(project) {
     "Hackathon":      { label: "// hackathon",             shape: "star"     }
   };
 
-  const cat = catConfig[project.category] || catConfig["Academic"];
+  const primaryCategory = project.categories[0];
+  const cat = catConfig[primaryCategory] || catConfig["Academic"];
 
   const breakPoint = project.title.lastIndexOf(' ', 30);
   const titleRaw = project.title.length > 30
@@ -410,7 +164,7 @@ function cardHtml(proj) {
     <div class="project-card" data-id="${proj.id}">
       <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy">
       <div class="card-body">
-        <div class="card-category">${proj.category}</div>
+        <div class="card-category">${escapeHtml(proj.categories[0])}</div>
         <h2 class="card-title">${escapeHtml(proj.title)}</h2>
         <p class="card-desc">${escapeHtml(proj.shortDesc)}</p>
         <div class="card-tech">
@@ -428,7 +182,7 @@ function cardHtml(proj) {
 
 function renderProjects() {
   const filtered = PROJECTS_DATA.filter(proj => {
-    const matchCategory = currentFilter === "all" || proj.category === currentFilter;
+    const matchCategory = currentFilter === "all" || proj.categories.includes(currentFilter);
     const term = currentSearch.trim().toLowerCase();
     const matchSearch = term === "" ||
       proj.title.toLowerCase().includes(term) ||
@@ -437,21 +191,9 @@ function renderProjects() {
     return matchCategory && matchSearch;
   });
 
-  const mainItems = filtered.filter(p => !p.foundational);
-  const foundationalItems = filtered.filter(p => p.foundational);
-
-  gridContainer.innerHTML = mainItems.length === 0
-    ? `<div class="no-results">✨ No projects match. Try another filter or keyword.</div>`
-    : mainItems.map(cardHtml).join('');
-
-  const drawer = document.getElementById('foundationalDrawer');
-  const foundationalGrid = document.getElementById('foundationalGrid');
-  const foundationalCount = document.getElementById('foundationalCount');
-  if (drawer && foundationalGrid) {
-    drawer.style.display = foundationalItems.length === 0 ? 'none' : '';
-    foundationalCount.textContent = foundationalItems.length;
-    foundationalGrid.innerHTML = foundationalItems.map(cardHtml).join('');
-  }
+  gridContainer.innerHTML = filtered.length === 0
+    ? `<div class="no-results">No projects match. Try another filter or keyword.</div>`
+    : filtered.map(cardHtml).join('');
 
   document.querySelectorAll('[data-detail]').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -477,7 +219,7 @@ function openModal(project) {
   modalImage.alt = project.title;
   modalDescription.innerHTML = project.fullDesc || `<p>${project.shortDesc}</p>`;
   modalTech.innerHTML = project.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('');
-  
+
   if (project.github) {
     modalGithub.href = project.github;
     modalGithub.style.display = "inline-flex";
