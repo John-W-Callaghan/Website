@@ -41,9 +41,9 @@ const PROJECTS_DATA = [
     title: "OWASP-Hardened Full-Stack Web App",
     categories: ["Web & Security", "Academic"],
     image: null,
-    shortDesc: "Full-stack Node.js/PostgreSQL app hardened against the OWASP Top 10, containerised with Docker.",
-    fullDesc: `<p>Full-stack web application hardened against the OWASP Top 10 as a taught-module project. Applied parameterised queries, input sanitisation, CSRF tokens, secure session management, CSP headers, and least-privilege database access from the ground up. Packaged in Docker.</p>`,
-    technologies: ["Node.js", "Express", "PostgreSQL", "Docker"],
+    shortDesc: "Full-stack Node.js/Express app hardened against the OWASP Top 10: SQL injection, XSS, CSRF, and session attacks, containerised with Docker.",
+    fullDesc: `<p>Full-stack Node.js and Express application hardened against the OWASP Top 10 as a taught-module project. SQL injection closed with parameterised queries; XSS and CSRF closed with input sanitisation, CSRF tokens, and CSP headers; session hijacking and account enumeration closed with secure session handling and least-privilege database access.</p><p>PostgreSQL for persistence, the whole stack packaged in Docker for reproducible deployment. Top 10 mitigations applied end to end on a real running application rather than as a one-off checklist exercise.</p>`,
+    technologies: ["Node.js", "Express", "JavaScript", "PostgreSQL", "Docker"],
     github: "https://github.com/John-W-Callaghan",
     reportPDF: null
   }
