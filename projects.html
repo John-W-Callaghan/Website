@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects · John Callaghan</title>
-  <meta name="description" content="Security engineering, DevSecOps, and cloud security projects by John Callaghan, MSc Cyber Security student at UEA targeting Security Engineering, DevSecOps &amp; Cloud Security roles.">
+  <meta name="description" content="Software engineering and applied security projects by John Callaghan: post-quantum authentication, CNN OCR, secure web applications, and vulnerability triage tooling.">
 
-  <!-- Security headers — see index.html for the full rationale on what is/isn't possible via
+  <!-- Security headers: see index.html for the full rationale on what is/isn't possible via
        <meta> on a static GitHub Pages site. -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src 'self' data: https://images.credly.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';">
@@ -28,11 +28,10 @@
   <ul class="nav-links" id="mainNavLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#experience">Experience</a></li>
     <li><a href="index.html#skills">Skills</a></li>
-    <li><a href="index.html#practice">Practice</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="credentials.html">Credentials</a></li>
+    <li><a href="index.html#certifications">Certifications</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger">☰</button>
@@ -40,7 +39,7 @@
 
 <header class="page-title-banner">
   <h1>All Projects</h1>
-  <p>A complete collection of my security engineering, DevSecOps, and development work</p>
+  <p>Software engineering and applied security work: post-quantum cryptography, deep learning, and secure web applications.</p>
 </header>
 
 <main>
@@ -51,23 +50,15 @@
 
 <div class="filter-bar" id="filterBar">
   <button data-cat="all" class="filter-chip active">All</button>
+  <button data-cat="Python" class="filter-chip">Python</button>
   <button data-cat="AI & ML" class="filter-chip">AI & ML</button>
-  <button data-cat="Web & Security" class="filter-chip"> Web & Security</button>
-  <button data-cat="Data Analysis" class="filter-chip"> Data Analysis</button>
-  <button data-cat="Python" class="filter-chip"> Python</button>
+  <button data-cat="Web & Security" class="filter-chip">Web & Security</button>
   <button data-cat="Academic" class="filter-chip">Academic</button>
   <button data-cat="Hackathon" class="filter-chip">🏆 Hackathon</button>
 </div>
 
 <section class="projects-grid-container">
   <div class="projects-grid" id="projectsGrid"></div>
-
-  <details class="foundational-drawer" id="foundationalDrawer">
-    <summary class="foundational-trigger">
-      Foundational Exercises (freeCodeCamp) — <span id="foundationalCount">0</span>
-    </summary>
-    <div class="projects-grid foundational-grid" id="foundationalGrid"></div>
-  </details>
 </section>
 
 <!-- Modal -->
@@ -79,8 +70,8 @@
     <div id="modalDescription"></div>
     <div id="modalTech"></div>
     <div class="modal-actions">
-      <a id="modalGithubLink" href="#" target="_blank" class="modal-link-btn">GitHub →</a>
-      <a id="modalReportLink" href="#" target="_blank" class="modal-link-btn btn-outline">Report →</a>
+      <a id="modalGithubLink" href="#" target="_blank" class="modal-link-btn">GitHub &rarr;</a>
+      <a id="modalReportLink" href="#" target="_blank" class="modal-link-btn btn-outline">Report &rarr;</a>
     </div>
   </div>
 </div>
@@ -92,7 +83,7 @@
     <nav class="footer-nav">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
-      <a href="credentials.html">Credentials</a>
+      <a href="index.html#certifications">Certifications</a>
     </nav>
     <div class="social-icons">
       <a href="https://github.com/John-W-Callaghan" target="_blank" aria-label="GitHub"><img src="assets/github.png" alt="GitHub"></a>

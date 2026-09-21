@@ -1,5 +1,5 @@
-/* projects.css — Midnight Ink design system */
-/* Font loading moved to a non-blocking <link rel="preload"> in projects.html — a CSS @import
+/* projects.css: Midnight Ink design system */
+/* Font loading moved to a non-blocking <link rel="preload"> in projects.html: a CSS @import
    is always render-blocking (more so than a <link>), so it was hurting LCP here. */
 
 :root {

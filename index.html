@@ -5,32 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary meta -->
-  <title>John Callaghan — Security Engineer | DevSecOps &amp; Cloud Security</title>
-  <meta name="description" content="MSc Cyber Security student at UEA targeting Security Engineering, DevSecOps &amp; Cloud Security roles — building secure systems, cloud security, and post-quantum cryptography. Available September 2026." />
+  <title>John Callaghan: Secure Software Engineer | MSc Cyber Security</title>
+  <meta name="description" content="Secure Software Engineer with an MSc in Cyber Security. 8+ years programming. Python, JavaScript, Docker. Targeting UK graduate software engineering roles." />
   <meta name="author" content="John Callaghan" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="John Callaghan — Security Engineer | DevSecOps &amp; Cloud Security" />
-  <meta property="og:description" content="MSc Cyber Security @ UEA — building secure systems, cloud security &amp; DevSecOps. Available September 2026." />
-  <!-- TODO: John — upload assets/og-image.png (recommended 1200x630 screenshot of the site); this image 404s until you do -->
+  <meta property="og:title"       content="John Callaghan: Secure Software Engineer | MSc Cyber Security" />
+  <meta property="og:description" content="Secure Software Engineer with an MSc in Cyber Security. 8+ years programming. Python, JavaScript, Docker. Targeting UK graduate software engineering roles." />
+  <!-- TODO: John: upload assets/og-image.png (recommended 1200x630 screenshot of the site); this image 404s until you do -->
   <meta property="og:image"       content="https://john-w-callaghan.github.io/Website/assets/og-image.png" />
   <meta property="og:url"         content="https://john-w-callaghan.github.io/Website/" />
 
-  <!-- Security headers — best-effort via meta tag (static GitHub Pages site, no server config
+  <!-- Security headers: best-effort via meta tag (static GitHub Pages site, no server config
        access). CSP keeps 'unsafe-inline' for script/style because the site's interactivity (nav,
        scroll reveals, terminal animation, modal) lives in one inline <script> block and several
        inline style="" attributes; a static site with no build step has no nonce/hash mechanism.
        Tightening this further means moving all inline JS/CSS to external files first.
        X-Content-Type-Options and Permissions-Policy are NOT included here because browsers only
-       honour them as real HTTP response headers, not <meta> tags — they'd be decorative and
+       honour them as real HTTP response headers, not <meta> tags: they'd be decorative and
        wrongly imply protection that isn't there. Same applies to HSTS (Strict-Transport-Security),
        which GitHub Pages sets automatically for github.io domains but can't be set via meta. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https://images.credly.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; frame-src https://tryhackme.com; base-uri 'self'; form-action 'self';" />
+        content="default-src 'self'; img-src 'self' data: https://images.credly.com https://cdn.freecodecamp.org; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
-  <!-- Fonts: Space Grotesk (display) · Inter (body) · JetBrains Mono (code) — loaded
+  <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (code). Loaded
        non-blocking (preload + swap to stylesheet on load) so font CSS doesn't delay first
        paint of the page's own text; noscript fallback covers JS-disabled cases. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,11 +54,10 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#practice">Practice</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -68,7 +67,7 @@
   <section id="home" class="hero-section">
 
     <div class="hero-text">
-      <span class="hero-eyebrow">// security engineer — devsecops &amp; cloud</span>
+      <span class="hero-eyebrow">// secure software engineer</span>
 
       <h1>
         <span class="name-reveal"><span>John</span></span><br>
@@ -76,19 +75,19 @@
       </h1>
 
       <p class="hero-position">
-        MSc Cyber Security @ UEA &mdash; building secure systems, cloud security &amp; DevSecOps
+        Secure Software Engineer &middot; MSc Cyber Security &middot; Python &middot; JavaScript
       </p>
 
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
         <a href="#projects" class="btn btn-ghost">View my work</a>
-        <!-- TODO: John — upload assets/John_Callaghan_CV.pdf; this link 404s until you do -->
+        <!-- TODO: John: upload assets/John_Callaghan_CV.pdf; this link 404s until you do -->
         <a href="assets/John_Callaghan_CV.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Download CV</a>
       </div>
 
       <p class="hero-status">
         <span class="status-dot" aria-hidden="true"></span>
-        Available September 2026 &mdash; Open to UK Graduate Security Engineering, DevSecOps &amp; Cloud Security Roles
+        Available September 2026 &middot; Open to UK Graduate Software Engineering roles
       </p>
 
       <div class="social-icons hero-social" aria-label="Social links">
@@ -104,12 +103,12 @@
     <!-- Terminal signature element -->
     <div class="hero-terminal"
          role="img"
-         aria-label="Terminal showing: Security Engineer, DevSecOps and cloud security, available September 2026 for UK security engineering roles">
+         aria-label="Terminal showing: Secure Software Engineer, MSc Cyber Security, available September 2026 for UK software engineering roles">
       <div class="terminal-chrome" aria-hidden="true">
         <span class="dot dot-red"></span>
         <span class="dot dot-yellow"></span>
         <span class="dot dot-green"></span>
-        <span class="terminal-title">john@uea — bash</span>
+        <span class="terminal-title">john@uea: bash</span>
       </div>
       <div class="terminal-body" aria-hidden="true">
         <div class="terminal-line">
@@ -124,7 +123,7 @@
 
   <!-- ─── ABOUT ────────────────────────────────────────────── -->
   <section id="about" class="about-section">
-    <span class="section-eyebrow">01 — About</span>
+    <span class="section-eyebrow">01. About</span>
     <h2 class="section-title" data-reveal="fade">About</h2>
     <p class="section-subtitle">My Introduction</p>
 
@@ -135,34 +134,37 @@
 
       <div class="about-text" data-reveal="right">
         <p>
-          I didn't get into security to write policies — I got into it to build things that hold
-          up. The moment a system you've hardened shrugs off an attack that would've owned the
-          naive version — that's the part of this field I want to build a career in.
+          I'm a software engineer with 8+ years of programming behind me, finishing an MSc in
+          Cyber Security at UEA (Distinction predicted, September 2026). I'm targeting graduate
+          software engineering roles in London. Long term I want to specialise into application
+          and product security engineering, but I want two or three years of proper SWE
+          experience first.
         </p>
         <p>
-          I'm an MSc Cyber Security student at UEA with 8+ years of programming experience. My
-          dissertation implements a post-quantum authentication pipeline for connected vehicles —
-          a full client/cloud system in Docker, using NIST-standardised cryptography. I've built a
-          CVE-triage tool at CyberHack 2026, hardened a Node.js application against the OWASP Top
-          10, and designed network security infrastructure with IPSec VPNs and traffic analysis. I
-          bring the software engineering depth most security graduates don't.
+          The MSc dissertation is the clearest example of the kind of thing I like building. It's
+          an end-to-end post-quantum authentication pipeline for connected vehicles, in Python and
+          Docker, with ML-DSA (NIST FIPS 204) benchmarked against a classical ECDSA P-256 baseline
+          across 6,000 measured iterations per scheme. Every architectural decision traced back to
+          a STRIDE threat model, and it turned out the binding constraint on post-quantum
+          migration isn't compute, it's signature size. The wire packet is 17.6x larger while
+          verification is only 1.3x slower.
         </p>
-
-        <p class="clearance-line">UK national — eligible for SC clearance.</p>
+        <p>
+          Before the MSc, my BSc dissertation trained a CNN with transfer learning to read
+          handwritten Odia script and hit 84% test accuracy on what's a genuinely low-resource
+          language. Outside coursework I built a CVE triage tool at CyberHack 2026 that filters
+          the daily NVD feed against a defined asset list and enriches results with EPSS
+          exploitation-probability scores and CISA known-exploited flags. And as a taught-module
+          project I OWASP-hardened a full-stack Node.js/PostgreSQL web app: parameterised queries,
+          input sanitisation, CSRF tokens, secure session handling, and least-privilege database
+          access, from the ground up.
+        </p>
+        <p class="clearance-line">UK national, eligible for SC clearance.</p>
 
         <div class="about-stats">
           <div><strong data-count="8" data-suffix="+">8+</strong><span>Years Programming</span></div>
-          <div><strong>NIST PQC</strong><span>Dissertation</span></div>
+          <div><strong>MSc</strong><span>Cyber Security (Distinction predicted)</span></div>
           <div><strong data-count="20" data-suffix="+">20+</strong><span>Projects Shipped</span></div>
-        </div>
-
-        <div class="thm-badge-container">
-          <h3>Cybersecurity Credentials</h3>
-          <p class="credentials-teaser-note">
-            7 verified Cisco/Credly certifications spanning cybersecurity and networking, plus
-            hands-on practice via CyberHack 2026 and TryHackMe.
-          </p>
-          <a href="credentials.html" class="btn btn-ghost">View all credentials &rarr;</a>
         </div>
 
         <a href="projects.html" class="btn btn-ghost">View all projects &rarr;</a>
@@ -170,9 +172,286 @@
     </div>
   </section>
 
+  <!-- ─── SKILLS ───────────────────────────────────────────── -->
+  <section id="skills" class="skills-section">
+    <span class="section-eyebrow">02. Skills</span>
+    <h2 class="section-title" data-reveal="fade">Skills</h2>
+    <p class="section-subtitle">
+      Core skills evidenced by shipped software engineering projects, with security as a specialism.
+    </p>
+
+    <div class="skills-core" data-reveal="up">
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <span class="skill-group-label">// software engineering</span>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>C</span>
+            <span>C++</span>
+            <span>SQL</span>
+            <span>Node.js</span>
+            <span>Data structures &amp; algorithms</span>
+            <span>REST APIs</span>
+            <span>Git/GitHub workflows</span>
+            <span>Testing (unit, integration)</span>
+            <span>Code review</span>
+            <span>Agile</span>
+            <span>Clean code</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// systems &amp; infrastructure</span>
+          <div class="skill-tags">
+            <span>Docker</span>
+            <span>Linux</span>
+            <span>Bash</span>
+            <span>CI/CD concepts</span>
+            <span>Cloud (AWS, in progress)</span>
+            <span>Distributed systems fundamentals</span>
+            <span>Microservices patterns</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// security engineering (specialism)</span>
+          <div class="skill-tags">
+            <span>OWASP Top 10</span>
+            <span>Secure SDLC</span>
+            <span>Threat modelling (STRIDE)</span>
+            <span>Cryptography implementation</span>
+            <span>Post-quantum (ML-DSA)</span>
+            <span>Session hardening</span>
+            <span>Input validation</span>
+            <span>Least privilege</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// data &amp; ML</span>
+          <div class="skill-tags">
+            <span>pandas</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>scikit-learn</span>
+            <span>TensorFlow</span>
+            <span>Keras</span>
+            <span>CNNs</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-group-label">// languages (spoken)</span>
+          <div class="skill-tags">
+            <span>English (native)</span>
+            <span>Portuguese (native)</span>
+            <span>Spanish (professional)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
+  <section id="projects" class="projects-section">
+    <span class="section-eyebrow">03. Projects</span>
+    <h2 class="section-title" data-reveal="fade">Selected projects</h2>
+    <p class="section-subtitle">Three highlights: secure system design, vulnerability tooling, and applied cryptography</p>
+
+    <div class="project-grid" data-reveal="up">
+
+      <!-- MSc Dissertation: PQC -->
+      <div class="carousel-card">
+        <img id="feat-0" alt="Post-Quantum Authentication Pipeline for Connected Vehicles">
+        <div class="carousel-card-body">
+          <h3>Post-Quantum Authentication Pipeline</h3>
+          <p>End-to-end authentication pipeline for connected vehicle telemetry, built in Python and Docker. Benchmarks NIST-standardised ML-DSA against classical ECDSA P-256 across 6,000 measured iterations. The binding constraint on post-quantum migration turned out to be signature size, not compute. <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Python &middot; Docker &middot; ML-DSA &middot; FastAPI</strong></p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CVE Tool -->
+      <div class="carousel-card">
+        <img id="feat-1" alt="CVE-to-My-Stack Translator">
+        <div class="carousel-card-body">
+          <h3>CVE-to-My-Stack Translator</h3>
+          <p>A tool that filters daily CVE feeds against a defined asset list, enriched with EPSS exploitation-probability scores and CISA Known Exploited Vulnerabilities flags. Built at CyberHack 2026. <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Python &middot; NVD API &middot; EPSS</strong></p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+        </div>
+      </div>
+
+      <!-- OWASP Web App -->
+      <div class="carousel-card">
+        <img id="feat-2" alt="OWASP-Hardened Web Application">
+        <div class="carousel-card-body">
+          <h3>OWASP-Hardened Web Application</h3>
+          <p>Full-stack Node.js and PostgreSQL application hardened against the OWASP Top 10: parameterised queries, CSRF tokens, secure session handling, and least-privilege database access. Packaged in Docker.</p>
+          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="view-all-wrapper">
+      <a href="projects.html" class="btn btn-project">View all projects &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ─── CERTIFICATIONS ───────────────────────────────────── -->
+  <section id="certifications" class="certifications-section">
+    <span class="section-eyebrow">04. Certifications</span>
+    <h2 class="section-title" data-reveal="fade">Certifications</h2>
+    <p class="section-subtitle">Verified credentials across coding, cybersecurity, networking, and cloud.</p>
+
+    <div class="cert-groups" data-reveal="up">
+
+      <div class="cert-group">
+        <h3 class="cert-group-label">Verified Coding</h3>
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp logo" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Scientific Computing with Python (v7)</h4>
+              <p class="cert-card-meta">freeCodeCamp</p>
+              <a href="https://www.freecodecamp.org/certification/john-w-callaghan/scientific-computing-with-python-v7" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp logo" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Data Analysis with Python (v7)</h4>
+              <p class="cert-card-meta">freeCodeCamp</p>
+              <a href="https://www.freecodecamp.org/certification/john-w-callaghan/data-analysis-with-python-v7" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <h3 class="cert-group-label">Cybersecurity</h3>
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">SEC1 Certified</h4>
+              <p class="cert-card-meta">TryHackMe, Jun 2026</p>
+              <p class="cert-card-detail">630 / 455 pass mark, first attempt.</p>
+              <a href="https://tryhackme.com/p/JohnCallaghan" target="_blank" rel="noopener noreferrer" class="cert-card-verify">View profile &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="assets/HACKATHONCERT.png" alt="CyberHack 2026 certificate" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">CyberHack 2026 Participant</h4>
+              <p class="cert-card-meta">CSE Connect Hackathon</p>
+              <a href="assets/HACKATHONCERT.png" target="_blank" rel="noopener noreferrer" class="cert-card-verify">View certificate &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/441578ec-c0f3-46cc-95fc-86b27e90cf4f/image.png" alt="Junior Cybersecurity Analyst Career Path badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Junior Cybersecurity Analyst Career Path</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/5d5ac32b-d239-42b8-9665-8a921dc3ab47/image.png" alt="Cyber Threat Management badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Cyber Threat Management</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/554e6d8b-82e1-4ca9-ab46-e365bd4ca6ca" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" alt="Network Defense badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Network Defense</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/4663d851-b335-4fb4-9dea-f635f74a168e" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/0ca5f542-fb5e-4a22-9b7a-c1a1ce4c3db7/EndpointSecurity.png" alt="Endpoint Security badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Endpoint Security</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/ef9eb3d2-dd8c-479d-a783-dca1cb49de20" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <h3 class="cert-group-label">Networking</h3>
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" alt="Introduction to Cybersecurity badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Introduction to Cybersecurity</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/c077f312-b099-4e1c-8fa0-bd9b9858cf6a" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png" alt="Networking Basics badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Networking Basics</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/670a5116-fc99-4e06-b676-a9e3ede8ae3d" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <img src="https://images.credly.com/images/88316fe8-5651-4e61-a6be-5be1558f049e/image.png" alt="Networking Devices and Initial Configuration badge" class="cert-card-logo" loading="lazy" />
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">Networking Devices &amp; Initial Configuration</h4>
+              <p class="cert-card-meta">Cisco, Jun 2026</p>
+              <a href="https://www.credly.com/badges/d60fdce4-bca0-400c-847b-feb0b8f3260b" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <h3 class="cert-group-label">In Progress</h3>
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <div class="cert-card-body">
+              <h4 class="cert-card-name">AWS Certified Cloud Practitioner (CLF-C02)</h4>
+              <p class="cert-card-meta">AWS</p>
+              <p class="cert-card-detail">Targeted for late 2026.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ─── EXPERIENCE ───────────────────────────────────────── -->
   <section id="experience" class="experience-section">
-    <span class="section-eyebrow">02 — Experience</span>
+    <span class="section-eyebrow">05. Experience</span>
     <h2 class="section-title" data-reveal="fade">Experience</h2>
     <p class="section-subtitle">Academic and professional journey</p>
 
@@ -188,9 +467,9 @@
         <div class="timeline-item">
           <h3>University of East Anglia</h3>
           <p>MSc Cyber Security</p>
-          <span>Sep 2025 – Sep 2026 (Expected)</span>
+          <span>Sep 2025 to Sep 2026 (Expected)</span>
           <p>Pursuing a Master's degree in Cyber Security. Core modules include network security,
-          cybercrime investigation, and strategic security — building the theoretical grounding
+          cybercrime investigation, and strategic security, building the theoretical grounding
           behind the systems I design and secure in my own projects.</p>
           <p><strong>Modules:</strong> Introduction to Cyber Security · Network Security &amp; IoT ·
           Cybercrime &amp; Digital Investigation · Strategic Cyber Security in Business ·
@@ -200,14 +479,14 @@
         <div class="timeline-item">
           <h3>University of East Anglia</h3>
           <p>BSc Hons Computing Sciences</p>
-          <span>2022 – Jun 2025</span>
+          <span>2022 to Jun 2025</span>
           <p><strong>Activities:</strong> Basketball, Swimming &amp; Water Polo</p>
         </div>
 
         <div class="timeline-item">
           <h3>American University of Beirut (AUB)</h3>
-          <p>3-Credit Course Recognition – Data Science</p>
-          <span>Jan 2024 – Feb 2024</span>
+          <p>3-Credit Course Recognition: Data Science</p>
+          <span>Jan 2024 to Feb 2024</span>
           <p>Completed a Data Science learning path equivalent to a 3-credit graduate-level course
           at AUB.</p>
         </div>
@@ -215,7 +494,7 @@
         <div class="timeline-item">
           <h3>Hinchley Wood Sixth Form</h3>
           <p>A Levels: Business, Computer Science, Physics</p>
-          <span>Sep 2020 – Jun 2022</span>
+          <span>Sep 2020 to Jun 2022</span>
         </div>
 
       </div>
@@ -224,24 +503,24 @@
       <div id="professionalTimeline" class="timeline">
 
         <div class="timeline-item">
-          <h3>Sales Experience Specialist — Qualcomm (Snapdragon)</h3>
+          <h3>Sales Experience Specialist, Qualcomm (Snapdragon)</h3>
           <p>Currys, London</p>
-          <span>Jan 2026 – Present</span>
-          <p>Translate technical product detail — chipsets, on-device AI, connectivity — into
+          <span>Jan 2026 to Present</span>
+          <p>Translate technical product detail (chipsets, on-device AI, connectivity) into
           plain-language guidance for non-technical customers.</p>
         </div>
 
         <div class="timeline-item">
-          <h3>Sales Experience Specialist — HP</h3>
+          <h3>Sales Experience Specialist, HP</h3>
           <p>Currys, London</p>
-          <span>Oct 2025 – Dec 2025</span>
+          <span>Oct 2025 to Dec 2025</span>
           <p>Explained technical specifications and use-case trade-offs to non-technical customers
           to help them choose the right device.</p>
         </div>
 
         <div class="timeline-item">
           <h3>Interactive Segmentation Tool Developer (Intern)</h3>
-          <p>University of East Anglia — School of Computing Sciences</p>
+          <p>University of East Anglia, School of Computing Sciences</p>
           <span>Summer 2024</span>
           <p>Contributed to an EPSRC research project building a semi-automated GUI for labelling
           medical X-ray image segmentation data using pre-trained deep learning models. Enhanced
@@ -253,153 +532,9 @@
     </div>
   </section>
 
-  <!-- ─── SKILLS ───────────────────────────────────────────── -->
-  <section id="skills" class="skills-section">
-    <span class="section-eyebrow">03 — Skills</span>
-    <h2 class="section-title" data-reveal="fade">Skills</h2>
-    <p class="section-subtitle">
-      Core skills evidenced by shipped security &amp; engineering projects.
-    </p>
-
-    <div class="skills-core" data-reveal="up">
-
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <span class="skill-group-label">// security engineering</span>
-          <div class="skill-tags">
-            <span>OWASP Top 10</span>
-            <span>SQLi/XSS/CSRF defence</span>
-            <span>Session hardening</span>
-            <span>Secure SDLC</span>
-            <span>Threat modelling</span>
-            <span>Cryptography implementation</span>
-            <span>Post-quantum (ML-DSA)</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// devsecops &amp; tooling</span>
-          <div class="skill-tags">
-            <span>Docker</span>
-            <span>Git/GitHub</span>
-            <span>CI/CD concepts</span>
-            <span>Linux</span>
-            <span>Bash</span>
-            <span>Vulnerability management</span>
-            <span>CVE triage (NVD/EPSS/CISA KEV)</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// cloud &amp; infrastructure</span>
-          <div class="skill-tags">
-            <span>AWS (in progress)</span>
-            <span>Networking (ACLs, IPSec, TLS/SSL)</span>
-            <span>Container security</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// languages &amp; data</span>
-          <div class="skill-tags">
-            <span>Python</span>
-            <span>Node.js</span>
-            <span>JavaScript</span>
-            <span>SQL (PostgreSQL, SQLite)</span>
-            <span>Bash</span>
-            <span>C++</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// ml &amp; ai</span>
-          <div class="skill-tags">
-            <span>TensorFlow</span>
-            <span>Keras</span>
-            <span>Scikit-learn</span>
-            <span>CNNs</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// security operations</span>
-          <div class="skill-tags">
-            <span>Log analysis</span>
-            <span>SIEM (learning Sentinel/Splunk)</span>
-            <span>Incident response lifecycle</span>
-            <span>MITRE ATT&amp;CK</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ─── HANDS-ON PRACTICE ────────────────────────────────── -->
-  <!-- TODO: John — add CTF event names, writeup links, and HackTheBox profile when you have them -->
-  <section id="practice" class="practice-section">
-    <span class="section-eyebrow">04 — Hands-On Practice</span>
-    <h2 class="section-title" data-reveal="fade">Hands-On Practice</h2>
-    <p class="section-subtitle">Practical security work outside coursework</p>
-    <p class="practice-note" data-reveal="up">
-      Working through TryHackMe's SOC Level 1 path — log analysis, SIEM fundamentals, threat
-      intelligence, and incident response — to ground my engineering work in how attacks are
-      actually detected and handled. Profile:
-      <a href="https://tryhackme.com/p/JohnCallaghan" target="_blank" rel="noopener noreferrer">tryhackme.com/p/JohnCallaghan</a>.
-      Room writeups added here as I complete them.
-    </p>
-  </section>
-
-  <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
-  <section id="projects" class="projects-section">
-    <span class="section-eyebrow">05 — Projects</span>
-    <h2 class="section-title" data-reveal="fade">Security &amp; engineering projects</h2>
-    <p class="section-subtitle">Three highlights — secure system design, DevSecOps tooling, and applied cryptography</p>
-
-    <div class="project-grid" data-reveal="up">
-
-      <!-- MSc Dissertation: PQC -->
-      <div class="carousel-card">
-        <img id="feat-0" alt="MSc Dissertation: Post-Quantum Authentication for Connected Vehicles">
-        <div class="carousel-card-body">
-          <h3>MSc Dissertation: Post-Quantum Authentication for Connected Vehicles</h3>
-          <p>End-to-end post-quantum authentication pipeline securing vehicle telemetry against quantum-capable adversaries. Client-side OBD emulator signs telemetry using NIST-standardised ML-DSA; cloud-side verifier enforces freshness and replay protection. Fully Dockerised with a documented migration path to embedded devices &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Python · Docker · ML-DSA · Cloud verifier</strong>.</p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CVE Tool -->
-      <div class="carousel-card">
-        <img id="feat-1" alt="CVE-to-My-Stack Translator">
-        <div class="carousel-card-body">
-          <h3>CVE-to-My-Stack Translator</h3>
-          <p>A DevSecOps tool that filters daily CVE feeds against a defined asset list, enriched with EPSS exploitation-probability and CISA KEV flags &mdash; the prioritisation model production security teams actually use &mdash; <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">CyberHack 2026 participant</strong>.</p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Secure Web Application -->
-      <div class="carousel-card">
-        <img id="feat-2" alt="Secure Web Application">
-        <div class="carousel-card-body">
-          <h3>Secure Web Application</h3>
-          <p>Full-stack Node.js/PostgreSQL application hardened against the OWASP Top 10. Applied parameterised queries, output encoding, CSRF tokens, secure session management, CSP headers and least-privilege data access. Packaged in Docker.</p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="view-all-wrapper">
-      <a href="projects.html" class="btn btn-project">View all projects &rarr;</a>
-    </div>
-  </section>
-
   <!-- ─── CONTACT ──────────────────────────────────────────── -->
   <section id="contact" class="contact-section">
-    <span class="section-eyebrow">06 — Contact</span>
+    <span class="section-eyebrow">06. Contact</span>
     <h2 class="section-title" data-reveal="fade">Contact</h2>
     <p class="section-subtitle">Get in touch</p>
 
@@ -419,7 +554,7 @@
         <div>
           <h3>Location</h3>
           <p>London, United Kingdom</p>
-          <p class="contact-secondary">London-based &mdash; open to hybrid, remote, or UK relocation</p>
+          <p class="contact-secondary">London-based, open to hybrid or remote UK-wide</p>
         </div>
       </div>
 
@@ -443,11 +578,10 @@
       <span class="footer-logo">John Callaghan</span>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#practice">Practice</a>
         <a href="#projects">Projects</a>
-        <a href="credentials.html">Credentials</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="social-icons">
@@ -488,7 +622,7 @@
       });
     }
 
-    /* ─── Scroll handlers — single rAF-throttled listener ── */
+    /* ─── Scroll handlers: single rAF-throttled listener ──── */
     const navbar      = document.querySelector('.navbar');
     const progressBar = document.getElementById('scrollProgress');
     let scrollPending = false;
@@ -526,7 +660,7 @@
       });
     }
 
-    /* ─── IntersectionObserver — scroll reveals ───────────── */
+    /* ─── IntersectionObserver: scroll reveals ────────────── */
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -660,12 +794,12 @@
     }
 
     /* ─── Inject featured project images ─────────────────── */
-    /* src: null means no real screenshot exists yet — go straight to the branded SVG
+    /* src: null means no real screenshot exists yet, go straight to the branded SVG
        placeholder instead of requesting a file we know 404s (avoids noisy console errors). */
     const featData = [
-      { src: null,                        title: 'MSc Dissertation: PQC for Connected Vehicles', category: 'Academic',      technologies: ['Python', 'Docker', 'ML-DSA']       },
-      { src: null,                        title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Node.js', 'NVD API', 'EPSS']       },
-      { src: 'assets/securewebbased.png', title: 'Secure Web Application',       category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  }
+      { src: null,                        title: 'Post-Quantum Authentication Pipeline', category: 'Academic',      technologies: ['Python', 'Docker', 'ML-DSA']       },
+      { src: null,                        title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Python', 'NVD API', 'EPSS']       },
+      { src: 'assets/securewebbased.png', title: 'OWASP-Hardened Web Application', category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  }
     ];
     featData.forEach((p, i) => {
       const el = document.getElementById('feat-' + i);
@@ -675,7 +809,7 @@
       el.onerror = () => { el.src = featPlaceholder(p); el.onerror = null; };
     });
 
-    /* ─── Terminal animation — cycles security-engineer-themed commands ─── */
+    /* ─── Terminal animation: cycles software-engineer-themed commands ─── */
     (function () {
       const cmdEl    = document.getElementById('termCmd');
       const cursorEl = document.getElementById('termCursor');
@@ -683,13 +817,13 @@
       if (!cmdEl || !outputEl) return;
 
       const SEQUENCE = [
-        { cmd: 'whoami',                  out: 'MSc Cyber Security — Security Engineer track' },
-        { cmd: 'tail -f /var/log/auth.log', out: 'Monitoring... detection > prevention' },
-        { cmd: 'cat skills.txt',          out: 'DevSecOps · Cloud Security · Post-Quantum Crypto' },
-        { cmd: './availability.sh',       out: 'Sep 2026 — Open to UK DevSecOps & Cloud roles' },
+        { cmd: 'whoami',                  out: 'MSc Cyber Security, Secure Software Engineer' },
+        { cmd: 'cat stack.txt',           out: 'Python, JavaScript, Docker, SQL' },
+        { cmd: 'git log --oneline -1',    out: 'feat: post-quantum auth pipeline (ML-DSA)' },
+        { cmd: './availability.sh',       out: 'Sep 2026, open to UK software engineering roles' },
       ];
 
-      /* Respect reduced-motion — show all lines statically, no cycling */
+      /* Respect reduced-motion: show all lines statically, no cycling */
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         cursorEl.style.display = 'none';
         SEQUENCE.forEach(s => {
