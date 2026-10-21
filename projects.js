@@ -1,6 +1,6 @@
-// projects.js: curated project data with auto-generated placeholders
-// Each project can belong to multiple categories (categories[0] is the "primary" one used
-// for the card badge and the generated placeholder icon); the filter bar matches on any of them.
+// projects.js: project data and the search/filter list on projects.html.
+// A project can belong to several categories; categories[0] is the one shown on its row,
+// and the filter matches any of them. fullDesc is trusted, hand-written HTML.
 
 const PROJECTS_DATA = [
   // ─── Flagship / recent ───────────────────────────────────────────
@@ -315,219 +315,107 @@ const PROJECTS_DATA = [
   }
 ];
 
-// ========== AUTO-GENERATE PLACEHOLDER IMAGES ==========
-function generatePlaceholder(project) {
-  const catConfig = {
-    "AI & ML":        { label: "// ai & machine learning", shape: "nodes"    },
-    "Web & Security": { label: "// web & security",        shape: "shield"   },
-    "Data Analysis":  { label: "// data analysis",         shape: "bars"     },
-    "Python":         { label: "// python",                shape: "brackets" },
-    "Academic":       { label: "// academic research",     shape: "lines"    },
-    "Hackathon":      { label: "// hackathon",             shape: "star"     }
-  };
+// ---------- Rendering ----------
+const list     = document.getElementById("projects");
+const controls = document.getElementById("controls");
+const search   = document.getElementById("search");
+const count    = document.getElementById("count");
+const filters  = document.querySelectorAll(".filter");
 
-  const primaryCategory = project.categories[0];
-  const cat = catConfig[primaryCategory] || catConfig["Academic"];
-
-  const breakPoint = project.title.lastIndexOf(' ', 30);
-  const titleRaw = project.title.length > 30
-    ? project.title.slice(0, breakPoint > 0 ? breakPoint : 30) + '…'
-    : project.title;
-  const titleSvg = escapeHtmlForSvg(titleRaw);
-
-  const tags = project.technologies.slice(0, 3);
-  let tagX = 50;
-  const tagEls = tags.map(tag => {
-    const w = Math.max(50, Math.round(escapeHtmlForSvg(tag).length * 7 + 18));
-    const el = `<rect x="${tagX}" y="268" width="${w}" height="20" rx="3" fill="#0D1520" stroke="#1B2C42" stroke-width="1"/>`
-             + `<text x="${tagX + w / 2}" y="282" font-family="Courier New,monospace" font-size="10" fill="#4B6680" text-anchor="middle">${escapeHtmlForSvg(tag)}</text>`;
-    tagX += w + 8;
-    return el;
-  }).join('');
-
-  const shapes = {
-    nodes:    `<g fill="none" stroke="#1B2C42" stroke-width="2">`
-            + `<circle cx="575" cy="150" r="18"/><circle cx="638" cy="100" r="13"/><circle cx="638" cy="200" r="13"/>`
-            + `<circle cx="700" cy="72" r="10"/><circle cx="700" cy="150" r="10"/><circle cx="700" cy="228" r="10"/>`
-            + `<line x1="592" y1="143" x2="626" y2="109"/><line x1="592" y1="157" x2="626" y2="191"/>`
-            + `<line x1="650" y1="95" x2="691" y2="79"/><line x1="650" y1="105" x2="691" y2="144"/>`
-            + `<line x1="650" y1="195" x2="691" y2="156"/><line x1="650" y1="205" x2="691" y2="222"/></g>`,
-
-    shield:   `<g fill="none" stroke="#1B2C42" stroke-width="2">`
-            + `<path d="M650 82 L698 100 L698 155 C698 178 650 198 650 198 C650 198 602 178 602 155 L602 100 Z"/>`
-            + `<path d="M634 148 L647 162 L668 130" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>`,
-
-    bars:     `<g fill="#111E32" stroke="#1B2C42" stroke-width="1.5">`
-            + `<rect x="560" y="172" width="24" height="78" rx="2"/>`
-            + `<rect x="594" y="132" width="24" height="118" rx="2"/>`
-            + `<rect x="628" y="105" width="24" height="145" rx="2"/>`
-            + `<rect x="662" y="140" width="24" height="110" rx="2"/>`
-            + `<rect x="696" y="118" width="24" height="132" rx="2"/></g>`,
-
-    brackets: `<text x="572" y="236" font-family="Courier New,monospace" font-size="112" fill="#14223A" font-weight="700">{}</text>`,
-
-    lines:    `<g fill="#172334">`
-            + `<rect x="560" y="92"  width="175" height="11" rx="2"/>`
-            + `<rect x="560" y="115" width="148" height="11" rx="2"/>`
-            + `<rect x="560" y="138" width="162" height="11" rx="2"/>`
-            + `<rect x="560" y="161" width="130" height="11" rx="2"/>`
-            + `<rect x="560" y="184" width="155" height="11" rx="2"/>`
-            + `<rect x="560" y="207" width="115" height="11" rx="2"/>`
-            + `<rect x="560" y="230" width="142" height="11" rx="2"/></g>`,
-
-    star:     `<polygon points="650,82 663,125 710,125 674,152 687,195 650,168 613,195 626,152 590,125 637,125" `
-            + `fill="none" stroke="#1B2C42" stroke-width="2" stroke-linejoin="round"/>`
-  };
-
-  const shape = shapes[cat.shape] || shapes.lines;
-
-  const svg = `<svg width="800" height="440" viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">`
-    + `<defs><pattern id="dp" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">`
-    + `<circle cx="12" cy="12" r="1" fill="#1B2C42" opacity="0.5"/></pattern></defs>`
-    + `<rect width="800" height="440" fill="#0D1520"/>`
-    + `<rect width="800" height="440" fill="url(#dp)"/>`
-    + `<rect x="0" y="0" width="4" height="440" fill="#C49A3C"/>`
-    + shape
-    + `<text x="50" y="172" font-family="Courier New,monospace" font-size="11" fill="#C49A3C" letter-spacing="2">${escapeHtmlForSvg(cat.label)}</text>`
-    + `<text x="50" y="218" font-family="system-ui,-apple-system,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">${titleSvg}</text>`
-    + tagEls
-    + `</svg>`;
-
-  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
-function escapeHtmlForSvg(str) {
-  return str.replace(/[&<>]/g, function(m) {
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    if (m === '>') return '&gt;';
-    return m;
-  });
-}
-
-function getProjectImage(project) {
-  return generatePlaceholder(project);
-}
-
-// ---------- RENDERING LOGIC ----------
 let currentFilter = "all";
-let currentSearch = "";
-
-const gridContainer = document.getElementById("projectsGrid");
-const searchInput = document.getElementById("searchBar");
-const filterChips = document.querySelectorAll(".filter-chip");
-const modal = document.getElementById("projectModal");
-const modalClose = document.querySelector(".modal-close-button");
-const modalTitle = document.getElementById("modalTitle");
-const modalImage = document.getElementById("modalImage");
-const modalDescription = document.getElementById("modalDescription");
-const modalTech = document.getElementById("modalTech");
-const modalGithub = document.getElementById("modalGithubLink");
-const modalReport = document.getElementById("modalReportLink");
-
-function cardHtml(proj) {
-  return `
-    <div class="project-card" data-id="${proj.id}">
-      <img class="card-img" src="${getProjectImage(proj)}" alt="${escapeHtml(proj.title)}" loading="lazy">
-      <div class="card-body">
-        <div class="card-category">${escapeHtml(proj.categories[0])}</div>
-        <h2 class="card-title">${escapeHtml(proj.title)}</h2>
-        <p class="card-desc">${escapeHtml(proj.shortDesc)}</p>
-        <div class="card-tech">
-          ${proj.technologies.slice(0, 4).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
-          ${proj.technologies.length > 4 ? `<span class="tech-tag">+${proj.technologies.length - 4}</span>` : ''}
-        </div>
-        <div class="card-buttons">
-          <button class="card-btn card-btn-primary" data-detail="${proj.id}">Details</button>
-          ${proj.github ? `<a href="${proj.github}" target="_blank" class="card-btn card-btn-outline">GitHub</a>` : ''}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function renderProjects() {
-  const filtered = PROJECTS_DATA.filter(proj => {
-    const matchCategory = currentFilter === "all" || proj.categories.includes(currentFilter);
-    const term = currentSearch.trim().toLowerCase();
-    const matchSearch = term === "" ||
-      proj.title.toLowerCase().includes(term) ||
-      proj.shortDesc.toLowerCase().includes(term) ||
-      proj.technologies.some(t => t.toLowerCase().includes(term));
-    return matchCategory && matchSearch;
-  });
-
-  gridContainer.innerHTML = filtered.length === 0
-    ? `<div class="no-results">No projects match. Try another filter or keyword.</div>`
-    : filtered.map(cardHtml).join('');
-
-  document.querySelectorAll('[data-detail]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const id = btn.getAttribute('data-detail');
-      const project = PROJECTS_DATA.find(p => p.id === id);
-      if (project) openModal(project);
-    });
-  });
-}
 
 function escapeHtml(str) {
-  return str.replace(/[&<>]/g, function(m) {
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    if (m === '>') return '&gt;';
-    return m;
-  });
+  return String(str).replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[ch]));
 }
 
-function openModal(project) {
-  modalTitle.innerText = project.title;
-  modalImage.src = getProjectImage(project);
-  modalImage.alt = project.title;
-  modalDescription.innerHTML = project.fullDesc || `<p>${project.shortDesc}</p>`;
-  modalTech.innerHTML = project.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('');
+function rowHtml(proj) {
+  const links = [];
+  if (proj.github)    links.push(`<a href="${escapeHtml(proj.github)}" rel="noopener noreferrer">Source on GitHub</a>`);
+  if (proj.reportPDF) links.push(`<a href="${escapeHtml(proj.reportPDF)}">Report (PDF)</a>`);
+  const detailId = `detail-${proj.id}`;
+  return `
+    <li class="project" id="${proj.id}">
+      <div class="project-head">
+        <h2 class="row-title">${escapeHtml(proj.title)}</h2>
+        <span class="mono">${escapeHtml(proj.categories[0])}</span>
+      </div>
+      <p class="row-text">${escapeHtml(proj.shortDesc)}</p>
+      <p class="row-meta">${proj.technologies.map(escapeHtml).join(", ")}</p>
+      <div class="project-detail" id="${detailId}" hidden>${proj.fullDesc}</div>
+      <p class="row-links">
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="${detailId}">More detail</button>
+        ${links.join("")}
+      </p>
+    </li>`;
+}
 
-  if (project.github) {
-    modalGithub.href = project.github;
-    modalGithub.style.display = "inline-flex";
-  } else {
-    modalGithub.style.display = "none";
+function matches(proj, term) {
+  if (currentFilter !== "all" && !proj.categories.includes(currentFilter)) return false;
+  if (!term) return true;
+  return proj.title.toLowerCase().includes(term) ||
+         proj.shortDesc.toLowerCase().includes(term) ||
+         proj.technologies.some(t => t.toLowerCase().includes(term));
+}
+
+function render() {
+  const term = search.value.trim().toLowerCase();
+  const shown = PROJECTS_DATA.filter(p => matches(p, term));
+
+  list.innerHTML = shown.length
+    ? shown.map(rowHtml).join("")
+    : `<li class="empty">No projects match that search.<button class="toggle" type="button" id="reset">Clear filters</button></li>`;
+
+  count.textContent = shown.length === PROJECTS_DATA.length
+    ? `${shown.length} projects`
+    : `${shown.length} of ${PROJECTS_DATA.length} projects`;
+}
+
+function setFilter(cat) {
+  currentFilter = cat;
+  filters.forEach(f => f.setAttribute("aria-pressed", String(f.dataset.cat === cat)));
+  render();
+}
+
+function expand(row) {
+  const btn = row && row.querySelector(".toggle[aria-controls]");
+  if (!btn) return;
+  btn.setAttribute("aria-expanded", "true");
+  btn.textContent = "Less detail";
+  document.getElementById(btn.getAttribute("aria-controls")).hidden = false;
+}
+
+// One delegated listener survives every re-render.
+list.addEventListener("click", e => {
+  const btn = e.target.closest(".toggle");
+  if (!btn) return;
+  if (btn.id === "reset") {
+    search.value = "";
+    setFilter("all");
+    search.focus();
+    return;
   }
-  if (project.reportPDF) {
-    modalReport.href = project.reportPDF;
-    modalReport.style.display = "inline-flex";
-  } else {
-    modalReport.style.display = "none";
-  }
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-}
-
-if (searchInput) {
-  searchInput.addEventListener("input", (e) => {
-    currentSearch = e.target.value;
-    renderProjects();
-  });
-}
-
-filterChips.forEach(chip => {
-  chip.addEventListener("click", () => {
-    filterChips.forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-    currentFilter = chip.getAttribute("data-cat");
-    renderProjects();
-  });
+  const open = btn.getAttribute("aria-expanded") !== "true";
+  btn.setAttribute("aria-expanded", String(open));
+  btn.textContent = open ? "Less detail" : "More detail";
+  document.getElementById(btn.getAttribute("aria-controls")).hidden = !open;
 });
 
-if (modalClose) modalClose.addEventListener("click", closeModal);
-window.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+search.addEventListener("input", render);
+filters.forEach(f => f.addEventListener("click", () => setFilter(f.dataset.cat)));
 
-const hamburger = document.getElementById('hamburger');
-const mainNavLinks = document.getElementById('mainNavLinks');
-if (hamburger && mainNavLinks) {
-  hamburger.addEventListener('click', () => mainNavLinks.classList.toggle('open'));
+controls.hidden = false;
+render();
+
+// Deep links from the home page (projects.html#pqc-dissertation) open that project.
+function openFromHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id || !PROJECTS_DATA.some(p => p.id === id)) return;
+  if (!document.getElementById(id)) { search.value = ""; setFilter("all"); }
+  const row = document.getElementById(id);
+  expand(row);
+  row.scrollIntoView({ block: "start" });
 }
-
-renderProjects();
+openFromHash();
+window.addEventListener("hashchange", openFromHash);

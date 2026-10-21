@@ -2,770 +2,285 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary meta -->
   <title>John Callaghan: Secure Software Engineer | MSc Cyber Security</title>
   <meta name="description" content="Secure Software Engineer with an MSc in Cyber Security. 8+ years programming. Python, JavaScript, Docker. Targeting UK graduate software engineering roles." />
   <meta name="author" content="John Callaghan" />
+  <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)" />
 
-  <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="John Callaghan: Secure Software Engineer | MSc Cyber Security" />
   <meta property="og:description" content="Secure Software Engineer with an MSc in Cyber Security. 8+ years programming. Python, JavaScript, Docker. Targeting UK graduate software engineering roles." />
-  <!-- TODO: John: upload assets/og-image.png (recommended 1200x630 screenshot of the site); this image 404s until you do -->
   <meta property="og:image"       content="https://john-w-callaghan.github.io/Website/assets/og-image.png" />
   <meta property="og:url"         content="https://john-w-callaghan.github.io/Website/" />
+  <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- Security headers: best-effort via meta tag (static GitHub Pages site, no server config
-       access). CSP keeps 'unsafe-inline' for script/style because the site's interactivity (nav,
-       scroll reveals, terminal animation, modal) lives in one inline <script> block and several
-       inline style="" attributes; a static site with no build step has no nonce/hash mechanism.
-       Tightening this further means moving all inline JS/CSS to external files first.
-       X-Content-Type-Options and Permissions-Policy are NOT included here because browsers only
-       honour them as real HTTP response headers, not <meta> tags: they'd be decorative and
-       wrongly imply protection that isn't there. Same applies to HSTS (Strict-Transport-Security),
-       which GitHub Pages sets automatically for github.io domains but can't be set via meta. -->
+  <!-- Security headers, best effort via <meta> on GitHub Pages (no server config). There is no
+       inline script or style anywhere on the site, so the CSP needs no 'unsafe-inline'.
+       X-Content-Type-Options, Permissions-Policy and HSTS only work as real HTTP headers, so
+       they are deliberately not faked here. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https://images.credly.com https://cdn.freecodecamp.org; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';" />
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        content="default-src 'self'; img-src 'self' data: https://images.credly.com https://cdn.freecodecamp.org; font-src https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (code). Loaded
-       non-blocking (preload + swap to stylesheet on load) so font CSS doesn't delay first
-       paint of the page's own text; noscript fallback covers JS-disabled cases. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional"
-        onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional" /></noscript>
-
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="site.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Scroll progress indicator -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <a href="#home" class="logo">jc</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main>
-  <!-- ─── HERO ─────────────────────────────────────────────── -->
-  <section id="home" class="hero-section">
-
-    <div class="hero-text">
-      <span class="hero-eyebrow">// secure software engineer</span>
-
-      <h1>
-        <span class="name-reveal"><span>John</span></span><br>
-        <span class="name-reveal"><span>Callaghan</span></span>
-      </h1>
-
-      <p class="hero-position">
-        Secure Software Engineer &middot; MSc Cyber Security &middot; Python &middot; JavaScript
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="#projects" class="btn btn-ghost">View my work</a>
-        <!-- TODO: John: upload assets/John_Callaghan_CV.pdf; this link 404s until you do -->
-        <a href="assets/John_Callaghan_CV.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Download CV</a>
-      </div>
-
-      <p class="hero-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        Available September 2026 &middot; Open to UK Graduate Software Engineering roles
-      </p>
-
-      <div class="social-icons hero-social" aria-label="Social links">
-        <a href="https://github.com/John-W-Callaghan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="assets/github.png" alt="GitHub" loading="lazy" />
-        </a>
-        <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="assets/Linkedin.png" alt="LinkedIn" loading="lazy" />
-        </a>
-      </div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="index.html" aria-current="page">John Callaghan</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certifications.html">Certifications</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Terminal signature element -->
-    <div class="hero-terminal"
-         role="img"
-         aria-label="Terminal showing: Secure Software Engineer, MSc Cyber Security, available September 2026 for UK software engineering roles">
-      <div class="terminal-chrome" aria-hidden="true">
-        <span class="dot dot-red"></span>
-        <span class="dot dot-yellow"></span>
-        <span class="dot dot-green"></span>
-        <span class="terminal-title">john@uea: bash</span>
-      </div>
-      <div class="terminal-body" aria-hidden="true">
-        <div class="terminal-line">
-          <span class="t-prompt">john@uea:~$</span>
-          <span id="termCmd" class="t-cmd"></span><span class="t-cursor" id="termCursor">▋</span>
-        </div>
-        <div id="termOutput"></div>
-      </div>
-    </div>
+  <main id="main">
+    <div class="wrap">
 
-  </section>
-
-  <!-- ─── ABOUT ────────────────────────────────────────────── -->
-  <section id="about" class="about-section">
-    <span class="section-eyebrow">01. About</span>
-    <h2 class="section-title" data-reveal="fade">About</h2>
-    <p class="section-subtitle">My Introduction</p>
-
-    <div class="about-content">
-      <div class="about-image" data-reveal="left">
-        <img src="assets/img2.png" alt="John Callaghan" loading="lazy" />
-      </div>
-
-      <div class="about-text" data-reveal="right">
-        <p>
-          I'm a software engineer with 8+ years of programming behind me, finishing an MSc in
-          Cyber Security at UEA (Distinction predicted, September 2026). I'm targeting graduate
-          software engineering roles in London. Long term I want to specialise into application
-          and product security engineering, but I want two or three years of proper SWE
-          experience first.
+      <section class="intro" aria-labelledby="intro-name">
+        <img class="intro-photo" src="assets/img2.png" alt="Portrait of John Callaghan" width="168" height="210" />
+        <h1 id="intro-name">John Callaghan</h1>
+        <p class="lead">
+          Secure software engineer finishing an MSc in Cyber Security at the University of East
+          Anglia. I build in Python and JavaScript, with security as my specialism.
         </p>
-        <p>
-          The MSc dissertation is the clearest example of the kind of thing I like building. It's
-          an end-to-end post-quantum authentication pipeline for connected vehicles, in Python and
-          Docker, with ML-DSA (NIST FIPS 204) benchmarked against a classical ECDSA P-256 baseline
-          across 6,000 measured iterations per scheme. Every architectural decision traced back to
-          a STRIDE threat model, and it turned out the binding constraint on post-quantum
-          migration isn't compute, it's signature size. The wire packet is 17.6x larger while
-          verification is only 1.3x slower.
-        </p>
-        <p>
-          Before the MSc, my BSc dissertation trained a CNN with transfer learning to read
-          handwritten Odia script and hit 84% test accuracy on what's a genuinely low-resource
-          language. Outside coursework I built a CVE triage tool at CyberHack 2026 that filters
-          the daily NVD feed against a defined asset list and enriches results with EPSS
-          exploitation-probability scores and CISA known-exploited flags. And as a taught-module
-          project I OWASP-hardened a full-stack Node.js/PostgreSQL web app: parameterised queries,
-          input sanitisation, CSRF tokens, secure session handling, and least-privilege database
-          access, from the ground up.
-        </p>
-        <p class="clearance-line">UK national, eligible for SC clearance.</p>
-
-        <div class="about-stats">
-          <div><strong data-count="8" data-suffix="+">8+</strong><span>Years Programming</span></div>
-          <div><strong>MSc</strong><span>Cyber Security (Distinction predicted)</span></div>
-          <div><strong data-count="20" data-suffix="+">20+</strong><span>Projects Shipped</span></div>
+        <p class="availability">Available from September 2026 for graduate software engineering roles in the UK.</p>
+        <div class="intro-actions">
+          <a class="button" href="mailto:johnwiam@icloud.com">Email me</a>
+          <a href="https://github.com/John-W-Callaghan" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/john-callaghan-35816b269" rel="noopener noreferrer">LinkedIn</a>
+          <!-- TODO John: upload assets/John_Callaghan_CV.pdf, then uncomment:
+          <a href="assets/John_Callaghan_CV.pdf">CV (PDF)</a> -->
         </div>
+      </section>
 
-        <a href="projects.html" class="btn btn-ghost">View all projects &rarr;</a>
+      <section class="section" id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About</h2>
+        <div class="section-body">
+          <p>
+            I'm a software engineer with 8+ years of programming behind me, finishing an MSc in
+            Cyber Security at UEA (Distinction predicted, September 2026). I'm targeting graduate
+            software engineering roles in London. Long term I want to specialise into application
+            and product security engineering, but I want two or three years of proper SWE
+            experience first.
+          </p>
+          <p>
+            The MSc dissertation is the clearest example of the kind of thing I like building. It's
+            an end-to-end post-quantum authentication pipeline for connected vehicles, in Python and
+            Docker, with ML-DSA (NIST FIPS 204) benchmarked against a classical ECDSA P-256 baseline
+            across 6,000 measured iterations per scheme. Every architectural decision traced back to
+            a STRIDE threat model, and it turned out the binding constraint on post-quantum
+            migration isn't compute, it's signature size. The wire packet is 17.6x larger while
+            verification is only 1.3x slower.
+          </p>
+          <p>
+            Before the MSc, my BSc dissertation trained a CNN with transfer learning to read
+            handwritten Odia script and hit 84% test accuracy on what's a genuinely low-resource
+            language. Outside coursework I built a CVE triage tool at CyberHack 2026 that filters
+            the daily NVD feed against a defined asset list and enriches results with EPSS
+            exploitation-probability scores and CISA known-exploited flags. And as a taught-module
+            project I OWASP-hardened a full-stack Node.js/PostgreSQL web app: parameterised queries,
+            input sanitisation, CSRF tokens, secure session handling, and least-privilege database
+            access, from the ground up.
+          </p>
+          <p class="note">UK national, eligible for SC clearance.</p>
+        </div>
+      </section>
 
-        <div class="cert-group about-certs">
-          <h3 class="cert-group-label">Certifications</h3>
-          <div class="cert-grid">
+      <section class="section" id="work" aria-labelledby="work-h">
+        <h2 id="work-h">Selected work</h2>
+        <div class="section-body">
+          <ul class="rows">
+            <li>
+              <h3 class="row-title"><a href="projects.html#pqc-dissertation">Post-quantum authentication pipeline</a></h3>
+              <p class="row-text">
+                End-to-end authentication pipeline for connected vehicle telemetry. Benchmarks
+                NIST-standardised ML-DSA against classical ECDSA P-256 across 6,000 measured
+                iterations. The binding constraint on post-quantum migration turned out to be
+                signature size, not compute.
+              </p>
+              <p class="row-meta">Python, Docker, ML-DSA, FastAPI · MSc dissertation</p>
+              <p class="row-links">
+                <a href="https://github.com/John-W-Callaghan/Post-quantumn-Encryption" rel="noopener noreferrer">Source on GitHub</a>
+              </p>
+            </li>
+            <li>
+              <h3 class="row-title"><a href="projects.html#cve-translator">CVE-to-My-Stack Translator</a></h3>
+              <p class="row-text">
+                Filters daily CVE feeds against a defined asset list, enriched with EPSS
+                exploitation-probability scores and CISA Known Exploited Vulnerabilities flags.
+              </p>
+              <p class="row-meta">Python, NVD API, EPSS · CyberHack 2026</p>
+              <p class="row-links">
+                <a href="https://github.com/John-W-Callaghan/Hackathon-2026" rel="noopener noreferrer">Source on GitHub</a>
+              </p>
+            </li>
+            <li>
+              <h3 class="row-title"><a href="projects.html#owasp-web-app">OWASP-hardened web application</a></h3>
+              <p class="row-text">
+                Full-stack Node.js and PostgreSQL application hardened against the OWASP Top 10:
+                parameterised queries, CSRF tokens, secure session handling, and least-privilege
+                database access. Packaged in Docker.
+              </p>
+              <p class="row-meta">Node.js, Express, PostgreSQL, Docker · Taught module</p>
+            </li>
+          </ul>
+          <a class="more" href="projects.html">All projects</a>
+        </div>
+      </section>
 
-            <div class="cert-card">
-              <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp logo" class="cert-card-logo" loading="lazy" />
-              <div class="cert-card-body">
-                <h4 class="cert-card-name">Scientific Computing with Python (v7)</h4>
-                <p class="cert-card-meta">freeCodeCamp</p>
-                <a href="https://www.freecodecamp.org/certification/john-w-callaghan/scientific-computing-with-python-v7" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
-              </div>
+      <section class="section" id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h">Skills</h2>
+        <div class="section-body">
+          <dl class="skills">
+            <div>
+              <dt>Software engineering</dt>
+              <dd>Python, JavaScript, Java, C, C++, SQL, Node.js, data structures and algorithms, REST APIs, Git and GitHub workflows, unit and integration testing, code review, Agile, clean code</dd>
             </div>
-
-            <div class="cert-card">
-              <img src="https://images.credly.com/images/441578ec-c0f3-46cc-95fc-86b27e90cf4f/image.png" alt="Junior Cybersecurity Analyst Career Path badge" class="cert-card-logo" loading="lazy" />
-              <div class="cert-card-body">
-                <h4 class="cert-card-name">Junior Cybersecurity Analyst Career Path</h4>
-                <p class="cert-card-meta">Cisco, Jun 2026</p>
-                <a href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8" target="_blank" rel="noopener noreferrer" class="cert-card-verify">Verify &rarr;</a>
-              </div>
+            <div>
+              <dt>Systems and infrastructure</dt>
+              <dd>Docker, Linux, Bash, CI/CD concepts, AWS (in progress), distributed systems fundamentals, microservices patterns</dd>
             </div>
-
-            <div class="cert-card">
-              <img src="assets/HACKATHONCERT.png" alt="CyberHack 2026 certificate" class="cert-card-logo" loading="lazy" />
-              <div class="cert-card-body">
-                <h4 class="cert-card-name">CyberHack 2026 Participant</h4>
-                <p class="cert-card-meta">CSE Connect Hackathon</p>
-                <a href="assets/HACKATHONCERT.png" target="_blank" rel="noopener noreferrer" class="cert-card-verify">View certificate &rarr;</a>
-              </div>
+            <div>
+              <dt>Security engineering</dt>
+              <dd>OWASP Top 10, secure SDLC, threat modelling (STRIDE), cryptography implementation, post-quantum (ML-DSA), session hardening, input validation, least privilege</dd>
             </div>
-
-          </div>
+            <div>
+              <dt>Data and ML</dt>
+              <dd>pandas, NumPy, Matplotlib, scikit-learn, TensorFlow, Keras, CNNs</dd>
+            </div>
+            <div>
+              <dt>Spoken languages</dt>
+              <dd>English (native), Portuguese (native), Spanish (professional)</dd>
+            </div>
+          </dl>
         </div>
-        <a href="certifications.html" class="btn btn-ghost">View all certifications &rarr;</a>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ─── SKILLS ───────────────────────────────────────────── -->
-  <section id="skills" class="skills-section">
-    <span class="section-eyebrow">02. Skills</span>
-    <h2 class="section-title" data-reveal="fade">Skills</h2>
-    <p class="section-subtitle">
-      Core skills evidenced by shipped software engineering projects, with security as a specialism.
-    </p>
+      <section class="section" id="experience" aria-labelledby="experience-h">
+        <h2 id="experience-h">Experience</h2>
+        <div class="section-body">
+          <h3 class="subhead">Work</h3>
+          <ul class="rows dated">
+            <li>
+              <p class="when">Jan 2026 – now</p>
+              <div>
+                <h4>Sales Experience Specialist, Qualcomm (Snapdragon)</h4>
+                <p class="org">Currys, London</p>
+                <p class="row-text">Translate technical product detail (chipsets, on-device AI, connectivity) into plain-language guidance for non-technical customers.</p>
+              </div>
+            </li>
+            <li>
+              <p class="when">Oct – Dec 2025</p>
+              <div>
+                <h4>Sales Experience Specialist, HP</h4>
+                <p class="org">Currys, London</p>
+                <p class="row-text">Explained technical specifications and use-case trade-offs to non-technical customers to help them choose the right device.</p>
+              </div>
+            </li>
+            <li>
+              <p class="when">Summer 2024</p>
+              <div>
+                <h4>Interactive Segmentation Tool Developer (Intern)</h4>
+                <p class="org">University of East Anglia, School of Computing Sciences</p>
+                <p class="row-text">Contributed to an EPSRC research project building a semi-automated GUI for labelling medical X-ray image segmentation data using pre-trained deep learning models. Enhanced skills in Python, computer vision, and model adaptation. Developed an interactive interface and validated segmentation outputs for research-grade accuracy.</p>
+              </div>
+            </li>
+          </ul>
 
-    <div class="skills-core" data-reveal="up">
-
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <span class="skill-group-label">// software engineering</span>
-          <div class="skill-tags">
-            <span>Python</span>
-            <span>JavaScript</span>
-            <span>Java</span>
-            <span>C</span>
-            <span>C++</span>
-            <span>SQL</span>
-            <span>Node.js</span>
-            <span>Data structures &amp; algorithms</span>
-            <span>REST APIs</span>
-            <span>Git/GitHub workflows</span>
-            <span>Testing (unit, integration)</span>
-            <span>Code review</span>
-            <span>Agile</span>
-            <span>Clean code</span>
-          </div>
+          <h3 class="subhead">Education</h3>
+          <ul class="rows dated">
+            <li>
+              <p class="when">2025 – Sep 2026</p>
+              <div>
+                <h4>MSc Cyber Security</h4>
+                <p class="org">University of East Anglia · expected September 2026</p>
+                <p class="row-text">Core modules include network security, cybercrime investigation, and strategic security, building the theoretical grounding behind the systems I design and secure in my own projects.</p>
+                <p class="row-meta">Introduction to Cyber Security, Network Security &amp; IoT, Cybercrime &amp; Digital Investigation, Strategic Cyber Security in Business, Privacy &amp; Reputation, Professional Skills, Dissertation</p>
+              </div>
+            </li>
+            <li>
+              <p class="when">2022 – Jun 2025</p>
+              <div>
+                <h4>BSc (Hons) Computing Sciences</h4>
+                <p class="org">University of East Anglia</p>
+                <p class="row-text">Activities: basketball, swimming and water polo.</p>
+              </div>
+            </li>
+            <li>
+              <p class="when">Jan – Feb 2024</p>
+              <div>
+                <h4>Data Science, 3-credit course recognition</h4>
+                <p class="org">American University of Beirut</p>
+                <p class="row-text">Completed a Data Science learning path equivalent to a 3-credit graduate-level course at AUB.</p>
+              </div>
+            </li>
+            <li>
+              <p class="when">2020 – 2022</p>
+              <div>
+                <h4>A Levels: Business, Computer Science, Physics</h4>
+                <p class="org">Hinchley Wood Sixth Form</p>
+              </div>
+            </li>
+          </ul>
         </div>
+      </section>
 
-        <div class="skill-group">
-          <span class="skill-group-label">// systems &amp; infrastructure</span>
-          <div class="skill-tags">
-            <span>Docker</span>
-            <span>Linux</span>
-            <span>Bash</span>
-            <span>CI/CD concepts</span>
-            <span>Cloud (AWS, in progress)</span>
-            <span>Distributed systems fundamentals</span>
-            <span>Microservices patterns</span>
-          </div>
+      <section class="section" id="certifications" aria-labelledby="certs-h">
+        <h2 id="certs-h">Certifications</h2>
+        <div class="section-body">
+          <ul class="rows">
+            <li>
+              <h3 class="row-title">SEC1 Certified</h3>
+              <p class="row-meta">TryHackMe · Jun 2026 · 630 / 455 pass mark, first attempt · <a href="https://tryhackme.com/p/JohnCallaghan" rel="noopener noreferrer">Profile</a></p>
+            </li>
+            <li>
+              <h3 class="row-title">Junior Cybersecurity Analyst Career Path</h3>
+              <p class="row-meta">Cisco · Jun 2026 · <a href="https://www.credly.com/badges/6f2cc0b5-8833-4fcd-ad7f-cf087b9b38b8" rel="noopener noreferrer">Verify on Credly</a></p>
+            </li>
+            <li>
+              <h3 class="row-title">Scientific Computing with Python (v7)</h3>
+              <p class="row-meta">freeCodeCamp · <a href="https://www.freecodecamp.org/certification/john-w-callaghan/scientific-computing-with-python-v7" rel="noopener noreferrer">Verify</a></p>
+            </li>
+          </ul>
+          <a class="more" href="certifications.html">All certifications</a>
         </div>
+      </section>
 
-        <div class="skill-group">
-          <span class="skill-group-label">// security engineering (specialism)</span>
-          <div class="skill-tags">
-            <span>OWASP Top 10</span>
-            <span>Secure SDLC</span>
-            <span>Threat modelling (STRIDE)</span>
-            <span>Cryptography implementation</span>
-            <span>Post-quantum (ML-DSA)</span>
-            <span>Session hardening</span>
-            <span>Input validation</span>
-            <span>Least privilege</span>
-          </div>
+      <section class="section" id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact</h2>
+        <div class="section-body">
+          <a class="contact-email" href="mailto:johnwiam@icloud.com">johnwiam@icloud.com</a>
+          <p class="note">London-based, open to hybrid or remote UK-wide.</p>
         </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// data &amp; ML</span>
-          <div class="skill-tags">
-            <span>pandas</span>
-            <span>NumPy</span>
-            <span>Matplotlib</span>
-            <span>scikit-learn</span>
-            <span>TensorFlow</span>
-            <span>Keras</span>
-            <span>CNNs</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-group-label">// languages (spoken)</span>
-          <div class="skill-tags">
-            <span>English (native)</span>
-            <span>Portuguese (native)</span>
-            <span>Spanish (professional)</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ─── PROJECTS (carousel) ──────────────────────────────── -->
-  <section id="projects" class="projects-section">
-    <span class="section-eyebrow">03. Projects</span>
-    <h2 class="section-title" data-reveal="fade">Selected projects</h2>
-    <p class="section-subtitle">Three highlights: secure system design, vulnerability tooling, and applied cryptography</p>
-
-    <div class="project-grid" data-reveal="up">
-
-      <!-- MSc Dissertation: PQC -->
-      <div class="carousel-card">
-        <img id="feat-0" alt="Post-Quantum Authentication Pipeline for Connected Vehicles">
-        <div class="carousel-card-body">
-          <h3>Post-Quantum Authentication Pipeline</h3>
-          <p>End-to-end authentication pipeline for connected vehicle telemetry, built in Python and Docker. Benchmarks NIST-standardised ML-DSA against classical ECDSA P-256 across 6,000 measured iterations. The binding constraint on post-quantum migration turned out to be signature size, not compute. <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Python &middot; Docker &middot; ML-DSA &middot; FastAPI</strong></p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
-
-      <!-- CVE Tool -->
-      <div class="carousel-card">
-        <img id="feat-1" alt="CVE-to-My-Stack Translator">
-        <div class="carousel-card-body">
-          <h3>CVE-to-My-Stack Translator</h3>
-          <p>A tool that filters daily CVE feeds against a defined asset list, enriched with EPSS exploitation-probability scores and CISA Known Exploited Vulnerabilities flags. Built at CyberHack 2026. <strong style="color:#C49A3C;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">Python &middot; NVD API &middot; EPSS</strong></p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
-
-      <!-- OWASP Web App -->
-      <div class="carousel-card">
-        <img id="feat-2" alt="OWASP-Hardened Web Application">
-        <div class="carousel-card-body">
-          <h3>OWASP-Hardened Web Application</h3>
-          <p>Full-stack Node.js and PostgreSQL application hardened against the OWASP Top 10: parameterised queries, CSRF tokens, secure session handling, and least-privilege database access. Packaged in Docker.</p>
-          <a href="projects.html" class="btn btn-ghost" style="font-size:0.82rem;">Discover &rarr;</a>
-        </div>
-      </div>
+      </section>
 
     </div>
-
-    <div class="view-all-wrapper">
-      <a href="projects.html" class="btn btn-project">View all projects &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ─── EXPERIENCE ───────────────────────────────────────── -->
-  <section id="experience" class="experience-section">
-    <span class="section-eyebrow">04. Experience</span>
-    <h2 class="section-title" data-reveal="fade">Experience</h2>
-    <p class="section-subtitle">Academic and professional journey</p>
-
-    <div style="max-width:760px; margin:0 auto;">
-      <div class="experience-toggle">
-        <button id="academicBtn"      class="toggle-btn active">Academic</button>
-        <button id="professionalBtn"  class="toggle-btn">Professional</button>
-      </div>
-
-      <!-- Academic Timeline -->
-      <div id="academicTimeline" class="timeline show">
-
-        <div class="timeline-item">
-          <h3>University of East Anglia</h3>
-          <p>MSc Cyber Security</p>
-          <span>Sep 2025 to Sep 2026 (Expected)</span>
-          <p>Pursuing a Master's degree in Cyber Security. Core modules include network security,
-          cybercrime investigation, and strategic security, building the theoretical grounding
-          behind the systems I design and secure in my own projects.</p>
-          <p><strong>Modules:</strong> Introduction to Cyber Security · Network Security &amp; IoT ·
-          Cybercrime &amp; Digital Investigation · Strategic Cyber Security in Business ·
-          Privacy &amp; Reputation · Professional Skills · Dissertation</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>University of East Anglia</h3>
-          <p>BSc Hons Computing Sciences</p>
-          <span>2022 to Jun 2025</span>
-          <p><strong>Activities:</strong> Basketball, Swimming &amp; Water Polo</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>American University of Beirut (AUB)</h3>
-          <p>3-Credit Course Recognition: Data Science</p>
-          <span>Jan 2024 to Feb 2024</span>
-          <p>Completed a Data Science learning path equivalent to a 3-credit graduate-level course
-          at AUB.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>Hinchley Wood Sixth Form</h3>
-          <p>A Levels: Business, Computer Science, Physics</p>
-          <span>Sep 2020 to Jun 2022</span>
-        </div>
-
-      </div>
-
-      <!-- Professional Timeline -->
-      <div id="professionalTimeline" class="timeline">
-
-        <div class="timeline-item">
-          <h3>Sales Experience Specialist, Qualcomm (Snapdragon)</h3>
-          <p>Currys, London</p>
-          <span>Jan 2026 to Present</span>
-          <p>Translate technical product detail (chipsets, on-device AI, connectivity) into
-          plain-language guidance for non-technical customers.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>Sales Experience Specialist, HP</h3>
-          <p>Currys, London</p>
-          <span>Oct 2025 to Dec 2025</span>
-          <p>Explained technical specifications and use-case trade-offs to non-technical customers
-          to help them choose the right device.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>Interactive Segmentation Tool Developer (Intern)</h3>
-          <p>University of East Anglia, School of Computing Sciences</p>
-          <span>Summer 2024</span>
-          <p>Contributed to an EPSRC research project building a semi-automated GUI for labelling
-          medical X-ray image segmentation data using pre-trained deep learning models. Enhanced
-          skills in Python, computer vision, and model adaptation. Developed an interactive
-          interface and validated segmentation outputs for research-grade accuracy.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CONTACT ──────────────────────────────────────────── -->
-  <section id="contact" class="contact-section">
-    <span class="section-eyebrow">05. Contact</span>
-    <h2 class="section-title" data-reveal="fade">Contact</h2>
-    <p class="section-subtitle">Get in touch</p>
-
-    <div class="contact-container">
-
-      <div class="contact-item">
-        <span class="icon" aria-hidden="true">📧</span>
-        <div>
-          <h3>Email</h3>
-          <p>johnwiam@icloud.com</p>
-          <a href="mailto:johnwiam@icloud.com" class="contact-link">Send a message</a>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon" aria-hidden="true">📍</span>
-        <div>
-          <h3>Location</h3>
-          <p>London, United Kingdom</p>
-          <p class="contact-secondary">London-based, open to hybrid or remote UK-wide</p>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon" aria-hidden="true">💼</span>
-        <div>
-          <h3>LinkedIn</h3>
-          <p>Connect professionally</p>
-          <a href="https://www.linkedin.com/in/john-callaghan-35816b269"
-             target="_blank" rel="noopener noreferrer" class="contact-link">View profile</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
   </main>
 
-  <!-- ─── FOOTER ───────────────────────────────────────────── -->
   <footer class="site-footer">
-    <div class="footer-content">
-      <span class="footer-logo">John Callaghan</span>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="social-icons">
-        <a href="https://github.com/John-W-Callaghan"
-           target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="assets/github.png" alt="GitHub" loading="lazy" />
-        </a>
-        <a href="https://www.linkedin.com/in/john-callaghan-35816b269"
-           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="assets/Linkedin.png" alt="LinkedIn" loading="lazy" />
-        </a>
-      </div>
+    <div class="wrap">
+      <p>© 2026 John Callaghan</p>
+      <ul>
+        <li><a href="https://github.com/John-W-Callaghan" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/john-callaghan-35816b269" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:johnwiam@icloud.com">Email</a></li>
+      </ul>
     </div>
-    <p class="footer-copy">&copy; John Callaghan 2026</p>
   </footer>
-
-  <a href="#home" class="scroll-top" aria-label="Back to top">&uarr;</a>
-
-  <script>
-    /* ─── Smooth scroll ───────────────────────────────────── */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const id = a.getAttribute('href');
-        if (id === '#') return;
-        const el = document.querySelector(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    /* ─── Mobile nav ──────────────────────────────────────── */
-    const hamburger = document.getElementById('hamburger');
-    const navLinks  = document.getElementById('navLinks');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        const open = navLinks.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', open);
-      });
-    }
-
-    /* ─── Scroll handlers: single rAF-throttled listener ──── */
-    const navbar      = document.querySelector('.navbar');
-    const progressBar = document.getElementById('scrollProgress');
-    let scrollPending = false;
-
-    function onScroll() {
-      const y     = window.scrollY;
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      navbar.classList.toggle('scrolled', y > 10);
-      if (progressBar) progressBar.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
-      scrollPending = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!scrollPending) { scrollPending = true; requestAnimationFrame(onScroll); }
-    }, { passive: true });
-
-    /* ─── Experience toggle ───────────────────────────────── */
-    const academicBtn          = document.getElementById('academicBtn');
-    const professionalBtn      = document.getElementById('professionalBtn');
-    const academicTimeline     = document.getElementById('academicTimeline');
-    const professionalTimeline = document.getElementById('professionalTimeline');
-
-    if (academicBtn && professionalBtn) {
-      academicBtn.addEventListener('click', () => {
-        academicBtn.classList.add('active');
-        professionalBtn.classList.remove('active');
-        academicTimeline.classList.add('show');
-        professionalTimeline.classList.remove('show');
-      });
-      professionalBtn.addEventListener('click', () => {
-        professionalBtn.classList.add('active');
-        academicBtn.classList.remove('active');
-        professionalTimeline.classList.add('show');
-        academicTimeline.classList.remove('show');
-      });
-    }
-
-    /* ─── IntersectionObserver: scroll reveals ────────────── */
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          revealObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
-
-    /* Fallback: ensure nothing stays invisible if observer misfires */
-    setTimeout(() => {
-      document.querySelectorAll('[data-reveal]:not(.in-view)').forEach(el => {
-        el.classList.add('in-view');
-      });
-    }, 1500);
-
-    /* ─── Timeline animate-in ─────────────────────────────── */
-    const timelineObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.timeline-item').forEach(el => timelineObs.observe(el));
-
-    /* ─── Contact animate-in ──────────────────────────────── */
-    const contactObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate'); });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.contact-item').forEach(el => contactObs.observe(el));
-
-    /* Fallback: ensure timeline/contact items and skill tags are never stuck invisible */
-    setTimeout(() => {
-      document.querySelectorAll('.timeline-item:not(.animate), .contact-item:not(.animate)')
-        .forEach(el => el.classList.add('animate'));
-      document.querySelectorAll('.skill-tags span:not(.tag-visible)')
-        .forEach(el => el.classList.add('tag-visible'));
-    }, 1500);
-
-    /* ─── Count-up stats ─────────────────────────────────── */
-    (function () {
-      const statsEl = document.querySelector('.about-stats');
-      if (!statsEl) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          e.target.querySelectorAll('[data-count]').forEach(el => {
-            const target = parseInt(el.dataset.count, 10);
-            const suffix = el.dataset.suffix || '';
-            const dur = 950;
-            const start = Date.now();
-            (function tick() {
-              const t = Math.min((Date.now() - start) / dur, 1);
-              const ease = 1 - Math.pow(1 - t, 3);
-              el.textContent = Math.round(ease * target) + suffix;
-              if (t < 1) requestAnimationFrame(tick);
-            })();
-          });
-          obs.unobserve(e.target);
-        });
-      }, { threshold: 0.6 });
-
-      obs.observe(statsEl);
-    })();
-
-    /* ─── Skill tag stagger ───────────────────────────────── */
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.skill-tags span').forEach(el => el.classList.add('tag-visible'));
-        return;
-      }
-
-      const groupObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          const tags = e.target.querySelectorAll('.skill-tags span');
-          tags.forEach((tag, i) => {
-            setTimeout(() => tag.classList.add('tag-visible'), i * 36);
-          });
-          groupObs.unobserve(e.target);
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('.skill-group').forEach(el => groupObs.observe(el));
-    })();
-
-    /* ─── SVG placeholder generator (mirrors projects.js) ── */
-    function escapeForSvg(str) {
-      return str.replace(/[&<>"]/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[m]));
-    }
-    function featPlaceholder(project) {
-      const cats = {
-        'AI & ML':        { label: '// ai &amp; machine learning', shape: 'nodes'    },
-        'Web & Security': { label: '// web &amp; security',        shape: 'shield'   },
-        'Data Analysis':  { label: '// data analysis',             shape: 'bars'     },
-        'Python':         { label: '// python',                    shape: 'brackets' },
-        'Academic':       { label: '// academic research',         shape: 'lines'    },
-        'Hackathon':      { label: '// hackathon',                 shape: 'star'     }
-      };
-      const cat = cats[project.category] || cats['Academic'];
-      const bp = project.title.lastIndexOf(' ', 30);
-      const t  = escapeForSvg(project.title.length > 30 ? project.title.slice(0, bp > 0 ? bp : 30) + '…' : project.title);
-      const tags = project.technologies.slice(0, 3);
-      let tx = 50;
-      const tagEls = tags.map(tag => {
-        const w = Math.max(50, Math.round(tag.length * 7 + 18));
-        const el = `<rect x="${tx}" y="268" width="${w}" height="20" rx="3" fill="#0D1520" stroke="#1B2C42" stroke-width="1"/>`
-                 + `<text x="${tx + w/2}" y="282" font-family="Courier New,monospace" font-size="10" fill="#4B6680" text-anchor="middle">${escapeForSvg(tag)}</text>`;
-        tx += w + 8; return el;
-      }).join('');
-      const shapes = {
-        nodes:    `<g fill="none" stroke="#1B2C42" stroke-width="2"><circle cx="575" cy="150" r="18"/><circle cx="638" cy="100" r="13"/><circle cx="638" cy="200" r="13"/><circle cx="700" cy="72" r="10"/><circle cx="700" cy="150" r="10"/><circle cx="700" cy="228" r="10"/><line x1="592" y1="143" x2="626" y2="109"/><line x1="592" y1="157" x2="626" y2="191"/><line x1="650" y1="95" x2="691" y2="79"/><line x1="650" y1="105" x2="691" y2="144"/><line x1="650" y1="195" x2="691" y2="156"/><line x1="650" y1="205" x2="691" y2="222"/></g>`,
-        shield:   `<g fill="none" stroke="#1B2C42" stroke-width="2"><path d="M650 82 L698 100 L698 155 C698 178 650 198 650 198 C650 198 602 178 602 155 L602 100 Z"/><path d="M634 148 L647 162 L668 130" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>`,
-        bars:     `<g fill="#111E32" stroke="#1B2C42" stroke-width="1.5"><rect x="560" y="172" width="24" height="78" rx="2"/><rect x="594" y="132" width="24" height="118" rx="2"/><rect x="628" y="105" width="24" height="145" rx="2"/><rect x="662" y="140" width="24" height="110" rx="2"/><rect x="696" y="118" width="24" height="132" rx="2"/></g>`,
-        brackets: `<text x="572" y="236" font-family="Courier New,monospace" font-size="112" fill="#14223A" font-weight="700">{}</text>`,
-        lines:    `<g fill="#172334"><rect x="560" y="92" width="175" height="11" rx="2"/><rect x="560" y="115" width="148" height="11" rx="2"/><rect x="560" y="138" width="162" height="11" rx="2"/><rect x="560" y="161" width="130" height="11" rx="2"/><rect x="560" y="184" width="155" height="11" rx="2"/><rect x="560" y="207" width="115" height="11" rx="2"/><rect x="560" y="230" width="142" height="11" rx="2"/></g>`,
-        star:     `<polygon points="650,82 663,125 710,125 674,152 687,195 650,168 613,195 626,152 590,125 637,125" fill="none" stroke="#1B2C42" stroke-width="2" stroke-linejoin="round"/>`
-      };
-      const svg = `<svg width="800" height="440" viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">`
-        + `<defs><pattern id="dp" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1" fill="#1B2C42" opacity="0.5"/></pattern></defs>`
-        + `<rect width="800" height="440" fill="#0D1520"/><rect width="800" height="440" fill="url(#dp)"/>`
-        + `<rect x="0" y="0" width="4" height="440" fill="#C49A3C"/>`
-        + (shapes[cat.shape] || shapes.lines)
-        + `<text x="50" y="172" font-family="Courier New,monospace" font-size="11" fill="#C49A3C" letter-spacing="2">${cat.label}</text>`
-        + `<text x="50" y="218" font-family="system-ui,-apple-system,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">${t}</text>`
-        + tagEls + `</svg>`;
-      return 'data:image/svg+xml,' + encodeURIComponent(svg);
-    }
-
-    /* ─── Inject featured project images ─────────────────── */
-    /* src: null means no real screenshot exists yet, go straight to the branded SVG
-       placeholder instead of requesting a file we know 404s (avoids noisy console errors). */
-    const featData = [
-      { src: null,                        title: 'Post-Quantum Authentication Pipeline', category: 'Academic',      technologies: ['Python', 'Docker', 'ML-DSA']       },
-      { src: null,                        title: 'CVE-to-My-Stack Translator',   category: 'Hackathon',      technologies: ['Python', 'NVD API', 'EPSS']       },
-      { src: null,                        title: 'OWASP-Hardened Web Application', category: 'Web & Security', technologies: ['Node.js', 'OWASP', 'PostgreSQL']  }
-    ];
-    featData.forEach((p, i) => {
-      const el = document.getElementById('feat-' + i);
-      if (!el) return;
-      if (!p.src) { el.src = featPlaceholder(p); return; }
-      el.src = p.src;
-      el.onerror = () => { el.src = featPlaceholder(p); el.onerror = null; };
-    });
-
-    /* ─── Terminal animation: cycles software-engineer-themed commands ─── */
-    (function () {
-      const cmdEl    = document.getElementById('termCmd');
-      const cursorEl = document.getElementById('termCursor');
-      const outputEl = document.getElementById('termOutput');
-      if (!cmdEl || !outputEl) return;
-
-      const SEQUENCE = [
-        { cmd: 'whoami',                  out: 'MSc Cyber Security, Secure Software Engineer' },
-        { cmd: 'cat stack.txt',           out: 'Python, JavaScript, Docker, SQL' },
-        { cmd: 'git log --oneline -1',    out: 'feat: post-quantum auth pipeline (ML-DSA)' },
-        { cmd: './availability.sh',       out: 'Sep 2026, open to UK software engineering roles' },
-      ];
-
-      /* Respect reduced-motion: show all lines statically, no cycling */
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        cursorEl.style.display = 'none';
-        SEQUENCE.forEach(s => {
-          const c = document.createElement('div');
-          c.className = 'terminal-line';
-          c.innerHTML = `<span class="t-prompt">john@uea:~$</span> ${s.cmd}`;
-          outputEl.appendChild(c);
-          const o = document.createElement('div');
-          o.className = 't-out-line';
-          o.innerHTML = `<span class="t-out-sep">&gt;</span><span class="t-out-val">${s.out}</span>`;
-          outputEl.appendChild(o);
-        });
-        return;
-      }
-
-      let seqIdx = 0;
-
-      function typeInto(el, text, speed, done) {
-        let i = 0;
-        (function tick() {
-          if (i < text.length) {
-            el.textContent = text.slice(0, ++i);
-            setTimeout(tick, speed + Math.random() * (speed * 0.6));
-          } else {
-            done();
-          }
-        })();
-      }
-
-      function runStep() {
-        const step = SEQUENCE[seqIdx];
-        cmdEl.textContent = '';
-        outputEl.innerHTML = '';
-        cursorEl.style.display = '';
-
-        typeInto(cmdEl, step.cmd, 48, () => {
-          setTimeout(() => {
-            cursorEl.style.display = 'none';
-            const o = document.createElement('div');
-            o.className = 't-out-line';
-            const uid = 'tov';
-            o.innerHTML = `<span class="t-out-sep">&gt;</span><span class="t-out-val" id="${uid}"></span>`;
-            outputEl.appendChild(o);
-            typeInto(document.getElementById(uid), step.out, 15, () => {
-              seqIdx = (seqIdx + 1) % SEQUENCE.length;
-              setTimeout(runStep, 2200);
-            });
-          }, 320);
-        });
-      }
-
-      setTimeout(runStep, 1100);
-    })();
-  </script>
 </body>
 </html>
