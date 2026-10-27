@@ -1,89 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects · John Callaghan</title>
-  <meta name="description" content="Software engineering, AI, and security projects by John Callaghan: semantic search, post-quantum cryptography, AI agents, deep learning OCR, secure web applications, data analysis, and more." />
-  <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Software engineering, AI, and security projects by John Callaghan: semantic search, post-quantum cryptography, AI agents, deep learning OCR, secure web applications, data analysis, and more.">
 
-  <!-- See index.html for the reasoning behind this policy. -->
+  <!-- Security headers: see index.html for the full rationale on what is/isn't possible via
+       <meta> on a static GitHub Pages site. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; font-src https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+        content="default-src 'self'; img-src 'self' data: https://images.credly.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="site.css" />
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=optional" /></noscript>
+
+  <link rel="stylesheet" href="projects.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="wrap">
-      <a class="site-name" href="index.html">John Callaghan</a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="projects.html" aria-current="page">Projects</a></li>
-          <li><a href="certifications.html">Certifications</a></li>
-          <li><a href="index.html#experience">Experience</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
+<nav class="navbar">
+  <div class="logo">John</div>
+  <ul class="nav-links" id="mainNavLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger">☰</button>
+</nav>
+
+<header class="page-title-banner">
+  <h1>All Projects</h1>
+  <p>Software engineering, AI, and security work: semantic search, post-quantum cryptography, AI agents, deep learning, data analysis, and secure web applications.</p>
+</header>
+
+<main>
+
+<div class="search-container">
+  <input type="text" id="searchBar" placeholder="Search projects by title, technology or description...">
+</div>
+
+<div class="filter-bar" id="filterBar">
+  <button data-cat="all" class="filter-chip active">All</button>
+  <button data-cat="Python" class="filter-chip">Python</button>
+  <button data-cat="AI & ML" class="filter-chip">AI & ML</button>
+  <button data-cat="Web & Security" class="filter-chip">Web & Security</button>
+  <button data-cat="Data Analysis" class="filter-chip">Data Analysis</button>
+  <button data-cat="Academic" class="filter-chip">Academic</button>
+  <button data-cat="Hackathon" class="filter-chip">🏆 Hackathon</button>
+</div>
+
+<section class="projects-grid-container">
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<!-- Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close-button">&times;</span>
+    <img id="modalImage" src="" alt="Project preview" class="modal-project-image">
+    <h2 id="modalTitle"></h2>
+    <div id="modalDescription"></div>
+    <div id="modalTech"></div>
+    <div class="modal-actions">
+      <a id="modalGithubLink" href="#" target="_blank" class="modal-link-btn">GitHub &rarr;</a>
+      <a id="modalLiveLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-link-btn" style="display:none">Live site &rarr;</a>
+      <a id="modalReportLink" href="#" target="_blank" class="modal-link-btn btn-outline">Report &rarr;</a>
     </div>
-  </header>
+  </div>
+</div>
+</main>
 
-  <main id="main">
-    <div class="wrap">
-      <header class="page-head">
-        <h1>Projects</h1>
-        <p>
-          Software engineering, AI, and security work: semantic search, post-quantum
-          cryptography, AI agents, deep learning, data analysis, and secure web applications.
-        </p>
-      </header>
-
-      <div class="controls" id="controls" hidden>
-        <label class="visually-hidden" for="search">Search projects</label>
-        <input class="search" id="search" type="search" autocomplete="off" spellcheck="false"
-               placeholder="Search by title, technology or description" />
-        <div class="filters" role="group" aria-label="Filter by category">
-          <button class="filter" type="button" data-cat="all" aria-pressed="true">All</button>
-          <button class="filter" type="button" data-cat="Web &amp; Security" aria-pressed="false">Web &amp; security</button>
-          <button class="filter" type="button" data-cat="AI &amp; ML" aria-pressed="false">AI &amp; ML</button>
-          <button class="filter" type="button" data-cat="Python" aria-pressed="false">Python</button>
-          <button class="filter" type="button" data-cat="Data Analysis" aria-pressed="false">Data analysis</button>
-          <button class="filter" type="button" data-cat="Academic" aria-pressed="false">Academic</button>
-          <button class="filter" type="button" data-cat="Hackathon" aria-pressed="false">Hackathon</button>
-        </div>
-        <p class="result-count" id="count" aria-live="polite"></p>
-      </div>
-
-      <noscript>
-        <p class="noscript-note">
-          This list needs JavaScript. Every project is also on
-          <a href="https://github.com/John-W-Callaghan?tab=repositories">GitHub</a>.
-        </p>
-      </noscript>
-
-      <ul class="rows" id="projects"></ul>
+<footer class="site-footer">
+  <div class="footer-content">
+    <h2 class="footer-logo">John</h2>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+    </nav>
+    <div class="social-icons">
+      <a href="https://github.com/John-W-Callaghan" target="_blank" aria-label="GitHub"><img src="assets/github.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/john-callaghan-35816b269" target="_blank" aria-label="LinkedIn"><img src="assets/Linkedin.png" alt="LinkedIn"></a>
     </div>
-  </main>
+  </div>
+  <p class="footer-copy">© John Callaghan 2026</p>
+</footer>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© 2026 John Callaghan</p>
-      <ul>
-        <li><a href="https://github.com/John-W-Callaghan" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/john-callaghan-35816b269" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="mailto:johnwiam@icloud.com">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script src="projects.js"></script>
+<script src="projects.js"></script>
 </body>
 </html>

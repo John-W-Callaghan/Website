@@ -1,0 +1,328 @@
+/* certifications.css: Midnight Ink design system */
+/* Font loading moved to a non-blocking <link rel="preload"> in certifications.html: a CSS
+   @import is always render-blocking (more so than a <link>), so it was hurting LCP here. */
+
+:root {
+  --bg:      #0D1520;
+  --surface: #111E32;
+  --border:  #1B2C42;
+  --text:    #D6E2F0;
+  --muted:   #6F8AA6;
+  --accent:  #C49A3C;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --dur:  200ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img  { max-width: 100%; display: block; }
+ul   { list-style: none; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(196, 154, 60, 0.25); }
+
+/* ── Navbar ─────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(13, 21, 32, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 1rem 5%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  z-index: 900;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--r-md);
+  transition: color var(--dur), background var(--dur);
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a:focus-visible {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.hamburger {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: color var(--dur);
+}
+
+.hamburger:hover { color: var(--text); }
+
+/* ── Page Banner ─────────────────────────────────────────── */
+.page-title-banner {
+  text-align: center;
+  padding: 6.5rem 5% 3rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title-banner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.page-title-banner p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Certification groups ──────────────────────────────────── */
+.cert-groups {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 3rem 5% 4.5rem;
+}
+
+.cert-group { margin-bottom: 2.5rem; }
+.cert-group:last-child { margin-bottom: 0; }
+
+.cert-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
+
+.cert-card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  text-align: left;
+  transition: border-color var(--dur), transform 0.25s var(--ease), box-shadow 0.25s ease;
+}
+
+.cert-card:hover {
+  border-color: rgba(196, 154, 60, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.cert-card-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  border-radius: var(--r-sm);
+}
+
+.cert-card-body { flex: 1; min-width: 0; }
+
+.cert-card-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+
+.cert-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.cert-card-detail {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.cert-card-verify {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.cert-card-verify:hover { text-decoration: underline; }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  padding: 3rem 10% 2rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+
+.footer-logo {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav a {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--dur);
+}
+
+.footer-nav a:hover { color: var(--text); }
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  transition: opacity var(--dur);
+}
+
+.social-icons a:hover { opacity: 0.6; }
+
+.social-icons img {
+  width: 20px; height: 20px;
+  filter: brightness(0) invert(0.5);
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar { padding: 0.85rem 5%; gap: 1rem; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; left: 0;
+    width: 100%;
+    background: #0b0f17;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    gap: 0;
+    transition: max-height 0.3s var(--ease);
+    z-index: 901;
+    isolation: isolate;
+  }
+
+  .nav-links.open { max-height: 360px; }
+
+  .nav-links li { border-bottom: 1px solid var(--border); }
+
+  .nav-links a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0;
+  }
+
+  .hamburger { display: block; }
+
+  .page-title-banner h1 { font-size: 1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
